@@ -1,5 +1,43 @@
 ﻿  Game.cpp
-C:\Users\usuario_local\Documents\GitHub\SuperMarioTPV1\HolaSDL\Game.cpp(56,14): error C2665: 'std::basic_istream<char,std::char_traits<char>>::basic_istream':ninguna función sobrecargada pudo convertir todos los tipos de argumento
-C:\Users\usuario_local\Documents\GitHub\SuperMarioTPV1\HolaSDL\Game.cpp(65,16): error C2079: 'lineStream' utiliza class 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' sin definir
-C:\Users\usuario_local\Documents\GitHub\SuperMarioTPV1\HolaSDL\Game.cpp(65,26): error C2440: 'inicializando': no se puede realizar la conversión de 'std::string' a 'int'
-C:\Users\usuario_local\Documents\GitHub\SuperMarioTPV1\HolaSDL\Game.cpp(68,14): warning C4552: ">>": el resultado de la expresión no se usa
+C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\Game.cpp(107,2): error C3861: 'renderTileMap': no se encontró el identificador
+C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\Game.cpp(148,23): error C2065: 'TILE_MAP': identificador no declarado
+C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\Game.cpp(150,23): error C2065: 'TILE_MAP': identificador no declarado
+C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\Game.cpp(180,14): error C2665: 'std::basic_istream<char,std::char_traits<char>>::basic_istream':ninguna función sobrecargada pudo convertir todos los tipos de argumento
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\istream(65,24):
+  puede ser 'std::basic_istream<char,std::char_traits<char>>::basic_istream(const std::basic_istream<char,std::char_traits<char>> &)'
+  	C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\Game.cpp(180,14):
+  	'std::basic_istream<char,std::char_traits<char>>::basic_istream(const std::basic_istream<char,std::char_traits<char>> &)': el argumento 1 no puede convertirse de 'const char *' a 'const std::basic_istream<char,std::char_traits<char>> &'
+  		C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\Game.cpp(180,15):
+  		Razón: no se puede realizar la conversión de 'const char *' a 'const std::basic_istream<char,std::char_traits<char>>'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\istream(48,24):
+  o       'std::basic_istream<char,std::char_traits<char>>::basic_istream(std::basic_istream<char,std::char_traits<char>> &&) noexcept(false)'
+  	C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\Game.cpp(180,14):
+  	'std::basic_istream<char,std::char_traits<char>>::basic_istream(std::basic_istream<char,std::char_traits<char>> &&) noexcept(false)': el argumento 1 no puede convertirse de 'const char *' a 'std::basic_istream<char,std::char_traits<char>> &&'
+  		C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\Game.cpp(180,15):
+  		Razón: no se puede realizar la conversión de 'const char *' a 'std::basic_istream<char,std::char_traits<char>>'
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\istream(43,24):
+  o       'std::basic_istream<char,std::char_traits<char>>::basic_istream(std::_Uninitialized)'
+  	C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\Game.cpp(180,14):
+  	'std::basic_istream<char,std::char_traits<char>>::basic_istream(std::_Uninitialized)': el argumento 1 no puede convertirse de 'const char *' a 'std::_Uninitialized'
+  		C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\Game.cpp(180,15):
+  		No existe un contexto en el que sea posible realizar esta conversión
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\istream(39,5):
+  o       'std::basic_istream<char,std::char_traits<char>>::basic_istream(std::basic_streambuf<char,std::char_traits<char>> *,bool)'
+  	C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\Game.cpp(180,14):
+  	'std::basic_istream<char,std::char_traits<char>>::basic_istream(std::basic_streambuf<char,std::char_traits<char>> *,bool)': el argumento 1 no puede convertirse de 'const char *' a 'std::basic_streambuf<char,std::char_traits<char>> *'
+  		C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\Game.cpp(180,15):
+  		Los tipos señalados no están relacionados; la conversión requiere reinterpret_cast, conversión de estilo de C o conversión de estilo de función entre paréntesis
+  C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\Game.cpp(180,14):
+  al hacer coincidir la lista de argumentos '(const char *)'
+  
+C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\Game.cpp(189,16): error C2079: 'lineStream' utiliza class 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' sin definir
+C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\Game.cpp(189,26): error C2440: 'inicializando': no se puede realizar la conversión de 'std::string' a 'int'
+  C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\Game.cpp(189,26):
+  No hay disponible ningún operador de conversión definido por el usuario que pueda realizar esta conversión, o bien no se puede llamar al operador
+  
+C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\Game.cpp(192,14): warning C4552: ">>": el resultado de la expresión no se usa
+  main.cpp
+  Player.cpp
+  Texture.cpp
+  TileMap.cpp
+  Generando código...
