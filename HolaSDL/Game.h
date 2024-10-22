@@ -41,6 +41,7 @@ public:
 	void update();
 	void render() const;
 	void handleEvents();
+	void loadObjectMap();
 
 	Texture* getTexture(TextureName name) const;
 

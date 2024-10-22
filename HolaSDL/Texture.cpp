@@ -55,28 +55,6 @@ Texture::Texture(Texture&& other)
 	other.texture = nullptr;
 }
 
-Texture&
-Texture::operator=(Texture&& other)
-  : renderer(other.renderer)
-  , texture(other.texture)
-  , nrows(other.nrows)
-  , ncolumns(other.ncolumns)
-{
-	SDL_DestroyTexture(texture);
-
-	renderer = other.renderer;
-	texture = other.texture;
-	width = other.width;
-	height = other.height;
-	nrows = other.nrows;
-	ncolumns = other.ncolumns;
-	frameHeight = other.frameHeight;
-	frameWidth = other.frameWidth;
-
-	other.renderer = nullptr;
-	other.texture = nullptr;
-}
-
 Texture::~Texture()
 {
 	if (texture != nullptr)

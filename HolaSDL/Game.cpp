@@ -4,6 +4,7 @@
 
 #include "Game.h"
 #include "Texture.h"
+#include "TileMap.h"
 #include "Player.h"
 
 using namespace std;
@@ -48,7 +49,7 @@ int renderTileMap()
 	}
 }
 
-Game::loadObjectMap() {
+void Game::loadObjectMap() {
 	const char* DEFAULT_MAP = "world1.txt";
 
 	// Carga el mapa
