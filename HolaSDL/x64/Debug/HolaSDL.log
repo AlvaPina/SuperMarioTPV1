@@ -1,2 +1,13 @@
-﻿  main.cpp
-  HolaSDL.vcxproj -> C:\Users\usuario_local\Documents\GitHub\SuperMarioTPV1\bin\HolaSDLDebug.exe
+﻿  Game.cpp
+C:\Users\usuario_local\Documents\GitHub\SuperMarioTPV1\HolaSDL\Game.cpp(23,23): error C2065: 'TILE_MAP': identificador no declarado
+C:\Users\usuario_local\Documents\GitHub\SuperMarioTPV1\HolaSDL\Game.cpp(25,23): error C2065: 'TILE_MAP': identificador no declarado
+C:\Users\usuario_local\Documents\GitHub\SuperMarioTPV1\HolaSDL\Game.cpp(51,7): error C2039: "loadObjectMap": no es un miembro de "Game"
+C:\Users\usuario_local\Documents\GitHub\SuperMarioTPV1\HolaSDL\Game.cpp(51,7): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\usuario_local\Documents\GitHub\SuperMarioTPV1\HolaSDL\Game.cpp(55,14): error C2665: 'std::basic_istream<char,std::char_traits<char>>::basic_istream':ninguna función sobrecargada pudo convertir todos los tipos de argumento
+C:\Users\usuario_local\Documents\GitHub\SuperMarioTPV1\HolaSDL\Game.cpp(64,16): error C2079: 'lineStream' utiliza class 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' sin definir
+C:\Users\usuario_local\Documents\GitHub\SuperMarioTPV1\HolaSDL\Game.cpp(64,26): error C2440: 'inicializando': no se puede realizar la conversión de 'std::string' a 'int'
+C:\Users\usuario_local\Documents\GitHub\SuperMarioTPV1\HolaSDL\Game.cpp(67,14): warning C4552: ">>": el resultado de la expresión no se usa
+C:\Users\usuario_local\Documents\GitHub\SuperMarioTPV1\HolaSDL\Game.cpp(76,1): warning C4508: 'loadObjectMap': la función debe devolver un valor; se supone que el tipo de valor devuelto es 'void'
+  Texture.cpp
+C:\Users\usuario_local\Documents\GitHub\SuperMarioTPV1\HolaSDL\Texture.cpp(64,1): error C2550: 'Texture::operator =': las listas de inicializadores de constructor solo se permiten en las definiciones de constructor
+  Generando código...
