@@ -77,7 +77,7 @@
               "RelativeDocumentMoniker": "HolaSDL\\Game.cpp",
               "ToolTip": "C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\Game.cpp",
               "RelativeToolTip": "HolaSDL\\Game.cpp",
-              "ViewState": "AQIAACkAAAAAAAAAAAAAADwAAAADAAAA",
+              "ViewState": "AQIAAJMAAAAAAAAAAAAAAJUAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-22T15:48:30.916Z",
               "EditorCaption": ""
@@ -92,8 +92,7 @@
               "RelativeToolTip": "HolaSDL\\Game.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAADQAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-22T15:48:29.102Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-22T15:48:29.102Z"
             },
             {
               "$type": "Document",
@@ -105,8 +104,7 @@
               "RelativeToolTip": "HolaSDL\\Texture.cpp",
               "ViewState": "AQIAACcAAAAAAAAAAAAQwDcAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-22T15:45:53.632Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-22T15:45:53.632Z"
             },
             {
               "$type": "Document",
@@ -118,8 +116,7 @@
               "RelativeToolTip": "HolaSDL\\Texture.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAALAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-22T15:46:13.804Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-22T15:46:13.804Z"
             },
             {
               "$type": "Document",
@@ -131,8 +128,7 @@
               "RelativeToolTip": "HolaSDL\\main.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-22T15:37:59.578Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-22T15:37:59.578Z"
             }
           ]
         }

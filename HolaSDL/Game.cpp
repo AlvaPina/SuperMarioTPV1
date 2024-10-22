@@ -135,17 +135,17 @@ Game::handleEvents()
 
 int renderTileMap()
 {
-	vector<vector<int>> indices;  // atributo de TileMap
+	vector<vector<int>> indices;  // atributo de TileMap, es donde metemos los números leidos de "world1.txt"
 	Texture* background;  // atributo de TileMap
 
 	constexpr int TILE_SIDE = 32;  // constantes estáticas en Game
 	constexpr int WINDOW_WIDTH = 18;
 	constexpr int WINDOW_HEIGHT = 16;
 
-	int mapOffset;  // atributo de Game
+	int mapOffset;  // atributo de Game obtener con getter
 
 	// Primera columna de la matriz del mapa visible en la ventana
-	int x0 = mapOffset / TILE_MAP;
+	int x0 = mapOffset / TILE_MAP; // TILE_MAP es un atributo de game, es estatico y no es privado
 	// Anchura oculta de esa primera columna
 	int d0 = mapOffset % TILE_MAP;
 
