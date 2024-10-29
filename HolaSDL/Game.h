@@ -21,8 +21,15 @@ public:
 	enum TextureName {
 		BACKGROUND,
 		MARIO,
+		SUPERMARIO,
+		FIREMARIO,
 		GOOMBA,
 		KOOPA,
+		PIRANHA,
+		PLANT,
+		SHELL,
+		STAR,
+		BLOCKS,
 		NUM_TEXTURES,  // Truco C++: número de texturas definidas
 	};
 

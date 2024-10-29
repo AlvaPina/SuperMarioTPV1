@@ -28,8 +28,15 @@ const string textureRoot = "../assets/imgs/";
 const array<TextureSpec, Game::NUM_TEXTURES> textureSpec{
 	TextureSpec{"background.png", 1, 1},
 	{"mario.png", 6, 1},
+	{"supermario.png", 5, 1},
+	{"firemario.png", 5, 1},
 	{"goomba.png", 5, 1},
 	{"koopa.png", 5, 1},
+	{"piranha.png", 5, 1},
+	{"plant.png", 5, 1},
+	{"shell.png", 5, 1},
+	{"star.png", 5, 1},
+	{"blocks.png", 5, 1},
 };
 
 Game::Game()
