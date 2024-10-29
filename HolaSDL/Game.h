@@ -57,8 +57,8 @@ public:
 	int getMapOffset() const { return mapOffset; }
 
 	// Constante globales
-	static constexpr uint WIN_WIDTH = 800;
-	static constexpr uint WIN_HEIGHT = 600;
+	static constexpr uint WIN_WIDTH = 32;
+	static constexpr uint WIN_HEIGHT = 16;
 	static constexpr uint FRAME_RATE = 50;
 	static constexpr uint WINDOW_SCALE = 35;	// escala el tamaño de la ventana
 

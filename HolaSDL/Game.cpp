@@ -52,7 +52,7 @@ Game::Game()
 		SDL_WINDOW_SHOWN);
 
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-	SDL_SetRenderDrawColor(renderer, 97, 132, 248, 255);	// Color de fondo
+	SDL_SetRenderDrawColor(renderer, 138, 132, 248, 255);	// Color de fondo
 
 	if (window == nullptr || renderer == nullptr)
 		throw "Error cargando SDL"s;
@@ -87,7 +87,7 @@ void
 Game::run()
 {
 	// Bucle principal del juego
-	while (exit) {
+	while (!exit) {
 		// Marca de tiempo del inicio de la iteraci�n
 		uint32_t inicio = SDL_GetTicks();
 
