@@ -13,18 +13,18 @@ using namespace std;
 #include <fstream>
 #include "Game.h"
 
-// Formato de la especificación de una textura
+// Formato de la especificaciï¿½n de una textura
 struct TextureSpec
 {
 	const char* name;	// Ruta del archivo
-	uint numColumns;	// Número de frames por fila
-	uint numRows;		// Número de frames por columna
+	uint numColumns;	// Nï¿½mero de frames por fila
+	uint numRows;		// Nï¿½mero de frames por columna
 };
 
-// Directorio raíz de los archivos de textura
+// Directorio raï¿½z de los archivos de textura
 const string textureRoot = "../assets/imgs/";
 
-// Especificación de las texturas del juego
+// Especificaciï¿½n de las texturas del juego
 const array<TextureSpec, Game::NUM_TEXTURES> textureSpec{
 	TextureSpec{"background.png", 8, 7},
 	{"mario.png", 12, 1},
@@ -88,7 +88,7 @@ Game::run()
 {
 	// Bucle principal del juego
 	while (seguir) {
-		// Marca de tiempo del inicio de la iteración
+		// Marca de tiempo del inicio de la iteraciï¿½n
 		uint32_t inicio = SDL_GetTicks();
 
 		update();       // Actualiza el estado de los objetos del juego
@@ -110,13 +110,7 @@ Game::render() const
 	SDL_RenderClear(renderer);
 
 	// Pinta los objetos del juego
-<<<<<<< HEAD
 	textures[BACKGROUND]->render();
-=======
-	/*textures[BACKGROUND]->render();
-	perro->render();*/
->>>>>>> 9d0d7c785169ef07ec226afbe8acdfe27f407c1d
-
 	SDL_RenderPresent(renderer);
 }
 
@@ -150,7 +144,7 @@ int Game::renderTileMap()
 	// Anchura oculta de esa primera columna
 	int d0 = mapOffset % TILE_MAP;
 
-	// Recuadro donde se pintará la tesela en la ventana
+	// Recuadro donde se pintarï¿½ la tesela en la ventana
 	SDL_Rect rect;
 	rect.w = TILE_SIDE;
 	rect.h = TILE_SIDE;
@@ -158,10 +152,10 @@ int Game::renderTileMap()
 	// Pintamos los WINDOW_WIDTH + 1 (aunque se salga) x WINDOW_HEIGHT recuadros del mapa
 	for (int i = 0; i < WIN_WIDTH + 1; ++i) {
 		for (int j = 0; j < WIN_HEIGHT; ++j) {
-			// Índice en el conjunto de patrones de la matriz de índices
+			// ï¿½ndice en el conjunto de patrones de la matriz de ï¿½ndices
 			int indice = indices[x0 + i][j];
 
-			// Separa número de fila y de columna
+			// Separa nï¿½mero de fila y de columna
 			int fx = indice % 9;
 			int fy = indice / 9;
 
@@ -181,13 +175,13 @@ void Game::loadObjectMap() {
 	// Carga el mapa
 	ifstream file(DEFAULT_MAP); ///// lo hemos cambiado de istream a ifstream
 
-	// Leemos el mapa línea a línea para evitar acarreo de errores
+	// Leemos el mapa lï¿½nea a lï¿½nea para evitar acarreo de errores
 	// y permitir extensiones del formato
 	string line;
 	getline(file, line);
 
 	while (!file) {
-		// Usamos un stringstream para leer la línea como si fuera un flujo
+		// Usamos un stringstream para leer la lï¿½nea como si fuera un flujo
 		ifstream lineStream(line); ///// lo hemos cambiado de istream a ifstream
 
 		char tipo;
@@ -205,6 +199,6 @@ void Game::loadObjectMap() {
 //Player::Player(Game* game, istream& in)
 //	: game(game)
 //{
-//	in >> position; // será in Point2D que sabe leerse
-//	in >> numLives; // el número de vidas
+//	in >> position; // serï¿½ in Point2D que sabe leerse
+//	in >> numLives; // el nï¿½mero de vidas
 //}
