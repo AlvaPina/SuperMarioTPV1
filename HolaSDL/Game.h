@@ -41,9 +41,9 @@ private:
 	// Array con todas las texturas del juego
 	std::array<Texture*, NUM_TEXTURES> textures;
 	// Interruptor para terminar el juego
-	bool seguir;
-
-	int mapOffset;  // atributo de Game obtener con getter
+	bool exit;
+	// atributo para determinar el desplazamiento actual del mapa de Game obtener con getter
+	int mapOffset;  
 
 public:
 	void run();

@@ -40,7 +40,7 @@ const array<TextureSpec, Game::NUM_TEXTURES> textureSpec{
 };
 
 Game::Game()
-	: seguir(true), mapOffset(0)
+	: exit(false), mapOffset(0)
 {
 	// Inicializa la SDL
 	SDL_Init(SDL_INIT_EVERYTHING);
@@ -87,7 +87,7 @@ void
 Game::run()
 {
 	// Bucle principal del juego
-	while (seguir) {
+	while (!exit) {
 		// Marca de tiempo del inicio de la iteraci�n
 		uint32_t inicio = SDL_GetTicks();
 
@@ -129,7 +129,7 @@ Game::handleEvents()
 
 	while (SDL_PollEvent(&evento)) {
 		if (evento.type == SDL_QUIT)
-			seguir = false;
+			exit = true;
 		else if (evento.type == SDL_KEYDOWN) {
 			//perro->handleEvent(evento);
 		}
