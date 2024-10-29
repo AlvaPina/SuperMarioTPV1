@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿  Game.cpp
-  main.cpp
+  TileMap.cpp
   Generando código...
-  HolaSDL.vcxproj -> C:\Users\usuario_local\Documents\GitHub\SuperMarioTPV1\bin\HolaSDLDebug.exe
+  HolaSDL.vcxproj -> C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\bin\HolaSDLDebug.exe
+=======
+﻿  HolaSDL.vcxproj -> C:\Users\usuario_local\Documents\GitHub\Moviles-G02\SuperMarioTPV1\bin\HolaSDLDebug.exe
+>>>>>>> 9d0d7c785169ef07ec226afbe8acdfe27f407c1d

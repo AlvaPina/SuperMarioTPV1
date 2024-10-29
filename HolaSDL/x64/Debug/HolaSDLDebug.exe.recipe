@@ -2,7 +2,11 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\usuario_local\Documents\GitHub\SuperMarioTPV1\bin\HolaSDLDebug.exe</FullPath>
+<<<<<<< HEAD
+      <FullPath>C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\bin\HolaSDLDebug.exe</FullPath>
+=======
+      <FullPath>C:\Users\usuario_local\Documents\GitHub\Moviles-G02\SuperMarioTPV1\bin\HolaSDLDebug.exe</FullPath>
+>>>>>>> 9d0d7c785169ef07ec226afbe8acdfe27f407c1d
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
