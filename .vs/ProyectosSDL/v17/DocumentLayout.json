@@ -38,8 +38,7 @@
               "RelativeToolTip": "HolaSDL\\Game.h",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAACAAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-22T15:48:29.102Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-22T15:48:29.102Z"
             },
             {
               "$type": "Document",
@@ -49,7 +48,7 @@
               "RelativeDocumentMoniker": "HolaSDL\\Game.cpp",
               "ToolTip": "C:\\Users\\usuario_local\\Documents\\GitHub\\Moviles-G02\\SuperMarioTPV1\\HolaSDL\\Game.cpp",
               "RelativeToolTip": "HolaSDL\\Game.cpp",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAACYAAAARAAAA",
+              "ViewState": "AQIAAF0AAAAAAAAAAIAwwHAAAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-22T15:48:30.916Z",
               "EditorCaption": ""
@@ -64,8 +63,7 @@
               "RelativeToolTip": "HolaSDL\\Block.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-29T12:01:00.705Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-29T12:01:00.705Z"
             },
             {
               "$type": "Document",
@@ -77,8 +75,7 @@
               "RelativeToolTip": "HolaSDL\\Texture.h",
               "ViewState": "AQIAABYAAAAAAAAAAAAAADkAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-22T15:46:13.804Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-22T15:46:13.804Z"
             }
           ]
         }

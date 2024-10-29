@@ -110,8 +110,8 @@ Game::render() const
 	SDL_RenderClear(renderer);
 
 	// Pinta los objetos del juego
-	textures[BACKGROUND]->render();
-	//perro->render();
+	/*textures[BACKGROUND]->render();
+	perro->render();*/
 
 	SDL_RenderPresent(renderer);
 }
