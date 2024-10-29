@@ -22,13 +22,14 @@ struct TextureSpec
 };
 
 // Directorio raíz de los archivos de textura
-const string textureRoot = "../images/";
+const string textureRoot = "../assets/imgs/";
 
 // Especificación de las texturas del juego
 const array<TextureSpec, Game::NUM_TEXTURES> textureSpec{
-	TextureSpec{"background1.png", 1, 1},
-	{"dog.png", 6, 1},
-	{"helicopter.png", 5, 1},
+	TextureSpec{"background.png", 1, 1},
+	{"mario.png", 6, 1},
+	{"goomba.png", 5, 1},
+	{"koopa.png", 5, 1},
 };
 
 Game::Game()
@@ -36,14 +37,15 @@ Game::Game()
 {
 	// Inicializa la SDL
 	SDL_Init(SDL_INIT_EVERYTHING);
-	window = SDL_CreateWindow("First test with SDL",
+	window = SDL_CreateWindow("Super Mario Bros",
 		SDL_WINDOWPOS_CENTERED,
 		SDL_WINDOWPOS_CENTERED,
-		WIN_WIDTH,
-		WIN_HEIGHT,
+		WIN_WIDTH * WINDOW_SCALE,
+		WIN_HEIGHT * WINDOW_SCALE,
 		SDL_WINDOW_SHOWN);
 
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+	SDL_SetRenderDrawColor(renderer, 97, 132, 248, 255);	// Color de fondo
 
 	if (window == nullptr || renderer == nullptr)
 		throw "Error cargando SDL"s;

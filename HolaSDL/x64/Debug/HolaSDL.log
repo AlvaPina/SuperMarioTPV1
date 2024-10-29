@@ -1,12 +1,2 @@
-﻿  Block.cpp
-  Game.cpp
-  Goomba.cpp
-  Koopa.cpp
-  main.cpp
-  Mushroom.cpp
-  Player.cpp
-  Texture.cpp
-  TileMap.cpp
-  Vector2D.cpp
-  Generando código...
-  HolaSDL.vcxproj -> C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\bin\HolaSDLDebug.exe
+﻿  Game.cpp
+  HolaSDL.vcxproj -> C:\Users\usuario_local\Documents\GitHub\SuperMarioTPV1\bin\HolaSDLDebug.exe

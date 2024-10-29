@@ -20,8 +20,9 @@ public:
 	// Identificadores de las texturas
 	enum TextureName {
 		BACKGROUND,
-		DOG,
-		HELICOPTER,
+		MARIO,
+		GOOMBA,
+		KOOPA,
 		NUM_TEXTURES,  // Truco C++: número de texturas definidas
 	};
 
@@ -55,6 +56,7 @@ public:
 	static constexpr uint FRAME_RATE = 50;
 	static constexpr uint TILE_SIDE = 32;
 	static constexpr uint TILE_MAP = 16;
+	static constexpr uint WINDOW_SCALE = 35;	// escala el tamaño de la ventana
 
 	int indices[WIN_WIDTH][WIN_HEIGHT];
 	Texture* background;
