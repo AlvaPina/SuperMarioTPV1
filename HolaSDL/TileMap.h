@@ -1,18 +1,21 @@
 #pragma once
 
 #include "Game.h"
+#include <vector>
 
 class TileMap
 {
 private:
-	static const int TILE_MAP = 2;
+	static constexpr uint TILE_SIDE = 32;
+	static constexpr uint TILE_MAP = 16;
 
-	int _indices[16][32];
+	std::vector<std::vector<int>> _tileIndices;
 	Game* _game;
-	Texture* _patternsTexture;
+	Texture* _background;
+
 
 public:
-	TileMap(Game* game, Texture* patternsTexture, int indices[16][32]);
-
+	TileMap(Game* game, Texture* background, std::vector<std::vector<int>> tileIndices);
+	int renderTileMap();
 };
 

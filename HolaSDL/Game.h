@@ -41,7 +41,7 @@ private:
 	// Array con todas las texturas del juego
 	std::array<Texture*, NUM_TEXTURES> textures;
 	// Interruptor para terminar el juego
-	bool seguir;
+	bool exit;
 
 	int mapOffset;  // atributo de Game obtener con getter
 
@@ -52,21 +52,17 @@ public:
 	void render() const;
 	void handleEvents();
 	void loadObjectMap();
-	int renderTileMap();
 
 	Texture* getTexture(TextureName name) const { return textures[name]; }
 	int getMapOffset() const { return mapOffset; }
 
 	// Constante globales
-	static constexpr uint WIN_WIDTH = 32;
-	static constexpr uint WIN_HEIGHT = 16;
+	static constexpr uint WIN_WIDTH = 800;
+	static constexpr uint WIN_HEIGHT = 600;
 	static constexpr uint FRAME_RATE = 50;
-	static constexpr uint TILE_SIDE = 32;
-	static constexpr uint TILE_MAP = 16;
 	static constexpr uint WINDOW_SCALE = 35;	// escala el tamaño de la ventana
 
 	int indices[WIN_WIDTH][WIN_HEIGHT];
-	Texture* background;
 
 	Game();
 	~Game();
