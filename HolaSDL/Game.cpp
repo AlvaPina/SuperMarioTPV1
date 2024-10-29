@@ -13,8 +13,6 @@ using namespace std;
 
 #include "Game.h"
 
-using namespace std;
-
 // Formato de la especificación de una textura
 struct TextureSpec
 {
