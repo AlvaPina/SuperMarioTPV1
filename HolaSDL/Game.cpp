@@ -175,7 +175,7 @@ void Game::loadObjectMap() {
 	const char* DEFAULT_MAP = "world1.txt";
 
 	// Carga el mapa
-	istream file(DEFAULT_MAP);
+	istream file(*DEFAULT_MAP);
 
 	// Leemos el mapa línea a línea para evitar acarreo de errores
 	// y permitir extensiones del formato
