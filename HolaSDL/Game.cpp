@@ -137,7 +137,7 @@ Game::handleEvents()
 }
 
 void Game::loadObjectMap() {
-	const char* DEFAULT_MAP = "world1.txt";
+	const char* DEFAULT_MAP = "../assets/maps/world1.txt";
 
 	// Carga el mapa
 	ifstream file(DEFAULT_MAP); ///// lo hemos cambiado de istream a ifstream

@@ -1,8 +1,6 @@
-﻿  Block.cpp
-  Game.cpp
-  Goomba.cpp
-  Koopa.cpp
-  Mushroom.cpp
+﻿  Game.cpp
+  TileMap.cpp
+  main.cpp
   Generando código...
   LINK : no se encontró C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\bin\HolaSDLDebug.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
   HolaSDL.vcxproj -> C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\bin\HolaSDLDebug.exe

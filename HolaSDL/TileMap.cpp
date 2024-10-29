@@ -1,13 +1,13 @@
 #include "TileMap.h"
 
+#include <fstream>
+#include <sstream>
 #include <iostream>
 
-TileMap::TileMap(Game* game, Texture* background, std::vector<std::vector<int>> tileIndices)
+TileMap::TileMap(Game* game, Texture* background)
 	: _game(game), _background(background)
 {
-	for (int i = 0; i < tileIndices.size(); i++) {
-		
-	}
+	loadTileMap();
 }
 
 int TileMap::renderTileMap()
@@ -40,5 +40,21 @@ int TileMap::renderTileMap()
 		}
 	}
 	return 1;
+}
+
+void TileMap::loadTileMap()
+{
+	std::ifstream file("../assets/maps/world1.csv");
+
+	if (!file.is_open()) {
+		std::cerr << "Error: No se pudo abrir el archivo del mapa de teselas" << std::endl;
+		return;
+	}
+
+	std::string line;
+
+	while (std::getline(file, line)) {
+
+	}
 }
 

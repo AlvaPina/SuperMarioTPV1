@@ -13,9 +13,10 @@ private:
 	Game* _game;
 	Texture* _background;
 
-
+	void loadTileMap();
 public:
-	TileMap(Game* game, Texture* background, std::vector<std::vector<int>> tileIndices);
+	TileMap(Game* game, Texture* background);
 	int renderTileMap();
+
 };
 
