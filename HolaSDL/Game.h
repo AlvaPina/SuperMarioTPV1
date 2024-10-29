@@ -44,6 +44,7 @@ public:
 	void render() const;
 	void handleEvents();
 	void loadObjectMap();
+	int renderTileMap();
 
 	Texture* getTexture(TextureName name) const { return textures[name]; }
 	int getMapOffset() const { return mapOffset; }
@@ -53,7 +54,9 @@ public:
 	static constexpr uint WIN_HEIGHT = 16;
 	static constexpr uint FRAME_RATE = 50;
 	static constexpr uint TILE_SIDE = 32;
+	static constexpr uint TILE_MAP = 16;
 
+	int indices[WIN_WIDTH][WIN_HEIGHT];
 
 	Game();
 	~Game();

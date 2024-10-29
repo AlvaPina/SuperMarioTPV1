@@ -32,7 +32,7 @@ const array<TextureSpec, Game::NUM_TEXTURES> textureSpec{
 };
 
 Game::Game()
-	: seguir(true)
+	: seguir(true), mapOffset(0)
 {
 	// Inicializa la SDL
 	SDL_Init(SDL_INIT_EVERYTHING);
@@ -102,7 +102,6 @@ Game::render() const
 
 	// Pinta los objetos del juego
 	textures[BACKGROUND]->render();
-	renderTileMap();
 	//perro->render();
 
 	SDL_RenderPresent(renderer);
@@ -131,7 +130,7 @@ Game::handleEvents()
 }
 
 
-int renderTileMap()
+int Game::renderTileMap()
 {
 	// Primera columna de la matriz del mapa visible en la ventana
 	int x0 = mapOffset / TILE_MAP; // TILE_MAP es un atributo de game, es estatico y no es privado
@@ -144,8 +143,8 @@ int renderTileMap()
 	rect.h = TILE_SIDE;
 
 	// Pintamos los WINDOW_WIDTH + 1 (aunque se salga) x WINDOW_HEIGHT recuadros del mapa
-	for (int i = 0; i < WINDOW_WIDTH + 1; ++i) {
-		for (int j = 0; j < WINDOW_HEIGHT; ++j) {
+	for (int i = 0; i < WIN_WIDTH + 1; ++i) {
+		for (int j = 0; j < WIN_HEIGHT; ++j) {
 			// Índice en el conjunto de patrones de la matriz de índices
 			int indice = indices[x0 + i][j];
 
