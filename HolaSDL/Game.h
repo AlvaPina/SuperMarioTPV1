@@ -57,6 +57,7 @@ public:
 	static constexpr uint TILE_MAP = 16;
 
 	int indices[WIN_WIDTH][WIN_HEIGHT];
+	Texture* background;
 
 	Game();
 	~Game();

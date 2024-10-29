@@ -10,7 +10,7 @@
 using namespace std;
 
 #include <string>
-
+#include <fstream>
 #include "Game.h"
 
 // Formato de la especificación de una textura
@@ -159,13 +159,14 @@ int Game::renderTileMap()
 			background->renderFrame(rect, fx, fy);
 		}
 	}
+	return 1;
 }
 
 void Game::loadObjectMap() {
 	const char* DEFAULT_MAP = "world1.txt";
 
 	// Carga el mapa
-	istream file(*DEFAULT_MAP);
+	ifstream file(DEFAULT_MAP); ///// lo hemos cambiado de istream a ifstream
 
 	// Leemos el mapa línea a línea para evitar acarreo de errores
 	// y permitir extensiones del formato
@@ -174,7 +175,7 @@ void Game::loadObjectMap() {
 
 	while (!file) {
 		// Usamos un stringstream para leer la línea como si fuera un flujo
-		stringstream lineStream(line);
+		ifstream lineStream(line); ///// lo hemos cambiado de istream a ifstream
 
 		char tipo;
 		lineStream >> tipo;

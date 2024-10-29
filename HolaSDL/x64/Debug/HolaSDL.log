@@ -1,14 +1,12 @@
 ﻿  Block.cpp
   Game.cpp
-C:\Users\usuario_local\Documents\GitHub\SuperMarioTPV1\HolaSDL\Game.cpp(105,2): error C3861: 'renderTileMap': no se encontró el identificador
-C:\Users\usuario_local\Documents\GitHub\SuperMarioTPV1\HolaSDL\Game.cpp(146,23): error C2065: 'TILE_MAP': identificador no declarado
-C:\Users\usuario_local\Documents\GitHub\SuperMarioTPV1\HolaSDL\Game.cpp(148,23): error C2065: 'TILE_MAP': identificador no declarado
-C:\Users\usuario_local\Documents\GitHub\SuperMarioTPV1\HolaSDL\Game.cpp(178,14): error C2665: 'std::basic_istream<char,std::char_traits<char>>::basic_istream':ninguna función sobrecargada pudo convertir todos los tipos de argumento
-C:\Users\usuario_local\Documents\GitHub\SuperMarioTPV1\HolaSDL\Game.cpp(187,16): error C2079: 'lineStream' utiliza class 'std::basic_stringstream<char,std::char_traits<char>,std::allocator<char>>' sin definir
-C:\Users\usuario_local\Documents\GitHub\SuperMarioTPV1\HolaSDL\Game.cpp(187,26): error C2440: 'inicializando': no se puede realizar la conversión de 'std::string' a 'int'
-C:\Users\usuario_local\Documents\GitHub\SuperMarioTPV1\HolaSDL\Game.cpp(190,14): warning C4552: ">>": el resultado de la expresión no se usa
   Goomba.cpp
   Koopa.cpp
+  main.cpp
   Mushroom.cpp
+  Player.cpp
+  Texture.cpp
+  TileMap.cpp
   Vector2D.cpp
   Generando código...
+  HolaSDL.vcxproj -> C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\bin\HolaSDLDebug.exe
