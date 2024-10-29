@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\Block.cpp;C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\x64\Debug\Block.obj
 C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\Game.cpp;C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\x64\Debug\Game.obj
 C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\Goomba.cpp;C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\x64\Debug\Goomba.obj
@@ -8,15 +7,3 @@ C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\Mushroom.cp
 C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\Player.cpp;C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\x64\Debug\Player.obj
 C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\Texture.cpp;C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\x64\Debug\Texture.obj
 C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\TileMap.cpp;C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\x64\Debug\TileMap.obj
-=======
-C:\Users\usuario_local\Documents\GitHub\Moviles-G02\SuperMarioTPV1\HolaSDL\Block.cpp;C:\Users\usuario_local\Documents\GitHub\Moviles-G02\SuperMarioTPV1\HolaSDL\x64\Debug\Block.obj
-C:\Users\usuario_local\Documents\GitHub\Moviles-G02\SuperMarioTPV1\HolaSDL\Game.cpp;C:\Users\usuario_local\Documents\GitHub\Moviles-G02\SuperMarioTPV1\HolaSDL\x64\Debug\Game.obj
-C:\Users\usuario_local\Documents\GitHub\Moviles-G02\SuperMarioTPV1\HolaSDL\Goomba.cpp;C:\Users\usuario_local\Documents\GitHub\Moviles-G02\SuperMarioTPV1\HolaSDL\x64\Debug\Goomba.obj
-C:\Users\usuario_local\Documents\GitHub\Moviles-G02\SuperMarioTPV1\HolaSDL\Koopa.cpp;C:\Users\usuario_local\Documents\GitHub\Moviles-G02\SuperMarioTPV1\HolaSDL\x64\Debug\Koopa.obj
-C:\Users\usuario_local\Documents\GitHub\Moviles-G02\SuperMarioTPV1\HolaSDL\main.cpp;C:\Users\usuario_local\Documents\GitHub\Moviles-G02\SuperMarioTPV1\HolaSDL\x64\Debug\main.obj
-C:\Users\usuario_local\Documents\GitHub\Moviles-G02\SuperMarioTPV1\HolaSDL\Mushroom.cpp;C:\Users\usuario_local\Documents\GitHub\Moviles-G02\SuperMarioTPV1\HolaSDL\x64\Debug\Mushroom.obj
-C:\Users\usuario_local\Documents\GitHub\Moviles-G02\SuperMarioTPV1\HolaSDL\Player.cpp;C:\Users\usuario_local\Documents\GitHub\Moviles-G02\SuperMarioTPV1\HolaSDL\x64\Debug\Player.obj
-C:\Users\usuario_local\Documents\GitHub\Moviles-G02\SuperMarioTPV1\HolaSDL\Texture.cpp;C:\Users\usuario_local\Documents\GitHub\Moviles-G02\SuperMarioTPV1\HolaSDL\x64\Debug\Texture.obj
-C:\Users\usuario_local\Documents\GitHub\Moviles-G02\SuperMarioTPV1\HolaSDL\TileMap.cpp;C:\Users\usuario_local\Documents\GitHub\Moviles-G02\SuperMarioTPV1\HolaSDL\x64\Debug\TileMap.obj
-C:\Users\usuario_local\Documents\GitHub\Moviles-G02\SuperMarioTPV1\HolaSDL\Vector2D.cpp;C:\Users\usuario_local\Documents\GitHub\Moviles-G02\SuperMarioTPV1\HolaSDL\x64\Debug\Vector2D.obj
->>>>>>> 9d0d7c785169ef07ec226afbe8acdfe27f407c1d
