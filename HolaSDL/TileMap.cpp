@@ -7,15 +7,16 @@
 TileMap::TileMap(Game* game, Texture* background)
 	: _game(game), _background(background)
 {
+	mapOffset = 0;
 	loadTileMap();
 }
 
 int TileMap::renderTileMap()
 {
 	// Primera columna de la matriz del mapa visible en la ventana
-	int x0 = _game->getMapOffset() / TILE_MAP; // TILE_MAP es un atributo de game, es estatico y no es privado
+	int x0 = mapOffset / TILE_MAP; // TILE_MAP es un atributo de game, es estatico y no es privado
 	// Anchura oculta de esa primera columna
-	int d0 = _game->getMapOffset() % TILE_MAP;
+	int d0 = mapOffset % TILE_MAP;
 
 	// Recuadro donde se pintar? la tesela en la ventana
 	SDL_Rect rect;

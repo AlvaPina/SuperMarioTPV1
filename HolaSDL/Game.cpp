@@ -40,7 +40,7 @@ const array<TextureSpec, Game::NUM_TEXTURES> textureSpec{
 };
 
 Game::Game()
-	: exit(false), mapOffset(0)
+	: exit(false)
 {
 	// Inicializa la SDL
 	SDL_Init(SDL_INIT_EVERYTHING);

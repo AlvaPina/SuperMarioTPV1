@@ -43,8 +43,6 @@ private:
 	// Interruptor para terminar el juego
 	bool exit;
 
-	int mapOffset;  // atributo de Game obtener con getter
-
 public:
 	void run();
 
@@ -54,7 +52,6 @@ public:
 	void loadObjectMap();
 
 	Texture* getTexture(TextureName name) const { return textures[name]; }
-	int getMapOffset() const { return mapOffset; }
 
 	// Constante globales
 	static constexpr uint WIN_WIDTH = 32;
