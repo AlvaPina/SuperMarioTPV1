@@ -55,7 +55,7 @@ void TileMap::loadTileMap()
 	std::string line;
 
 	while (std::getline(file, line)) {
-
+		std::cout << line;
 	}
 }
 

@@ -64,6 +64,8 @@ Game::Game()
 			textureSpec[i].numRows,
 			textureSpec[i].numColumns);
 
+	TileMap* tile = new TileMap(this, textures[BACKGROUND]);
+
 	// Crea los objetos del juego
 	//perro = new Dog(this, -textures[DOG]->getFrameWidth(), 390);
 }
