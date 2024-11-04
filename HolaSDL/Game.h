@@ -41,6 +41,7 @@ private:
 	// Array con todas las texturas del juego
 	std::array<Texture*, NUM_TEXTURES> textures;
 	// Interruptor para terminar el juego
+	int mapOffset;
 	bool exit;
 
 public:
@@ -52,6 +53,7 @@ public:
 	void loadObjectMap();
 
 	Texture* getTexture(TextureName name) const { return textures[name]; }
+	int getMapOffset() const { return mapOffset; }
 
 	// Constante globales
 	static constexpr uint WIN_WIDTH = 32;
@@ -63,6 +65,7 @@ public:
 
 	Game();
 	~Game();
+
 };
 
 
