@@ -133,7 +133,9 @@ Game::handleEvents()
 		if (evento.type == SDL_QUIT)
 			exit = true;
 		else if (evento.type == SDL_KEYDOWN) {
-			//perro->handleEvent(evento);
+			if (evento.key.keysym.sym == SDLK_RIGHT) {
+				mapOffset += 5;
+			}
 		}
 	}
 }
