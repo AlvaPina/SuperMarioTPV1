@@ -26,7 +26,7 @@ const string textureRoot = "../assets/imgs/";
 
 // Especificaci�n de las texturas del juego
 const array<TextureSpec, Game::NUM_TEXTURES> textureSpec{
-	TextureSpec{"background.png", 8, 7},
+	TextureSpec{"background.png", 9, 7},
 	{"mario.png", 12, 1},
 	{"supermario.png", 22, 1},
 	{"firemario.png", 21, 1},
