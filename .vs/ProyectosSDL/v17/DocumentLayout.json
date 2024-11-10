@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|solutionrelative:HolaSDL\\TileMap.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|solutionrelative:HolaSDL\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|solutionrelative:HolaSDL\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|solutionrelative:HolaSDL\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\TileMap.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -21,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\Vector2D.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|solutionrelative:HolaSDL\\Vector2D.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HOLASDL\\TEXTURE.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|solutionrelative:HOLASDL\\TEXTURE.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -52,7 +48,7 @@
               "RelativeDocumentMoniker": "HolaSDL\\TileMap.h",
               "ToolTip": "C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\TileMap.h",
               "RelativeToolTip": "HolaSDL\\TileMap.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAALAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-10-29T15:28:04.268Z",
               "EditorCaption": ""
@@ -65,33 +61,33 @@
               "RelativeDocumentMoniker": "HolaSDL\\TileMap.cpp",
               "ToolTip": "C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\TileMap.cpp",
               "RelativeToolTip": "HolaSDL\\TileMap.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAfAAAA",
+              "ViewState": "AQIAADIAAAAAAAAAAAAawEMAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-29T15:27:34.321Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Game.h",
               "DocumentMoniker": "C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\Game.h",
               "RelativeDocumentMoniker": "HolaSDL\\Game.h",
               "ToolTip": "C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\Game.h",
               "RelativeToolTip": "HolaSDL\\Game.h",
-              "ViewState": "AQIAABsAAAAAAAAAAAAawCsAAAAPAAAA",
+              "ViewState": "AQIAADQAAAAAAAAAAAAuwEQAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-10-22T15:48:29.102Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Game.cpp",
               "DocumentMoniker": "C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\Game.cpp",
               "RelativeDocumentMoniker": "HolaSDL\\Game.cpp",
               "ToolTip": "C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\Game.cpp",
               "RelativeToolTip": "HolaSDL\\Game.cpp",
-              "ViewState": "AQIAAIAAAAAAAAAAAAAuwIwAAAAYAAAA",
+              "ViewState": "AQIAACAAAAAAAAAAAAAuwDAAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-22T15:48:30.916Z",
               "EditorCaption": ""
@@ -107,18 +103,6 @@
               "ViewState": "AQIAABUAAAAAAAAAAAAAAA8AAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-10-29T15:27:44.737Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Texture.h",
-              "DocumentMoniker": "C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\Texture.h",
-              "RelativeDocumentMoniker": "HolaSDL\\Texture.h",
-              "ToolTip": "C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\Texture.h",
-              "RelativeToolTip": "HolaSDL\\Texture.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADkAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-22T15:46:13.804Z"
             }
           ]
         }

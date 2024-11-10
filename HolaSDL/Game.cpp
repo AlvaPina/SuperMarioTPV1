@@ -40,7 +40,7 @@ const array<TextureSpec, Game::NUM_TEXTURES> textureSpec{
 };
 
 Game::Game()
-	: exit(false)
+	: exit(false), mapOffset(0)
 {
 	// Inicializa la SDL
 	SDL_Init(SDL_INIT_EVERYTHING);
@@ -64,7 +64,7 @@ Game::Game()
 			textureSpec[i].numRows,
 			textureSpec[i].numColumns);
 
-	TileMap* tile = new TileMap(this, textures[BACKGROUND]);
+	tile = new TileMap(this, textures[BACKGROUND]);
 
 	// Crea los objetos del juego
 	//perro = new Dog(this, -textures[DOG]->getFrameWidth(), 390);
@@ -112,7 +112,7 @@ Game::render() const
 	SDL_RenderClear(renderer);
 
 	// Pinta los objetos del juego
-	textures[BACKGROUND]->render();
+	tile->render();
 	SDL_RenderPresent(renderer);
 }
 

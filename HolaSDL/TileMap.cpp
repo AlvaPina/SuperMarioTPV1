@@ -10,36 +10,40 @@ TileMap::TileMap(Game* game, Texture* background)
 	loadTileMap();
 }
 
-int TileMap::renderTileMap()
+int TileMap::render() const
 {
 	// Primera columna de la matriz del mapa visible en la ventana
-	int x0 = _game->getMapOffset() / TILE_MAP; // TILE_MAP es un atributo de game, es estatico y no es privado
+	int col0 = _game->getMapOffset() / TILE_SIDE;
 	// Anchura oculta de esa primera columna
-	int d0 = _game->getMapOffset() % TILE_MAP;
+	int d0 = _game->getMapOffset() % TILE_SIDE;
 
-	// Recuadro donde se pintar? la tesela en la ventana
+	// Recuadro donde se pintará la tesela en la ventana
 	SDL_Rect rect;
 	rect.w = TILE_SIDE;
 	rect.h = TILE_SIDE;
 
 	// Pintamos los WINDOW_WIDTH + 1 (aunque se salga) x WINDOW_HEIGHT recuadros del mapa
-	for (int i = 0; i < _game->WIN_WIDTH + 1; ++i) {
-		for (int j = 0; j < _game->WIN_HEIGHT; ++j) {
-			// ?ndice en el conjunto de patrones de la matriz de ?ndices
-			int indice = _tileIndices[x0 + i][j];
+	for (int col = 0; col < _game->WIN_WIDTH + 2; ++col) {
+		rect.x = -d0 + col * TILE_SIDE;
 
-			// Separa n?mero de fila y de columna
-			int fx = indice % 9;
-			int fy = indice / 9;
+		for (int row = 0; row < _game->WIN_HEIGHT; ++row) {
+			// Índice en el conjunto de patrones de la matriz de índices
+			int indice = _tileIndices[row][col0 + col];
 
-			rect.x = -d0 + i * TILE_SIDE;
-			rect.y = j * TILE_SIDE;
+			// Si el índice es -1 no se pinta nada
+			if (indice != -1) {
+				// Separa número de fila y de columna
+				int frameCol = indice % 9;
+				int frameRow = indice / 9;
 
-			// Usa renderFrame para pintar la tesela
-			_background->renderFrame(rect, fx, fy);
+				rect.y = row * TILE_SIDE;
+
+				// Usa renderFrame para pintar la tesela
+				_background->renderFrame(rect, frameRow, frameCol);
+			}
 		}
 	}
-	return 1;
+	return 0;
 }
 
 void TileMap::loadTileMap()
@@ -52,16 +56,27 @@ void TileMap::loadTileMap()
 	}
 
 	std::string line;
+	while (std::getline(file, line)) {
+		std::vector<int> row;
+		std::stringstream ss(line);
+		std::string number;
 
-	_tileIndices.resize(TILE_MAP);
-	for (int i = 0; i < TILE_MAP; i++) {
-		std::getline(file, line);
-		_tileIndices[i].resize(line.size());
-		for (int j = 0; j < line.size(); j++) {
-			_tileIndices[i].push_back(line[j]);
+		while (std::getline(ss, number, ',')) {
+			row.push_back(std::stoi(number));
 		}
+
+		_tileIndices.push_back(row);
 	}
 
 	file.close();
+
+	// Imprimir los valores para verificar
+	std::cout << "Contenido de la matriz tileIndices:" << std::endl;
+	for (const auto& row : _tileIndices) {
+		for (int num : row) {
+			std::cout << num << " ";
+		}
+		std::cout << std::endl;
+	}
 }
 

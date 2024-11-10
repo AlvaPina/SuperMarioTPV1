@@ -11,6 +11,9 @@
 
 using uint = unsigned int;
 
+//Fordward declarations
+class TileMap;
+
 //
 // Clase que representa el juego y controla todos sus aspectos
 //
@@ -43,6 +46,8 @@ private:
 	// Interruptor para terminar el juego
 	int mapOffset;
 	bool exit;
+	TileMap* tile;
+
 
 public:
 	void run();
@@ -56,12 +61,10 @@ public:
 	int getMapOffset() const { return mapOffset; }
 
 	// Constante globales
-	static constexpr uint WIN_WIDTH = 32;
+	static constexpr uint WIN_WIDTH = 18;
 	static constexpr uint WIN_HEIGHT = 16;
 	static constexpr uint FRAME_RATE = 50;
 	static constexpr uint WINDOW_SCALE = 35;	// escala el tamaño de la ventana
-
-	int indices[WIN_WIDTH][WIN_HEIGHT];
 
 	Game();
 	~Game();

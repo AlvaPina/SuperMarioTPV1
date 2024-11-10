@@ -16,6 +16,6 @@ private:
 	void loadTileMap();
 public:
 	TileMap(Game* game, Texture* background);
-	int renderTileMap();
+	int render() const;
 };
 
