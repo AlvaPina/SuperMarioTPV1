@@ -11,8 +11,9 @@ private:
 	Vector2D<int> position;	// Posicion actual de Mario
 	Game* game;				// Puntero al juego
 	int lives;				// Numero de vidas de Mario
-	bool movingRight;			// Direccion de Mario
+	bool movingRight;		// Direccion de Mario
 	bool SuperMario;		// Forma de Mario
+	bool onTheFloor;
 
 public:
 	void render();

@@ -7,6 +7,7 @@
 #include "TileMap.h"
 #include "Player.h"
 #include "Block.h"
+#include "Vector2D.h"
 
 using namespace std;
 
@@ -74,6 +75,7 @@ Game::Game()
 
 	// Crea los objetos del juego
 	//perro = new Dog(this, -textures[DOG]->getFrameWidth(), 390);
+	loadObjectMap();
 }
 
 Game::~Game()
@@ -166,7 +168,14 @@ void Game::loadObjectMap() {
 
 		switch (tipo) {
 		case 'M':
-			//player = new Player(this, lineStream);
+			int auxX, auxY, auxLiv;
+			lineStream >> auxX;
+			lineStream >> auxY;
+			lineStream >> auxLiv;
+
+			Vector2D<int> auxPos(auxX, auxY);
+
+			//player = new Player(textures[MARIO], auxPos, this, auxLiv, false, false);
 			break;
 			// uno para cada objeto
 		}
