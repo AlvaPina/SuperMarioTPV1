@@ -68,10 +68,6 @@ Game::Game()
 
 	tile = new TileMap(this, textures[BACKGROUND]);
 
-	Point2D<int> pos(5, 5);
-
-	block = new Block(this, Block::LADRILLO, pos, textures[BLOCKS]);
-
 	// Crea los objetos del juego
 	//perro = new Dog(this, -textures[DOG]->getFrameWidth(), 390);
 	loadObjectMap();
@@ -120,7 +116,7 @@ Game::render() const
 
 	// Pinta los objetos del juego
 	tile->render();
-	block->render();
+	//block->render();
 	SDL_RenderPresent(renderer);
 }
 
@@ -167,7 +163,7 @@ void Game::loadObjectMap() {
 		lineStream >> tipo;
 
 		switch (tipo) {
-		case 'M':
+		case 'M': {
 			int auxX, auxY, auxLiv;
 			lineStream >> auxX;
 			lineStream >> auxY;
@@ -178,6 +174,25 @@ void Game::loadObjectMap() {
 			Player* player = new Player(textures[MARIO], auxPos, this, auxLiv, false, false);
 			break;
 			// uno para cada objeto
+		}
+		case 'B':{
+			int auxX, auxY, auxtype;
+			lineStream >> auxX;
+			lineStream >> auxY;
+			lineStream >> auxtype;
+
+			Point2D<int> pos(auxX, auxY);
+
+			switch (auxtype) {
+			case 'B':
+				block = new Block(this, Block::LADRILLO, pos, textures[BLOCKS]);
+					break;
+			case 'H':
+
+				break;
+			}
+			break;
+		}
 		}
 	}
 }
