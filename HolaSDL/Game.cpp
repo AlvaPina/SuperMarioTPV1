@@ -1,12 +1,14 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <sstream>
 
 #include "Game.h"
 #include "Texture.h"
 #include "TileMap.h"
 #include "Player.h"
 #include "Block.h"
+#include "Goomba.h"
 #include "Vector2D.h"
 
 using namespace std;
@@ -70,7 +72,7 @@ Game::Game()
 
 	// Crea los objetos del juego
 	//perro = new Dog(this, -textures[DOG]->getFrameWidth(), 390);
-	//loadObjectMap();
+	loadObjectMap();
 }
 
 Game::~Game()
@@ -115,11 +117,20 @@ Game::render() const
 	SDL_RenderClear(_renderer);
 
 	// Pinta los objetos del juego
+	//_player->render();
 	_tile->render();
-	//block->render();
+	
+	//Bloques
+	for (const auto& block : _bloques) {
+		block->render();
+	}
+	//Goombas
+	for (const auto& goomba : _goombas) {
+		//goomba->render();
+	}
+	//...
 
 	SDL_RenderPresent(_renderer);
-	//player->render();
 }
 
 void
@@ -158,7 +169,7 @@ void Game::loadObjectMap() {
 
 	while (getline(file, line)) {
 		// Usamos un stringstream para leer la línea como si fuera un flujo
-		ifstream lineStream(line);
+		stringstream lineStream(line);
 
 		char tipo;
 		lineStream >> tipo;
