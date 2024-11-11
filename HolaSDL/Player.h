@@ -19,12 +19,17 @@ private:
 	bool _onTheFloor;
 	int playerSpeed;
 	
-
+	enum DIRECCION {
+		RIGHT,
+		LEFT,
+		STATIC
+	};
+	DIRECCION _marioDirection = STATIC;
 public:
 	void render();
 	void update();
 	void hit();
-	void handleEvent(SDL_Keycode tecla);
+	void handleEvent(const SDL_Event& evento);
 	// Getters
 	int getX();
 	int getY();

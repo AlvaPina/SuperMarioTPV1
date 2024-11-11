@@ -26,6 +26,15 @@ void Player::update()
 {
 	_rect.x = _position.getX();
 	_rect.y = _position.getY();
+	if (_marioDirection == RIGHT) {
+		if (_position.x >= _game->WIN_WIDTH / 2 && _position.x > 0)
+			_game->addMapOffset(PLAYERSPEED);
+		else _position.x = _position.getX() + PLAYERSPEED;
+	}
+	else if (_marioDirection == LEFT) {
+        if(_position.x > 0)
+		_position.x = _position.getX() - PLAYERSPEED;
+	}
 }
 
 void Player::hit()
@@ -34,23 +43,35 @@ void Player::hit()
 	else _lives--; // ha muerto
 }
 
-void Player::handleEvent(SDL_Keycode tecla)
+void Player::handleEvent(const SDL_Event& evento)
 {
-	switch (tecla)
-	{
-	case SDLK_RIGHT:
-		if (_position.x >= _game->WIN_WIDTH / 2)
-			_game->addMapOffset(PLAYERSPEED);
-		else _position.x = _position.getX() + PLAYERSPEED;
-		break;
-	case SDLK_LEFT:
-		_position.x = _position.getX() - PLAYERSPEED;
-		break;
-	case SDLK_SPACE:
-
-		break;
-	}
-	
+    if (evento.type == SDL_KEYDOWN) {
+        switch (evento.key.keysym.sym)
+        {
+        case SDLK_RIGHT:
+            _marioDirection = RIGHT;
+            break;
+        case SDLK_LEFT:
+            _marioDirection = LEFT;
+            break;
+        case SDLK_SPACE:
+            
+            break;
+        default:
+            break;
+        }
+    }
+    else if (evento.type == SDL_KEYUP) {
+        switch (evento.key.keysym.sym)
+        {
+        case SDLK_RIGHT:
+        case SDLK_LEFT:
+            _marioDirection = STATIC;
+            break;
+        default:
+            break;
+        }
+    }
 }
 
 int Player::getX()

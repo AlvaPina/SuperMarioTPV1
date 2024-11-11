@@ -151,9 +151,11 @@ Game::handleEvents()
 	SDL_Event evento;
 
 	while (SDL_PollEvent(&evento)) {
-		if (evento.type == SDL_QUIT) _exit = true;
-		else if (evento.type == SDL_KEYDOWN) {
-			_player->handleEvent(evento.key.keysym.sym);
+		if (evento.type == SDL_QUIT){
+			_exit = true;
+		} 
+		else {
+			_player->handleEvent(evento);
 		}
 	}
 }
