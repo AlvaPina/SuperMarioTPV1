@@ -23,10 +23,10 @@ int TileMap::render() const
 	rect.h = TILE_SIDE;
 
 	// Pintamos los WINDOW_WIDTH + 1 (aunque se salga) x WINDOW_HEIGHT recuadros del mapa
-	for (int col = 0; col < _game->WIN_WIDTH + 2; ++col) {
+	for (int col = 0; col < TILE_MAP + 2; ++col) {
 		rect.x = -d0 + col * TILE_SIDE;
 
-		for (int row = 0; row < _game->WIN_HEIGHT; ++row) {
+		for (int row = 0; row < TILE_MAP; ++row) {
 			// Índice en el conjunto de patrones de la matriz de índices
 			int indice = _tileIndices[row][col0 + col];
 
@@ -43,7 +43,7 @@ int TileMap::render() const
 			}
 		}
 	}
-	return 0;
+ 	return 0;
 }
 
 void TileMap::loadTileMap()

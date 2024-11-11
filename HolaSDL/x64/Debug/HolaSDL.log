@@ -1,2 +1,7 @@
 ﻿  Block.cpp
-  HolaSDL.vcxproj -> C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\bin\HolaSDLDebug.exe
+  Game.cpp
+  Player.cpp
+  TileMap.cpp
+  main.cpp
+  Generando código...
+  HolaSDL.vcxproj -> C:\Users\mauro\3D Objects\SuperMarioTPV1\bin\HolaSDLDebug.exe

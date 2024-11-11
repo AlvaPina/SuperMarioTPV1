@@ -71,10 +71,9 @@ public:
 	int getMapOffset() const { return _mapOffset; }
 
 	// Constante globales
-	static constexpr uint WIN_WIDTH = 18;
-	static constexpr uint WIN_HEIGHT = 16;
+	static constexpr uint WIN_WIDTH = 500;
+	static constexpr uint WIN_HEIGHT = 500;
 	static constexpr uint FRAME_RATE = 50;
-	static constexpr uint WINDOW_SCALE = 35;	// escala el tama�o de la ventana
 
 	Game();
 	~Game();
