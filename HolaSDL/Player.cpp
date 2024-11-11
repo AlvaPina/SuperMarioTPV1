@@ -7,8 +7,8 @@
 #include "Game.h"
 
 
-Player::Player(Texture* texture, Vector2D<int> position, Game* game, int lives, bool movingRigh, bool superMario):
-	_texture(texture), _position(position), _game(game), _lives(lives), _movingRight(movingRigh), _superMario(superMario)
+Player::Player(Texture* texture, Vector2D<int> position, Game* game, int lives, bool movingRight, bool superMario):
+	_texture(texture), _position(position), _game(game), _lives(lives), _movingRight(movingRight), _superMario(superMario)
 {
 	_onTheFloor = false;
 	_rect.w = 50;

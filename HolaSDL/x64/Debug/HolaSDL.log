@@ -1,5 +1,8 @@
 ﻿  Block.cpp
   Game.cpp
+C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\Game.cpp(95,9): warning C4551: la llamada a la función no tiene lista de argumentos
+  main.cpp
   Player.cpp
+  TileMap.cpp
   Generando código...
-  HolaSDL.vcxproj -> C:\Users\mauro\3D Objects\SuperMarioTPV1\bin\HolaSDLDebug.exe
+  HolaSDL.vcxproj -> C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\bin\HolaSDLDebug.exe

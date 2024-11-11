@@ -42,31 +42,31 @@ const array<TextureSpec, Game::NUM_TEXTURES> textureSpec{
 };
 
 Game::Game()
-	: exit(false), mapOffset(0)
+	: _exit(false), _mapOffset(0)
 {
 	// Inicializa la SDL
 	SDL_Init(SDL_INIT_EVERYTHING);
-	window = SDL_CreateWindow("Super Mario Bros",
+	_window = SDL_CreateWindow("Super Mario Bros",
 		SDL_WINDOWPOS_CENTERED,
 		SDL_WINDOWPOS_CENTERED,
 		WIN_WIDTH * WINDOW_SCALE,
 		WIN_HEIGHT * WINDOW_SCALE,
 		SDL_WINDOW_SHOWN);
 
-	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-	SDL_SetRenderDrawColor(renderer, 138, 132, 248, 255);	// Color de fondo
+	_renderer = SDL_CreateRenderer(_window, -1, SDL_RENDERER_ACCELERATED);
+	SDL_SetRenderDrawColor(_renderer, 138, 132, 248, 255);	// Color de fondo
 
-	if (window == nullptr || renderer == nullptr)
+	if (_window == nullptr || _renderer == nullptr)
 		throw "Error cargando SDL"s;
 
 	// Carga las texturas
 	for (int i = 0; i < NUM_TEXTURES; ++i)
-		textures[i] = new Texture(renderer,
+		_textures[i] = new Texture(_renderer,
 			(textureRoot + textureSpec[i].name).c_str(),
 			textureSpec[i].numRows,
 			textureSpec[i].numColumns);
 
-	tile = new TileMap(this, textures[BACKGROUND]);
+	_tile = new TileMap(this, _textures[BACKGROUND]);
 
 	// Crea los objetos del juego
 	//perro = new Dog(this, -textures[DOG]->getFrameWidth(), 390);
@@ -79,12 +79,12 @@ Game::~Game()
 	//delete perro;
 
 	// Elimina las texturas
-	for (Texture* texture : textures)
+	for (Texture* texture : _textures)
 		delete texture;
 
 	// Desactiva la SDL
-	SDL_DestroyRenderer(renderer);
-	SDL_DestroyWindow(window);
+	SDL_DestroyRenderer(_renderer);
+	SDL_DestroyWindow(_window);
 	SDL_Quit();
 }
 
@@ -112,13 +112,13 @@ Game::run()
 void
 Game::render() const
 {
-	SDL_RenderClear(renderer);
+	SDL_RenderClear(_renderer);
 
 	// Pinta los objetos del juego
-	tile->render();
+	_tile->render();
 	//block->render();
-	SDL_RenderPresent(renderer);
-	player->render();
+	SDL_RenderPresent(_renderer);
+	_player->render();
 }
 
 void
@@ -136,10 +136,10 @@ Game::handleEvents()
 
 	while (SDL_PollEvent(&evento)) {
 		if (evento.type == SDL_QUIT)
-			exit = true;
+			_exit = true;
 		else if (evento.type == SDL_KEYDOWN) {
 			if (evento.key.keysym.sym == SDLK_RIGHT) {
-				mapOffset += 5;
+				_mapOffset += 5;
 			}
 		}
 	}
@@ -172,7 +172,7 @@ void Game::loadObjectMap() {
 
 			Vector2D<int> auxPos(auxX, auxY);
 
-			Player* player = new Player(textures[MARIO], auxPos, this, auxLiv, false, false);
+			_player = new Player(_textures[MARIO], auxPos, this, auxLiv, false, false);
 			break;
 			// uno para cada objeto
 		}
@@ -186,7 +186,7 @@ void Game::loadObjectMap() {
 
 			switch (auxtype) {
 			case 'B':
-				block = new Block(this, Block::LADRILLO, pos, textures[BLOCKS]);
+				_block = new Block(this, Block::LADRILLO, pos, _textures[BLOCKS]);
 					break;
 			case 'H':
 

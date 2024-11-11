@@ -40,17 +40,17 @@ public:
 
 private:
 	// Ventana de la SDL (se destruir� en el destructor)
-	SDL_Window* window = nullptr;
+	SDL_Window* _window = nullptr;
 	// Renderizador de la SDL (para dibujar)
-	SDL_Renderer* renderer = nullptr;
+	SDL_Renderer* _renderer = nullptr;
 	// Array con todas las texturas del juego
-	std::array<Texture*, NUM_TEXTURES> textures;
+	std::array<Texture*, NUM_TEXTURES> _textures;
 	// Interruptor para terminar el juego
-	int mapOffset;
-	bool exit;
-	TileMap* tile;
-	Block* block;
-	Player* player;
+	int _mapOffset;
+	bool _exit;
+	TileMap* _tile;
+	Block* _block;
+	Player* _player;
 
 public:
 	void run();
@@ -60,8 +60,8 @@ public:
 	void handleEvents();
 	void loadObjectMap();
 
-	Texture* getTexture(TextureName name) const { return textures[name]; }
-	int getMapOffset() const { return mapOffset; }
+	Texture* getTexture(TextureName name) const { return _textures[name]; }
+	int getMapOffset() const { return _mapOffset; }
 
 	// Constante globales
 	static constexpr uint WIN_WIDTH = 18;
