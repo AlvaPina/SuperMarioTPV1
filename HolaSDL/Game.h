@@ -1,6 +1,6 @@
 #pragma once
 
-// Biblioteca estándar de C++
+// Biblioteca estï¿½ndar de C++
 #include <array>
 
 // Biblioteca SDL
@@ -14,6 +14,7 @@ using uint = unsigned int;
 //Fordward declarations
 class TileMap;
 class Block;
+class Player;
 
 //
 // Clase que representa el juego y controla todos sus aspectos
@@ -34,11 +35,11 @@ public:
 		SHELL,
 		STAR,
 		BLOCKS,
-		NUM_TEXTURES,  // Truco C++: número de texturas definidas
+		NUM_TEXTURES,  // Truco C++: nï¿½mero de texturas definidas
 	};
 
 private:
-	// Ventana de la SDL (se destruirá en el destructor)
+	// Ventana de la SDL (se destruirï¿½ en el destructor)
 	SDL_Window* window = nullptr;
 	// Renderizador de la SDL (para dibujar)
 	SDL_Renderer* renderer = nullptr;
@@ -49,6 +50,7 @@ private:
 	bool exit;
 	TileMap* tile;
 	Block* block;
+	Player* player;
 
 public:
 	void run();
@@ -65,7 +67,7 @@ public:
 	static constexpr uint WIN_WIDTH = 18;
 	static constexpr uint WIN_HEIGHT = 16;
 	static constexpr uint FRAME_RATE = 50;
-	static constexpr uint WINDOW_SCALE = 35;	// escala el tamaño de la ventana
+	static constexpr uint WINDOW_SCALE = 35;	// escala el tamaï¿½o de la ventana
 
 	Game();
 	~Game();

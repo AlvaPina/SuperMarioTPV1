@@ -72,6 +72,10 @@ Game::Game()
 
 	block = new Block(this, Block::LADRILLO, pos, textures[BLOCKS]);
 
+	int auxX = 0, auxY = 0 , auxLiv = 0;
+	Vector2D<int> auxPos(auxX, auxY);
+	player = new Player(textures[MARIO], auxPos, this, auxLiv, false, false);
+
 	// Crea los objetos del juego
 	//perro = new Dog(this, -textures[DOG]->getFrameWidth(), 390);
 	loadObjectMap();
@@ -122,6 +126,7 @@ Game::render() const
 	tile->render();
 	block->render();
 	SDL_RenderPresent(renderer);
+	player->render();
 }
 
 void
