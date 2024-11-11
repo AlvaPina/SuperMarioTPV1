@@ -3,10 +3,10 @@
 
 Block::Block(Game* game, BlockType type, Point2D<int> pos, Texture* texture) : _game(game), _type(type), _pos(pos), _texture(texture)
 {
-	_rectangulo.w = 10;
-	_rectangulo.h = 10;
-	_rectangulo.x = pos.getX();
-	_rectangulo.y = pos.getY();
+	_rectangulo.w = 32;
+	_rectangulo.h = 32;
+	_rectangulo.x = pos.getX() * game->WIN_WIDTH;
+	_rectangulo.y = pos.getY() * game->WIN_HEIGHT;
 }
 
 void Block::render()
@@ -16,6 +16,7 @@ void Block::render()
 
 void Block::update()
 {
+	_rectangulo.x = _pos.getX() * _game->WIN_WIDTH - _game->getMapOffset();
 }
 
 void Block::hit(SDL_Rect* rectMario)

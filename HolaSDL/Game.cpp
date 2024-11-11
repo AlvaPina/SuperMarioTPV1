@@ -117,7 +117,7 @@ Game::render() const
 	SDL_RenderClear(_renderer);
 
 	// Pinta los objetos del juego
-	//_player->render();
+	_player->render();
 	_tile->render();
 	
 	//Bloques
@@ -137,7 +137,9 @@ void
 Game::update()
 {
 	// Actualiza los objetos del juego
-	//perro->update();
+	for (const auto& block : _bloques) {
+		block->update();
+	}
 }
 
 void
