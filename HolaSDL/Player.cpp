@@ -24,8 +24,8 @@ void Player::render()
 
 void Player::update()
 {
-
-
+	_rect.x = _position.getX();
+	_rect.y = _position.getY();
 }
 
 void Player::hit()
@@ -34,7 +34,29 @@ void Player::hit()
 	else _lives--; // ha muerto
 }
 
-void Player::handleEvent()
+void Player::handleEvent(SDL_Keycode tecla)
 {
+	switch (tecla)
+	{
+	case SDLK_RIGHT:
+		_position.x = _position.getX() + PLAYERSPEED;
+		break;
+	case SDLK_LEFT:
+		_position.x = _position.getX() - PLAYERSPEED;
+		break;
+	case SDLK_SPACE:
+
+		break;
+	}
 	
+}
+
+int Player::getX()
+{
+	return _position.getX();
+}
+
+int Player::getY()
+{
+	return _position.getY();
 }

@@ -31,7 +31,7 @@ const string textureRoot = "../assets/imgs/";
 // Especificaci�n de las texturas del juego
 const array<TextureSpec, Game::NUM_TEXTURES> textureSpec{
 	TextureSpec{"background.png", 9, 7},
-	{"mario.png", 12, 1},
+	{"mario.png", 7, 1},
 	{"supermario.png", 22, 1},
 	{"firemario.png", 21, 1},
 	{"goomba.png", 3, 1},
@@ -51,8 +51,8 @@ Game::Game()
 	_window = SDL_CreateWindow("Super Mario Bros",
 		SDL_WINDOWPOS_CENTERED,
 		SDL_WINDOWPOS_CENTERED,
-		WIN_WIDTH * WINDOW_SCALE,
-		WIN_HEIGHT * WINDOW_SCALE,
+		WIN_WIDTH,
+		WIN_HEIGHT,
 		SDL_WINDOW_SHOWN);
 
 	_renderer = SDL_CreateRenderer(_window, -1, SDL_RENDERER_ACCELERATED);
@@ -139,6 +139,14 @@ Game::update()
 	// Actualiza los objetos del juego
 	for (const auto& block : _bloques) {
 		block->update();
+
+	//perro->update();
+	_player->update();
+
+	// Actualiza la camara
+	if(_player->getX() >= WIN_WIDTH/2)
+	{
+		_mapOffset = _mapOffset + 10;
 	}
 }
 
@@ -152,9 +160,7 @@ Game::handleEvents()
 		if (evento.type == SDL_QUIT)
 			_exit = true;
 		else if (evento.type == SDL_KEYDOWN) {
-			if (evento.key.keysym.sym == SDLK_RIGHT) {
-				_mapOffset += 5;
-			}
+			_player->handleEvent(evento.key.keysym.sym);
 		}
 	}
 }
