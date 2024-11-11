@@ -2,6 +2,7 @@
 
 // Biblioteca est�ndar de C++
 #include <array>
+#include <vector>
 
 // Biblioteca SDL
 #include <SDL.h>
@@ -15,6 +16,9 @@ using uint = unsigned int;
 class TileMap;
 class Block;
 class Player;
+class Goomba;
+class Koopa;
+class Mushroom;
 
 //
 // Clase que representa el juego y controla todos sus aspectos
@@ -49,8 +53,11 @@ private:
 	int _mapOffset;
 	bool _exit;
 	TileMap* _tile;
-	Block* _block;
 	Player* _player;
+	std::vector<Block*> _bloques;
+	std::vector<Goomba*> _goombas;
+	std::vector<Koopa*> _koopas;
+	std::vector<Mushroom*> _mushrooms;
 
 public:
 	void run();

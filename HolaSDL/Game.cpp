@@ -70,7 +70,7 @@ Game::Game()
 
 	// Crea los objetos del juego
 	//perro = new Dog(this, -textures[DOG]->getFrameWidth(), 390);
-	loadObjectMap();
+	//loadObjectMap();
 }
 
 Game::~Game()
@@ -92,7 +92,7 @@ void
 Game::run()
 {
 	// Bucle principal del juego
-	while (!exit) {
+	while (!_exit) {
 		// Marca de tiempo del inicio de la iteraci�n
 		uint32_t inicio = SDL_GetTicks();
 
@@ -118,7 +118,7 @@ Game::render() const
 	_tile->render();
 	//block->render();
 
-	SDL_RenderPresent(renderer);
+	SDL_RenderPresent(_renderer);
 	//player->render();
 }
 
@@ -155,11 +155,10 @@ void Game::loadObjectMap() {
 	// Leemos el mapa l�nea a l�nea para evitar acarreo de errores
 	// y permitir extensiones del formato
 	string line;
-	getline(file, line);
 
-	while (!file) {
-		// Usamos un stringstream para leer la l�nea como si fuera un flujo
-		ifstream lineStream(line); ///// lo hemos cambiado de istream a ifstream
+	while (getline(file, line)) {
+		// Usamos un stringstream para leer la línea como si fuera un flujo
+		ifstream lineStream(line);
 
 		char tipo;
 		lineStream >> tipo;
@@ -175,23 +174,22 @@ void Game::loadObjectMap() {
 
 			_player = new Player(_textures[MARIO], auxPos, this, auxLiv, false, false);
 			break;
-			// uno para cada objeto
 		}
-		case 'B':{
-			int auxX, auxY, auxtype;
+		case 'B': {
+			int auxX, auxY;
+			string auxtype;
 			lineStream >> auxX;
 			lineStream >> auxY;
 			lineStream >> auxtype;
 
 			Point2D<int> pos(auxX, auxY);
 
-			switch (auxtype) {
-			case 'B':
-				_block = new Block(this, Block::LADRILLO, pos, _textures[BLOCKS]);
-					break;
-			case 'H':
-
-				break;
+			if (auxtype == "B") {
+				Block* block = new Block(this, Block::LADRILLO, pos, _textures[BLOCKS]);
+				_bloques.push_back(block);
+			}
+			else if (auxtype == "H") {
+				// Lógica para el tipo H
 			}
 			break;
 		}
