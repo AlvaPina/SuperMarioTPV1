@@ -140,7 +140,6 @@ Game::update()
 	for (const auto& block : _bloques) {
 		block->update();
 	}
-	//perro->update();
 	_player->update();
 }
 
