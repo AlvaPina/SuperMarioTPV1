@@ -6,6 +6,7 @@
 #include "Texture.h"
 #include "TileMap.h"
 #include "Player.h"
+#include "Block.h"
 
 using namespace std;
 
@@ -65,6 +66,11 @@ Game::Game()
 			textureSpec[i].numColumns);
 
 	tile = new TileMap(this, textures[BACKGROUND]);
+
+	Point2D<int> pos(5, 5);
+
+	Block* block = new Block(this, Block::LADRILLO, pos, textures[BLOCKS]);
+	block->render();
 
 	// Crea los objetos del juego
 	//perro = new Dog(this, -textures[DOG]->getFrameWidth(), 390);
