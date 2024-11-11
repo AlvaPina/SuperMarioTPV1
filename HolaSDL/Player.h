@@ -7,13 +7,15 @@
 class Player
 {
 private:
-	Texture* texture;	// Puntero a la textura de Mario
-	Vector2D<int> position;	// Posicion actual de Mario
-	Game* game;				// Puntero al juego
-	int lives;				// Numero de vidas de Mario
-	bool movingRight;		// Direccion de Mario
-	bool SuperMario;		// Forma de Mario
-	bool onTheFloor;
+	Texture* _texture;	// Puntero a la textura de Mario
+	Vector2D<int> _position;	// Posicion actual de Mario
+	Game* _game;				// Puntero al juego
+	SDL_Rect _rect;			// Rectangulo de Mario
+	int _lives;				// Numero de vidas de Mario
+	bool _movingRight;		// Direccion de Mario
+	bool _superMario;		// Forma de Mario
+	bool _onTheFloor;
+	
 
 public:
 	void render();

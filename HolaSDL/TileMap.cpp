@@ -71,12 +71,12 @@ void TileMap::loadTileMap()
 	file.close();
 
 	// Imprimir los valores para verificar
-	std::cout << "Contenido de la matriz tileIndices:" << std::endl;
-	for (const auto& row : _tileIndices) {
-		for (int num : row) {
-			std::cout << num << " ";
-		}
-		std::cout << std::endl;
-	}
+	//std::cout << "Contenido de la matriz tileIndices:" << std::endl;
+	//for (const auto& row : _tileIndices) {
+	//	for (int num : row) {
+	//		std::cout << num << " ";
+	//	}
+	//	std::cout << std::endl;
+	//}
 }
 

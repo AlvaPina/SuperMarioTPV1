@@ -118,6 +118,7 @@ Game::render() const
 	tile->render();
 	//block->render();
 	SDL_RenderPresent(renderer);
+	player->render();
 }
 
 void
