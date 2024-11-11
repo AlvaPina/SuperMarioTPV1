@@ -39,7 +39,9 @@ void Player::handleEvent(SDL_Keycode tecla)
 	switch (tecla)
 	{
 	case SDLK_RIGHT:
-		_position.x = _position.getX() + PLAYERSPEED;
+		if (_position.x >= _game->WIN_WIDTH / 2)
+			_game->addMapOffset(PLAYERSPEED);
+		else _position.x = _position.getX() + PLAYERSPEED;
 		break;
 	case SDLK_LEFT:
 		_position.x = _position.getX() - PLAYERSPEED;

@@ -69,6 +69,7 @@ public:
 
 	Texture* getTexture(TextureName name) const { return _textures[name]; }
 	int getMapOffset() const { return _mapOffset; }
+	void addMapOffset(int number);
 
 	// Constante globales
 	static constexpr uint WIN_WIDTH = 500;

@@ -139,15 +139,9 @@ Game::update()
 	// Actualiza los objetos del juego
 	for (const auto& block : _bloques) {
 		block->update();
-
+	}
 	//perro->update();
 	_player->update();
-
-	// Actualiza la camara
-	if(_player->getX() >= WIN_WIDTH/2)
-	{
-		_mapOffset = _mapOffset + 10;
-	}
 }
 
 void
@@ -157,8 +151,7 @@ Game::handleEvents()
 	SDL_Event evento;
 
 	while (SDL_PollEvent(&evento)) {
-		if (evento.type == SDL_QUIT)
-			_exit = true;
+		if (evento.type == SDL_QUIT) _exit = true;
 		else if (evento.type == SDL_KEYDOWN) {
 			_player->handleEvent(evento.key.keysym.sym);
 		}
@@ -214,6 +207,11 @@ void Game::loadObjectMap() {
 		}
 		}
 	}
+}
+
+void Game::addMapOffset(int number)
+{
+	_mapOffset += number;
 }
 
 //Player::Player(Game* game, istream& in)
