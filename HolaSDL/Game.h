@@ -13,6 +13,7 @@ using uint = unsigned int;
 
 //Fordward declarations
 class TileMap;
+class Block;
 
 //
 // Clase que representa el juego y controla todos sus aspectos
@@ -47,6 +48,7 @@ private:
 	int mapOffset;
 	bool exit;
 	TileMap* tile;
+	Block* block;
 
 public:
 	void run();

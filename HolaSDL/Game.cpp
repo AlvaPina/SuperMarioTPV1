@@ -70,8 +70,7 @@ Game::Game()
 
 	Point2D<int> pos(5, 5);
 
-	Block* block = new Block(this, Block::LADRILLO, pos, textures[BLOCKS]);
-	block->render();
+	block = new Block(this, Block::LADRILLO, pos, textures[BLOCKS]);
 
 	// Crea los objetos del juego
 	//perro = new Dog(this, -textures[DOG]->getFrameWidth(), 390);
@@ -121,6 +120,7 @@ Game::render() const
 
 	// Pinta los objetos del juego
 	tile->render();
+	block->render();
 	SDL_RenderPresent(renderer);
 }
 
