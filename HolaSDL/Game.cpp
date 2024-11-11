@@ -117,8 +117,9 @@ Game::render() const
 	// Pinta los objetos del juego
 	_tile->render();
 	//block->render();
-	SDL_RenderPresent(_renderer);
-	_player->render();
+
+	SDL_RenderPresent(renderer);
+	//player->render();
 }
 
 void
