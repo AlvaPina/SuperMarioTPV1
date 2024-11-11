@@ -175,7 +175,7 @@ void Game::loadObjectMap() {
 
 			Vector2D<int> auxPos(auxX, auxY);
 
-			//player = new Player(textures[MARIO], auxPos, this, auxLiv, false, false);
+			Player* player = new Player(textures[MARIO], auxPos, this, auxLiv, false, false);
 			break;
 			// uno para cada objeto
 		}

@@ -5,7 +5,7 @@
 #include "Game.h"
 
 
-Player::Player(SDL_Texture* text, Vector2D<int> pos, Game* gam, int livs, bool movR, bool supMar):
+Player::Player(Texture* text, Vector2D<int> pos, Game* gam, int livs, bool movR, bool supMar):
 	texture(text), position(pos), game(gam), lives(livs), movingRight(movR), SuperMario(supMar)
 {
 	onTheFloor = false;

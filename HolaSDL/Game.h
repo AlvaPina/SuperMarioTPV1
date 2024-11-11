@@ -47,7 +47,6 @@ private:
 	int mapOffset;
 	bool exit;
 	TileMap* tile;
-	Player* player;
 
 public:
 	void run();

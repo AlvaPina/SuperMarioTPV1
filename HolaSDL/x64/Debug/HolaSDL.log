@@ -1,24 +1,2 @@
 ﻿  Game.cpp
-C:\Users\mauro\3D Objects\SuperMarioTPV1\HolaSDL\Game.cpp(172,4): error C2065: 'player': identificador no declarado
-C:\Users\mauro\3D Objects\SuperMarioTPV1\HolaSDL\Game.cpp(172,23): error C2665: 'Player::Player':ninguna función sobrecargada pudo convertir todos los tipos de argumento
-  C:\Users\mauro\3D Objects\SuperMarioTPV1\HolaSDL\Player.h(24,2):
-  puede ser 'Player::Player(SDL_Texture *,Vector2D<int>,Game *,int,bool,bool)'
-  	C:\Users\mauro\3D Objects\SuperMarioTPV1\HolaSDL\Game.cpp(172,23):
-  	'Player::Player(SDL_Texture *,Vector2D<int>,Game *,int,bool,bool)': el argumento 1 no puede convertirse de '_Ty' a 'SDL_Texture *'
-          with
-          [
-              _Ty=Texture *
-          ]
-  		C:\Users\mauro\3D Objects\SuperMarioTPV1\HolaSDL\Game.cpp(172,38):
-  		Los tipos señalados no están relacionados; la conversión requiere reinterpret_cast, conversión de estilo de C o conversión de estilo de función entre paréntesis
-  C:\Users\mauro\3D Objects\SuperMarioTPV1\HolaSDL\Game.cpp(172,23):
-  al hacer coincidir la lista de argumentos '(_Ty, Vector2D<int>, Game *, int, bool, bool)'
-          with
-          [
-              _Ty=Texture *
-          ]
-  
-  main.cpp
-  Player.cpp
-  TileMap.cpp
-  Generando código...
+  HolaSDL.vcxproj -> C:\Users\mauro\3D Objects\SuperMarioTPV1\bin\HolaSDLDebug.exe
