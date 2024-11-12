@@ -22,6 +22,7 @@ private:
 	enum DIRECCION {
 		RIGHT,
 		LEFT,
+		JUMPING,
 		STATIC
 	};
 	DIRECCION _marioDirection = STATIC;

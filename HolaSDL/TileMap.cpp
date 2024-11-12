@@ -5,7 +5,7 @@
 #include <iostream>
 
 TileMap::TileMap(Game* game, Texture* background)
-	: _game(game), _background(background)
+	: _game(game), _background(background), TILE_SIDE(game->TILE_SIDE), TILE_MAP(game->TILE_MAP)
 {
 	loadTileMap();
 }
@@ -69,14 +69,31 @@ void TileMap::loadTileMap()
 	}
 
 	file.close();
-
-	// Imprimir los valores para verificar
-	//std::cout << "Contenido de la matriz tileIndices:" << std::endl;
-	//for (const auto& row : _tileIndices) {
-	//	for (int num : row) {
-	//		std::cout << num << " ";
-	//	}
-	//	std::cout << std::endl;
-	//}
 }
+
+Collision TileMap::hit(const SDL_Rect& rect, bool fromPlayer) {
+	Collision collisionResult{ false, false };
+
+	int row0 = rect.y / TILE_SIDE;
+	int col0 = rect.x / TILE_SIDE;
+	int row1 = (rect.y + rect.h - 1) / TILE_SIDE;
+	int col1 = (rect.x + rect.w - 1) / TILE_SIDE;
+
+	for (int row = row0; row <= row1; ++row) {
+		for (int col = col0; col <= col1; ++col) {
+			if (row >= 0 && col >= 0 && row < _tileIndices.size() && col < _tileIndices[0].size()) {
+				int indice = _tileIndices[row][col];
+
+				if (indice != -1 && indice % _background->getNumColumns() < OBSTACLE_THRESHOLD) {
+					collisionResult.collides = true;
+					return collisionResult;
+				}
+			}
+		}
+	}
+
+	return collisionResult;
+}
+
+
 

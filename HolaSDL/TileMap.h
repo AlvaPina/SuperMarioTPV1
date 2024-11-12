@@ -6,16 +6,20 @@
 class TileMap
 {
 private:
-	static constexpr uint TILE_SIDE = 32;
-	static constexpr uint TILE_MAP = 16;
-
 	std::vector<std::vector<int>> _tileIndices;
 	Game* _game;
 	Texture* _background;
 
 	void loadTileMap();
 public:
+	const uint TILE_SIDE;
+	const uint TILE_MAP;
+
 	TileMap(Game* game, Texture* background);
 	int render() const;
+	Collision hit(const SDL_Rect& rect, bool fromPlayer);
+
+	static constexpr uint OBSTACLE_THRESHOLD = 4;
+
 };
 

@@ -215,6 +215,20 @@ void Game::addMapOffset(int number)
 	_mapOffset += number;
 }
 
+Collision Game::checkCollision(const SDL_Rect& rect, bool fromPlayer)
+{
+	Collision collisionResult{ false, false };
+
+	// Colisiones con TileMap
+	if (_tile->hit(rect, fromPlayer)) {
+		collisionResult.collides = true;
+	}
+
+	// Colisiones con otros objetos...
+
+	return collisionResult;
+}
+
 //Player::Player(Game* game, istream& in)
 //	: game(game)
 //{
