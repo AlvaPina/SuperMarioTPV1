@@ -8,9 +8,9 @@
 
 
 Player::Player(Texture* texture, Vector2D<int> position, Game* game, int lives, bool movingRight, bool superMario):
-	_texture(texture), _position(position), _game(game), _lives(lives), _movingRight(movingRight), _superMario(superMario)
+	_texture(texture), _position(position), _game(game), _lives(lives), _superMario(superMario)
 {
-	_onTheFloor = false;
+	_onTheFloor = true;
 	_rect.w = 50;
 	_rect.h = 50;
 	_rect.x = _position.getX();
@@ -27,12 +27,12 @@ void Player::update()
     SDL_Rect newRect = _rect;
 
     // Movimiento EJE X (left o right)
-    newRect.x += (_marioDirection == RIGHT ? PLAYERSPEED : (_marioDirection == LEFT ? -PLAYERSPEED : 0));
+    newRect.x += (_horizontalDirection == RIGHT ? PLAYERSPEED : (_horizontalDirection == LEFT ? -PLAYERSPEED : 0));
 
-    if (_marioDirection == RIGHT) {
+    if (_horizontalDirection == RIGHT) {
         newRect.x = _position.getX() + PLAYERSPEED;
     }
-    else if (_marioDirection == LEFT) {
+    else if (_horizontalDirection == LEFT) {
         if (_position.x > 0)
             newRect.x = _position.getX() - PLAYERSPEED;
     }
@@ -46,17 +46,23 @@ void Player::update()
     }
 
     // Movimiento EJE Y (salto o gravedad)
-    if (_marioDirection == JUMPING) {
-        newRect.y += -PLAYERSPEED;
+    if (_verticalDirection == JUMPING || _verticalDirection == FALLING) {
+        if(_verticalSpeed < VERTICAL_MAX_SPEED)
+        _verticalSpeed += _game->GRAVITY/10;
     }
-    else {
-        newRect.y += _game->GRAVITY;
-    }
+    newRect.y += _verticalSpeed;
     // mirar si se puede aplicar el movimiento en el ejeY
     Collision verticalCollision = _game->checkCollision(newRect, true);
     if (!verticalCollision.collides) {
         // No hubo colision y podemos avanzarlo
         _position.y = newRect.y;
+        _onTheFloor = false;
+    }
+    else {
+        _onTheFloor = true;
+        if (_verticalDirection == JUMPING) {
+            _verticalDirection = VERTICAL_STATIC;
+        }
     }
 
     //Actualizar rect
@@ -77,14 +83,17 @@ void Player::handleEvent(const SDL_Event& evento)
         {
         case SDLK_RIGHT:
         case SDLK_d:
-            _marioDirection = RIGHT;
+            _horizontalDirection = RIGHT;
             break;
         case SDLK_LEFT:
         case SDLK_a:
-            _marioDirection = LEFT;
+            _horizontalDirection = LEFT;
             break;
         case SDLK_SPACE:
-            _marioDirection = JUMPING;
+            if (_onTheFloor) {
+                _verticalSpeed = -10;
+                _verticalDirection = JUMPING;
+            }
             break;
         default:
             break;
@@ -97,7 +106,7 @@ void Player::handleEvent(const SDL_Event& evento)
         case SDLK_LEFT:
         case SDLK_d:
         case SDLK_a:
-            _marioDirection = STATIC;
+            _horizontalDirection = HORIZONTAL_STATIC;
             break;
         default:
             break;

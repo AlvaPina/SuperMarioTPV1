@@ -80,8 +80,8 @@ public:
 	// Constante globales
 	static constexpr uint WIN_WIDTH = 500;
 	static constexpr uint WIN_HEIGHT = 500;
-	static constexpr uint FRAME_RATE = 50;
-	static constexpr uint GRAVITY = 15;
+	static constexpr uint FRAME_RATE = 30;
+	static constexpr float GRAVITY = 5;
 	static constexpr uint TILE_SIDE = 32;
 	static constexpr uint TILE_MAP = 16;
 
