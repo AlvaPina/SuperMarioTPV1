@@ -40,7 +40,7 @@ void Player::update()
     Collision horizontalCollision = _game->checkCollision(newRect, true);
     if (!horizontalCollision.collides) {
         // No hubo colision y podemos avanzarlo
-        if (_position.x >= _game->WIN_WIDTH / 2 && _position.x > 0) // Esto es para ver si en vez de avanzar al player queremos
+        if (_position.x >= _game->WIN_WIDTH / 2 && _position.x > 0 && _horizontalDirection == RIGHT) // Esto es para ver si en vez de avanzar al player queremos
             _game->addMapOffset(PLAYERSPEED);                       // avanzar solamente el offset
         else _position.x = newRect.x;
     }
@@ -91,7 +91,7 @@ void Player::handleEvent(const SDL_Event& evento)
             break;
         case SDLK_SPACE:
             if (_onTheFloor) {
-                _verticalSpeed = -10;
+                _verticalSpeed = -JUMP_POWER;
                 _verticalDirection = JUMPING;
             }
             break;
