@@ -10,8 +10,8 @@ private:
 	const int PLAYERSPEED = 5;
 	const int VERTICAL_MAX_SPEED = 25;
 	const int JUMP_POWER = 12;
-	float _verticalSpeed = 0;
 
+	float _verticalSpeed = 0;
 	Texture* _texture;				// Puntero a la textura de Mario
 	Vector2D<int> _position;		// Posicion actual de Mario
 	Game* _game;					// Puntero al juego
@@ -21,7 +21,7 @@ private:
 	bool _onTheFloor;				// Indica si Mario está en el suelo
 	int playerSpeed;				// Velocidad del personaje
 	int _playerFrame;				// Indica el frame que se renderiza
-	SDL_RendererFlip _playerFlip;	// 
+	SDL_RendererFlip _playerFlip;	// Indica en que direccion se rota el sprite
 
 	
 	enum DIRECCION_HORIZONTAL {

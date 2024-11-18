@@ -26,18 +26,13 @@ void Player::render()
     case STOPPED:
         _playerFrame = 0;
         break;
-    case MOVING_R:
-        if (_playerFrame == 2) _playerFrame = 1;
-        else _playerFrame = 2;
-        break;
-    case MOVING_L:
+    case MOVING_R: case MOVING_L:
         if (_playerFrame == 2) _playerFrame = 1;
         else _playerFrame = 2;
         break;
     case AN_JUMPING:
         _playerFrame = 5;
         break;
-
     }
 
 	_texture->renderFrame(_rect, 0, _playerFrame, _playerFlip);
@@ -92,10 +87,22 @@ void Player::update()
 
     // Actualizar estatus de la animacion LIMPIAR
     if (!_onTheFloor) _animationState = AN_JUMPING;
-    else if (_animationState == AN_JUMPING) _animationState = STOPPED;
-    if (_horizontalDirection == RIGHT) _playerFlip = SDL_FLIP_NONE;
-    else if (_horizontalDirection == LEFT) _playerFlip = SDL_FLIP_HORIZONTAL;
-    else if (_horizontalDirection == HORIZONTAL_STATIC && _onTheFloor) _animationState = STOPPED;
+    else
+    {
+        switch(_horizontalDirection)
+        {
+        case RIGHT:
+            _playerFlip = SDL_FLIP_NONE;
+            break;
+        case LEFT:
+            _playerFlip = SDL_FLIP_HORIZONTAL;
+            break;
+
+        case HORIZONTAL_STATIC:
+            _animationState = STOPPED;
+            break;        
+        }
+    }
 }
 
 void Player::hit()
