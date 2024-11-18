@@ -121,13 +121,11 @@ Game::render() const
 	_player->render();
 	
 	//Bloques
-	for (const auto& block : _bloques) {
-		block->render();
-	}
+	for (const auto& block : _bloques) block->render();
+	
 	//Goombas
-	for (const auto& goomba : _goombas) {
-		//goomba->render();
-	}
+	for (const auto& goomba : _goombas) goomba->render();
+
 	//...
 
 	SDL_RenderPresent(_renderer);
@@ -140,6 +138,8 @@ Game::update()
 	for (const auto& block : _bloques) {
 		block->update();
 	}
+	for (const auto& goomba : _goombas) goomba->update();
+
 	_player->update();
 }
 
