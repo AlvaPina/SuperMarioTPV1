@@ -16,11 +16,31 @@ Player::Player(Texture* texture, Vector2D<int> position, Game* game, int lives, 
 	_rect.x = _position.getX();
 	_rect.y = _position.getY();
     _playerFrame = 0;
+    _playerFlip = SDL_FLIP_NONE;
 }
 
 void Player::render()
 {
-	_texture->renderFrame(_rect, 0, _playerFrame);
+    switch(_animationState)
+    {
+    case STOPPED:
+        _playerFrame = 0;
+        break;
+    case MOVING_R:
+        if (_playerFrame == 2) _playerFrame = 1;
+        else _playerFrame = 2;
+        break;
+    case MOVING_L:
+        if (_playerFrame == 2) _playerFrame = 1;
+        else _playerFrame = 2;
+        break;
+    case AN_JUMPING:
+        _playerFrame = 5;
+        break;
+
+    }
+
+	_texture->renderFrame(_rect, 0, _playerFrame, _playerFlip);
 }
 
 void Player::update()
@@ -69,6 +89,13 @@ void Player::update()
     //Actualizar rect
     _rect.x = _position.getX();
     _rect.y = _position.getY();
+
+    // Actualizar estatus de la animacion LIMPIAR
+    if (!_onTheFloor) _animationState = AN_JUMPING;
+    else if (_animationState == AN_JUMPING) _animationState = STOPPED;
+    if (_horizontalDirection == RIGHT) _playerFlip = SDL_FLIP_NONE;
+    else if (_horizontalDirection == LEFT) _playerFlip = SDL_FLIP_HORIZONTAL;
+    else if (_horizontalDirection == HORIZONTAL_STATIC && _onTheFloor) _animationState = STOPPED;
 }
 
 void Player::hit()
@@ -85,15 +112,18 @@ void Player::handleEvent(const SDL_Event& evento)
         case SDLK_RIGHT:
         case SDLK_d:
             _horizontalDirection = RIGHT;
+            _animationState = MOVING_R;
             break;
         case SDLK_LEFT:
         case SDLK_a:
             _horizontalDirection = LEFT;
+            _animationState = MOVING_L;
             break;
         case SDLK_SPACE:
             if (_onTheFloor) {
                 _verticalSpeed = -JUMP_POWER;
                 _verticalDirection = JUMPING;
+                _animationState = AN_JUMPING;
             }
             break;
         default:
