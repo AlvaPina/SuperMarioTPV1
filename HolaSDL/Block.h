@@ -7,27 +7,32 @@ class Block
 {
 public:
 enum BlockType {
-	LADRILLO,
 	SORPRESA,
 	VACIO,
-	OCULTO
+	LADRILLO
 };
-enum Action {
-	POTENCIADOR,
-	MONEDA
+enum BlockContent {
+	EMPTY,
+	POWER_UP,
+	COIN
 };
 
-Block(Game* game, BlockType type, Point2D<int> pos, Texture* texture);
+Block(Game* game, BlockType type, Point2D<int> pos, Texture* texture, BlockContent content);
 void render();
 void update();
 void hit(SDL_Rect* rectMario);
 
 private:
+	const int ANIMATION_SPEED = 5;
+
 	Point2D<int> _pos;
 	Texture* _texture;
 	SDL_Rect _rectangulo;
 	BlockType _type;
 	Game* _game;
+	BlockContent _content;
+	int renderFrame;		// Indica que frame se usa en el renderizado
+	int _framecont;
 
 };
 

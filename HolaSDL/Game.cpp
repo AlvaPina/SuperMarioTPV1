@@ -198,11 +198,21 @@ void Game::loadObjectMap() {
 			Point2D<int> pos(auxX, auxY);
 
 			if (auxtype == "B") {
-				Block* block = new Block(this, Block::LADRILLO, pos, _textures[BLOCKS]);
+				Block* block = new Block(this, Block::LADRILLO, pos, _textures[BLOCKS], Block::BlockContent::EMPTY);
 				_bloques.push_back(block);
 			}
-			else if (auxtype == "H") {
-				// Lógica para el tipo H
+			else if (auxtype == "?") {
+				lineStream >> auxtype;
+				if(auxtype == "C")
+				{
+					Block* block = new Block(this, Block::SORPRESA, pos, _textures[BLOCKS], Block::BlockContent::COIN);
+					_bloques.push_back(block);
+				}
+				else
+				{
+					Block* block = new Block(this, Block::SORPRESA, pos, _textures[BLOCKS], Block::BlockContent::POWER_UP);
+					_bloques.push_back(block);
+				}
 			}
 			break;
 		}
