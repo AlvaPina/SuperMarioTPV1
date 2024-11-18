@@ -117,8 +117,8 @@ Game::render() const
 	SDL_RenderClear(_renderer);
 
 	// Pinta los objetos del juego
-	_player->render();
 	_tile->render();
+	_player->render();
 	
 	//Bloques
 	for (const auto& block : _bloques) {

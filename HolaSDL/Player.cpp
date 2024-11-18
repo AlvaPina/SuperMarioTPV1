@@ -15,11 +15,12 @@ Player::Player(Texture* texture, Vector2D<int> position, Game* game, int lives, 
 	_rect.h = 50;
 	_rect.x = _position.getX();
 	_rect.y = _position.getY();
+    _playerFrame = 0;
 }
 
 void Player::render()
 {
-	_texture->renderFrame(_rect, 0,0);
+	_texture->renderFrame(_rect, 0, _playerFrame);
 }
 
 void Player::update()

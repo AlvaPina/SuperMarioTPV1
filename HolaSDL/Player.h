@@ -20,6 +20,7 @@ private:
 	bool _superMario;		// Forma de Mario
 	bool _onTheFloor;
 	int playerSpeed;
+	int _playerFrame;
 	
 	enum DIRECCION_HORIZONTAL {
 		RIGHT,
@@ -31,6 +32,13 @@ private:
 		JUMPING,
 		FALLING,
 		VERTICAL_STATIC
+	};
+
+	enum ANIMATION_STATE {
+		STOPPED,
+		MOVING_R,
+		MOVING_L,
+		AN_JUMPING,
 	};
 
 	DIRECCION_HORIZONTAL _horizontalDirection = HORIZONTAL_STATIC;
