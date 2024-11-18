@@ -23,7 +23,7 @@ void update();
 void hit(SDL_Rect* rectMario);
 
 private:
-	const int ANIMATION_SPEED = 5;
+	const int ANIMATION_SPEED = 10;
 
 	Point2D<int> _pos;
 	Texture* _texture;
@@ -32,7 +32,7 @@ private:
 	Game* _game;
 	BlockContent _content;
 	int renderFrame;		// Indica que frame se usa en el renderizado
-	int _framecont;
+	int _framecont;			// contador auxiliar para las animaciones
 
 };
 
