@@ -1,4 +1,7 @@
 ﻿  Block.cpp
   Goomba.cpp
+  TileMap.cpp
+C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\TileMap.cpp(26,24): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\TileMap.cpp(29,25): warning C4018: '<': no coinciden signed/unsigned
   Generando código...
-  HolaSDL.vcxproj -> C:\Users\usuario_local\Downloads\SuperMarioTPV1\bin\HolaSDLDebug.exe
+  HolaSDL.vcxproj -> C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\bin\HolaSDLDebug.exe

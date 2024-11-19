@@ -33,8 +33,8 @@ int TileMap::render() const
 			// Si el índice es -1 no se pinta nada
 			if (indice != -1) {
 				// Separa número de fila y de columna
-				int frameCol = indice % 9;
-				int frameRow = indice / 9;
+				int frameCol = indice % _background->getNumColumns();
+				int frameRow = indice / _background->getNumColumns();
 
 				rect.y = row * TILE_SIDE;
 
