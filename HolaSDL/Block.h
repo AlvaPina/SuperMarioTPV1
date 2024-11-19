@@ -27,12 +27,12 @@ private:
 
 	Point2D<int> _pos;
 	Texture* _texture;
-	SDL_Rect _rectangulo;
+	SDL_Rect _rect;
 	BlockType _type;
 	Game* _game;
 	BlockContent _content;
 	int renderFrame;		// Indica que frame se usa en el renderizado
-	int _framecont;			// contador auxiliar para las animaciones
+	int _framecont;			// Contador auxiliar para las animaciones
 
 };
 

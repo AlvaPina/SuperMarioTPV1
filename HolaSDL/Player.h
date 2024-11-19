@@ -7,7 +7,7 @@
 class Player
 {
 private:
-	const int PLAYERSPEED = 5;
+	const int PLAYERSPEED = 10;
 	const int VERTICAL_MAX_SPEED = 25;
 	const int JUMP_POWER = 12;
 

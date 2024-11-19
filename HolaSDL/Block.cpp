@@ -4,10 +4,10 @@
 Block::Block(Game* game, BlockType type, Point2D<int> pos, Texture* texture, BlockContent content) : _game(game), _type(type), _pos(pos), 
 _texture(texture), _content(content)
 {
-	_rectangulo.w = 32;
-	_rectangulo.h = 32;
-	_rectangulo.x = pos.getX() * 32;
-	_rectangulo.y = pos.getY() * 32;
+	_rect.w = 32;
+	_rect.h = 32;
+	_rect.x = pos.getX() * 32;
+	_rect.y = pos.getY() * 32;
 	_framecont = 0;
 
 	if (type == SORPRESA) renderFrame = 0;
@@ -16,12 +16,12 @@ _texture(texture), _content(content)
 
 void Block::render()
 {
-	_texture->renderFrame(_rectangulo, 0, renderFrame);
+	_texture->renderFrame(_rect, 0, renderFrame);
 }
 
 void Block::update()
 {
-	_rectangulo.x = _pos.getX() * 32 - _game->getMapOffset();
+	_rect.x = _pos.getX() * 32 - _game->getMapOffset();
 
 	if(_type == SORPRESA)
 	{
@@ -37,7 +37,7 @@ void Block::update()
 
 void Block::hit(SDL_Rect* rectMario)
 {
-	if (SDL_HasIntersection(&_rectangulo, rectMario)) {
+	if (SDL_HasIntersection(&_rect, rectMario)) {
 		std::cout << "BloqueColisionandoConMario";
 
 		if(_type == SORPRESA){

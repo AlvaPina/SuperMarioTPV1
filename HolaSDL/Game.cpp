@@ -216,6 +216,17 @@ void Game::loadObjectMap() {
 			}
 			break;
 		}
+		case 'G': {
+			int auxX, auxY;
+			lineStream >> auxX;
+			lineStream >> auxY;
+
+			Point2D<int> pos(auxX, auxY);
+			Goomba* goomba = new Goomba(_textures[GOOMBA], pos, this);
+			_goombas.push_back(goomba);
+
+			break;
+		}
 		}
 	}
 }
