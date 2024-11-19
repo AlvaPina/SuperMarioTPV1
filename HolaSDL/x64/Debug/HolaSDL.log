@@ -1,4 +1,2 @@
-﻿  TileMap.cpp
-C:\Users\usuario_local\Downloads\SuperMarioTPV1\HolaSDL\TileMap.cpp(26,24): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\usuario_local\Downloads\SuperMarioTPV1\HolaSDL\TileMap.cpp(29,25): warning C4018: '<': no coinciden signed/unsigned
-  HolaSDL.vcxproj -> C:\Users\usuario_local\Downloads\SuperMarioTPV1\bin\HolaSDLDebug.exe
+﻿  Game.cpp
+C:\Users\usuario_local\Downloads\SuperMarioTPV1\HolaSDL\Game.cpp(215,3): error C2360: la inicialización de 'auxtype' se omite en la etiqueta 'case'

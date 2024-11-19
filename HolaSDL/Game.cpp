@@ -174,53 +174,45 @@ void Game::loadObjectMap() {
 		char tipo;
 		lineStream >> tipo;
 
+		int auxX, auxY;
+		lineStream >> auxX;
+		lineStream >> auxY;
+
+		Vector2D<int>  auxPos(auxX, auxY - 1);
+
 		switch (tipo) {
 		case 'M': {
-			int auxX, auxY, auxLiv;
-			lineStream >> auxX;
-			lineStream >> auxY;
+			int auxLiv;
 			lineStream >> auxLiv;
-
-			Vector2D<int> auxPos(auxX, auxY);
 
 			_player = new Player(_textures[MARIO], auxPos, this, auxLiv, false, false);
 			break;
 		}
 		case 'B': {
-			int auxX, auxY;
 			string auxtype;
-			lineStream >> auxX;
-			lineStream >> auxY;
 			lineStream >> auxtype;
 
-			Point2D<int> pos(auxX, auxY);
-
 			if (auxtype == "B") {
-				Block* block = new Block(this, Block::LADRILLO, pos, _textures[BLOCKS], Block::BlockContent::EMPTY);
+				Block* block = new Block(this, Block::LADRILLO, auxPos, _textures[BLOCKS], Block::BlockContent::EMPTY);
 				_bloques.push_back(block);
 			}
 			else if (auxtype == "?") {
 				lineStream >> auxtype;
 				if(auxtype == "C")
 				{
-					Block* block = new Block(this, Block::SORPRESA, pos, _textures[BLOCKS], Block::BlockContent::COIN);
+					Block* block = new Block(this, Block::SORPRESA, auxPos, _textures[BLOCKS], Block::BlockContent::COIN);
 					_bloques.push_back(block);
 				}
 				else
 				{
-					Block* block = new Block(this, Block::SORPRESA, pos, _textures[BLOCKS], Block::BlockContent::POWER_UP);
+					Block* block = new Block(this, Block::SORPRESA, auxPos, _textures[BLOCKS], Block::BlockContent::POWER_UP);
 					_bloques.push_back(block);
 				}
 			}
 			break;
 		}
 		case 'G': {
-			int auxX, auxY;
-			lineStream >> auxX;
-			lineStream >> auxY;
-
-			Point2D<int> pos(auxX, auxY);
-			Goomba* goomba = new Goomba(_textures[GOOMBA], pos, this);
+			Goomba* goomba = new Goomba(_textures[GOOMBA], auxPos, this);
 			_goombas.push_back(goomba);
 
 			break;
