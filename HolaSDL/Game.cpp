@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <sstream>
+#include <fstream>
 
 #include "Game.h"
 #include "Texture.h"
@@ -13,9 +14,6 @@
 
 using namespace std;
 
-#include <string>
-#include <fstream>
-#include "Game.h"
 
 // Formato de la especificaci�n de una textura
 struct TextureSpec
