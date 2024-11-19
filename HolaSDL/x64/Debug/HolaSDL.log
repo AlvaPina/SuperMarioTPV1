@@ -1,2 +1,2 @@
-﻿  Game.cpp
-C:\Users\usuario_local\Downloads\SuperMarioTPV1\HolaSDL\Game.cpp(215,3): error C2360: la inicialización de 'auxtype' se omite en la etiqueta 'case'
+﻿  Goomba.cpp
+  HolaSDL.vcxproj -> C:\Users\usuario_local\Downloads\SuperMarioTPV1\bin\HolaSDLDebug.exe

@@ -9,6 +9,7 @@ class Goomba
 {
 private:
 	const int GOOMBA_SPEED = 2;
+	const int FRAME_SPEED = 5;
 
 	Texture* _texture;			// Puntero a la textura
 	Vector2D<int> _pos;	// Posicion actual
@@ -16,6 +17,7 @@ private:
 	SDL_Rect _rect;
 	bool _movingLeft;			// Indica direccion de movimiento
 	int _renderFrame;			// Indica que frame se usa en el renderizado
+	int _frameCont;
 
 	bool isInScreen();
 

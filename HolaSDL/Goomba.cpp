@@ -15,10 +15,20 @@ Goomba::Goomba(Texture* texture, Vector2D<int> position, Game* game):
 	_rect.y = _pos.getY();
 
 	_renderFrame = 0;
+	_frameCont = 0;
 	_movingLeft = true;
 }
 
 void Goomba::render() {
+	if (_frameCont >= FRAME_SPEED)
+	{
+		if (_renderFrame == 0) _renderFrame = 1;
+		else _renderFrame = 0;
+	
+		_frameCont = 0;
+	}
+	else _frameCont++;
+
 	_texture->renderFrame(_rect, 0, _renderFrame);
 }
 

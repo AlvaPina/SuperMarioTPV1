@@ -214,7 +214,6 @@ void Game::loadObjectMap() {
 		case 'G': {
 			Goomba* goomba = new Goomba(_textures[GOOMBA], auxPos, this);
 			_goombas.push_back(goomba);
-
 			break;
 		}
 		}
