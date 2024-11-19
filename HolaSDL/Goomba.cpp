@@ -7,10 +7,8 @@
 
 
 Goomba::Goomba(Texture* texture, Vector2D<int> position, Game* game): 
-	_texture(texture), _game(game)
+	_texture(texture), _game(game), _pos(position * 32)
 {
-	_pos.x = position.getX() * 32;
-	_pos.y = position.getY() * 32;
 	_rect.w = 32;
 	_rect.h = 32;
 	_rect.x = _pos.getX();
@@ -25,8 +23,6 @@ void Goomba::render() {
 }
 
 void Goomba::update() {
-	//_rect.x = _pos.getX() * 32 - _game->getMapOffset();
-
 	if(isInScreen())
 	{
 		if (_movingLeft) _pos.x = _pos.x - GOOMBA_SPEED;
@@ -34,7 +30,6 @@ void Goomba::update() {
 	}
 	_rect.x = _pos.getX() - _game->getMapOffset();
 	_rect.y = _pos.getY();
-
 }
 
 bool Goomba::isInScreen()

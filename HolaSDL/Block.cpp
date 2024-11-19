@@ -1,13 +1,13 @@
 #include "Block.h"
 #include <iostream>
 
-Block::Block(Game* game, BlockType type, Point2D<int> pos, Texture* texture, BlockContent content) : _game(game), _type(type), _pos(pos), 
+Block::Block(Game* game, BlockType type, Point2D<int> pos, Texture* texture, BlockContent content) : _game(game), _type(type), _pos(pos * 32), 
 _texture(texture), _content(content)
 {
 	_rect.w = 32;
 	_rect.h = 32;
-	_rect.x = pos.getX() * 32;
-	_rect.y = pos.getY() * 32;
+	_rect.x = _pos.getX();
+	_rect.y = _pos.getY();
 	_framecont = 0;
 
 	if (type == SORPRESA) renderFrame = 0;
@@ -21,7 +21,7 @@ void Block::render()
 
 void Block::update()
 {
-	_rect.x = _pos.getX() * 32 - _game->getMapOffset();
+	_rect.x = _pos.getX() - _game->getMapOffset();
 
 	if(_type == SORPRESA)
 	{
