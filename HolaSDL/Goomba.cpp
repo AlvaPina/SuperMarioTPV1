@@ -7,7 +7,7 @@
 
 
 Goomba::Goomba(Texture* texture, Vector2D<int> position, Game* game): 
-	_texture(texture), _game(game), _pos(position * 32)
+	_texture(texture), _game(game), _pos(position * game->TILE_SIDE)
 {
 	_rect.w = 32;
 	_rect.h = 32;

@@ -1,7 +1,7 @@
 #include "Block.h"
 #include <iostream>
 
-Block::Block(Game* game, BlockType type, Point2D<int> pos, Texture* texture, BlockContent content) : _game(game), _type(type), _pos(pos * 32), 
+Block::Block(Game* game, BlockType type, Point2D<int> pos, Texture* texture, BlockContent content) : _game(game), _type(type), _pos(pos * game->TILE_SIDE),
 _texture(texture), _content(content)
 {
 	_rect.w = 32;
