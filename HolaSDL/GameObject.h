@@ -7,8 +7,8 @@ class Game;
 
 class GameObject
 {
-protected:
-    Game* game;
+private:
+    Game* _game;
 public:
     GameObject(Game* game);
     virtual ~GameObject();
