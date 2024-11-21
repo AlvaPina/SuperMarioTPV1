@@ -2,13 +2,14 @@
 #define GAMEOBJECT_H
 
 #include "checkML.h"
+//#include "gameList.h"
 
 class Game;
 
 class GameObject
 {
-private:
-    Game* _game;
+protected:
+    Game* game;
 public:
     GameObject(Game* game);
     virtual ~GameObject();

@@ -116,7 +116,7 @@ Game::render() const
 
 	// Pinta los objetos del juego
 	_tile->render();
-	_player->render();
+	_player->Render();
 	
 	//Bloques
 	for (const auto& block : _bloques) block->render();
@@ -138,7 +138,7 @@ Game::update()
 	}
 	for (const auto& goomba : _goombas) goomba->update();
 
-	_player->update();
+	_player->Update();
 }
 
 void

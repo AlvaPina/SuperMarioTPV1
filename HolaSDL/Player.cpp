@@ -7,71 +7,61 @@
 #include "Game.h"
 
 
-Player::Player(Texture* texture, Vector2D<int> position, Game* game, int lives, bool movingRight, bool superMario):
-	_texture(texture), _position(position), _game(game), _lives(lives), _superMario(superMario)
+Player::Player(Texture* texture, Vector2D<int> position, Game* game, int lives, bool movingRight, bool superMario)
+    : SceneObject(game, position, { 0,0 }, false, 1), _lives(lives), _superMario(superMario), _texture(texture)
 {
 	_onTheFloor = true;
-	_rect.w = 50;
-	_rect.h = 50;
-	_rect.x = _position.getX();
-	_rect.y = _position.getY();
     _playerFrame = 0;
     _playerFlip = SDL_FLIP_NONE;
 }
 
-void Player::render()
+Player::~Player()
 {
-    switch(_animationState)
-    {
-    case STOPPED:
-        _playerFrame = 0;
-        break;
-    case MOVING_R: case MOVING_L:
-        if (_playerFrame == 2) _playerFrame = 1;
-        else _playerFrame = 2;
-        break;
-    case AN_JUMPING:
-        _playerFrame = 5;
-        break;
-    }
-
-	_texture->renderFrame(_rect, 0, _playerFrame, _playerFlip);
 }
 
-void Player::update()
+void Player::Render() const
 {
-    SDL_Rect newRect = _rect;
+    if (_texture) {
+        _texture->renderFrame(rect, 0, _playerFrame, _playerFlip);
+    }
+}
+
+void Player::Update()
+{
+    HandleAnims();
+
+    SDL_Rect newRect = rect;
 
     // Movimiento EJE X (left o right)
     newRect.x += (_horizontalDirection == RIGHT ? PLAYERSPEED : (_horizontalDirection == LEFT ? -PLAYERSPEED : 0));
 
     if (_horizontalDirection == RIGHT) {
-        newRect.x = _position.getX() + PLAYERSPEED;
+        newRect.x = pos.getX() + PLAYERSPEED;
     }
     else if (_horizontalDirection == LEFT) {
-        if (_position.x > 0)
-            newRect.x = _position.getX() - PLAYERSPEED;
+        if (pos.x > 0)
+            newRect.x = pos.getX() - PLAYERSPEED;
     }
     // mirar si se puede aplicar el movimiento en el ejeX
-    Collision horizontalCollision = _game->checkCollision(newRect, true);
+    Collision horizontalCollision = game->checkCollision(newRect, true);
     if (!horizontalCollision.collides) {
         // No hubo colision y podemos avanzarlo
-        if (_position.x >= _game->WIN_WIDTH / 2 && _position.x > 0 && _horizontalDirection == RIGHT) // Esto es para ver si en vez de avanzar al player queremos
-            _game->addMapOffset(PLAYERSPEED);                       // avanzar solamente el offset
-        else _position.x = newRect.x;
+        if (pos.x >= game->WIN_WIDTH / 2 && pos.x > 0 && _horizontalDirection == RIGHT) // Esto es para ver si en vez de avanzar al player queremos
+            game->addMapOffset(PLAYERSPEED);                       // avanzar solamente el offset
+        else pos.x = newRect.x;
     }
 
     // Movimiento EJE Y (salto o gravedad)
     if (_verticalDirection == JUMPING || _verticalDirection == FALLING) {
         if(_verticalSpeed < VERTICAL_MAX_SPEED)
-        _verticalSpeed += _game->GRAVITY/10;
+        _verticalSpeed += game->GRAVITY/10;
     }
     newRect.y += _verticalSpeed;
     // mirar si se puede aplicar el movimiento en el ejeY
-    Collision verticalCollision = _game->checkCollision(newRect, true);
+    Collision verticalCollision = game->checkCollision(newRect, true);
     if (!verticalCollision.collides) {
         // No hubo colision y podemos avanzarlo
-        _position.y = newRect.y;
+        pos.y = newRect.y;
         _onTheFloor = false;
     }
     else {
@@ -82,8 +72,8 @@ void Player::update()
     }
 
     //Actualizar rect
-    _rect.x = _position.getX();
-    _rect.y = _position.getY();
+    rect.x = pos.getX();
+    rect.y = pos.getY();
 
     // Actualizar estatus de la animacion LIMPIAR
     if (!_onTheFloor) _animationState = AN_JUMPING;
@@ -105,10 +95,12 @@ void Player::update()
     }
 }
 
-void Player::hit()
+
+bool Player::Hit(SDL_Rect* rectDeAtaque, bool fromPlayer)
 {
 	if (_superMario) _superMario = false;
 	else _lives--; // ha muerto
+    return false; 
 }
 
 void Player::handleEvent(const SDL_Event& evento)
@@ -152,12 +144,19 @@ void Player::handleEvent(const SDL_Event& evento)
     }
 }
 
-int Player::getX()
+void Player::HandleAnims()
 {
-	return _position.getX();
-}
-
-int Player::getY()
-{
-	return _position.getY();
+    switch (_animationState)
+    {
+    case STOPPED:
+        _playerFrame = 0;
+        break;
+    case MOVING_R: case MOVING_L:
+        if (_playerFrame == 2) _playerFrame = 1;
+        else _playerFrame = 2;
+        break;
+    case AN_JUMPING:
+        _playerFrame = 5;
+        break;
+    }
 }
