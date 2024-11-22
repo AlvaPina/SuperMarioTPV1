@@ -13,9 +13,57 @@ SceneObject::SceneObject(Game* game, Point2D<int> pos, Vector2D<int> velocity, b
 	rect.h = 50;
 	rect.x = pos.getX();
 	rect.y = pos.getY();
+
+    gravity = game->GRAVITY;
+    flippingVelocity = false;
+    colliding = false;
 }
 
 SceneObject::~SceneObject() {
+}
+
+void SceneObject::move()
+{
+    if (isStatic) return; // No moverse si el objeto es estático
+
+    // Aplicamos la gravedad
+    if (velocity.getY() < game->GRAVITY_MAX_VELOCITY) {
+        velocity.y -= gravity;
+    }
+
+    SDL_Rect newRect = rect;
+
+    // Comprobar colisiones eje X
+    newRect.x += velocity.getX();
+
+    if (!game->checkCollision(newRect, false).collides) {
+        // Si no hay colisión, aplicar movimiento en el ejeX
+        rect.x += velocity.getX();
+        pos.x += velocity.getX();
+    }
+
+    // Comprobar colisiones eje Y
+    newRect.y -= velocity.getY();
+
+    if (!game->checkCollision(newRect, false).collides) {
+        // Si no hay colisión, aplicar movimiento en el ejeY
+        rect.y -= velocity.getY();
+        pos.y -= velocity.getY();
+        colliding = false;
+    }
+    else colliding = true;
+
+    if (flippingVelocity) manageFlip();
+}
+
+void SceneObject::manageFlip()
+{
+    if (velocity.getX() < 0) {
+        flip = SDL_FLIP_HORIZONTAL;
+    }
+    else if (velocity.getX() > 0) {
+        flip = SDL_FLIP_NONE;
+    }
 }
 
 const SDL_Rect& SceneObject::getRect() const
@@ -43,4 +91,9 @@ void SceneObject::setVelocity(int vx, int vy)
 void SceneObject::setStatic(bool isStatic)
 {
 	isStatic = isStatic;
+}
+
+void SceneObject::setGravity(int value)
+{
+    gravity = value;
 }

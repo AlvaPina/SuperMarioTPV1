@@ -1,4 +1,4 @@
-﻿  Player.cpp
-C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\Player.cpp(59,18): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\Player.cpp(123,34): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+﻿  Game.cpp
+  Player.cpp
+  Generando código...
   HolaSDL.vcxproj -> C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\bin\HolaSDLDebug.exe
