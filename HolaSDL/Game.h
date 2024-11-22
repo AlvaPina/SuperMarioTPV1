@@ -81,12 +81,10 @@ public:
 	static constexpr uint WIN_WIDTH = 500;
 	static constexpr uint WIN_HEIGHT = 500;
 	static constexpr uint FRAME_RATE = 30;
-	static constexpr uint GRAVITY = 7;
-	static constexpr uint GRAVITY_MAX_VELOCITY = 25;
+	static constexpr uint GRAVITY = 2;
+	static constexpr float GRAVITY_MAX_VELOCITY = 25;
 	static constexpr uint TILE_SIDE = 32;
 	static constexpr uint TILE_MAP = 16;
-
-	
 
 };
 

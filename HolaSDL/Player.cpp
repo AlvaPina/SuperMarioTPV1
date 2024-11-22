@@ -72,8 +72,9 @@ void Player::handleEvent(const SDL_Event& evento)
             break;
         case SDLK_SPACE:
             if (colliding) {
-                velocity.y = JUMP_POWER;
+                velocity.y = -JUMP_POWER;
                 _animationState = AN_JUMPING;
+                colliding = false;
             }
             break;
         default:

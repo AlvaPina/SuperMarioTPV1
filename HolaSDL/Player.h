@@ -7,7 +7,7 @@ class Player : public SceneObject
 {
 private:
 	const int PLAYERSPEED = 10;
-	const int JUMP_POWER = 24;
+	const int JUMP_POWER = 25;
 
 	Texture* _texture;				// Puntero a la textura de Mario
 	int _lives;						// Numero de vidas de Mario
