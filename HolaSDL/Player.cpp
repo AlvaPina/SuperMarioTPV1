@@ -32,16 +32,16 @@ void Player::Update()
 
     // Para que el jugador no se salga por la izquierda de la pantalla
     if (pos.getX() < 1 && velocity.getX() < 0) {
-        velocity.x = 0;
+        velocity.setX(0);
     }
 
     // Si el jugador ha alcanzado la mitad de la pantalla
     if (pos.getX() >= game->WIN_WIDTH / 2 && velocity.getX() > 0) {
         // Desplazar el mapa sin mover horizontalmente al jugador
         game->addMapOffset(velocity.getX());
-        velocity.x = 0;
+        velocity.setX(0);
         move();
-        velocity.x = PLAYERSPEED;
+        velocity.setX(PLAYERSPEED);
     }
     else { // Movimiento normal
         move();
@@ -62,17 +62,17 @@ void Player::handleEvent(const SDL_Event& evento)
         {
         case SDLK_RIGHT:
         case SDLK_d:
-            velocity.x = PLAYERSPEED;
+            velocity.setX(PLAYERSPEED);
             _animationState = MOVING_R;
             break;
         case SDLK_LEFT:
         case SDLK_a:
-            velocity.x = -PLAYERSPEED;
+            velocity.setX(-PLAYERSPEED);
             _animationState = MOVING_L;
             break;
         case SDLK_SPACE:
             if (colliding) {
-                velocity.y = -JUMP_POWER;
+                velocity.setY(-JUMP_POWER);
                 _animationState = AN_JUMPING;
                 colliding = false;
             }
@@ -88,7 +88,7 @@ void Player::handleEvent(const SDL_Event& evento)
         case SDLK_LEFT:
         case SDLK_d:
         case SDLK_a:
-            velocity.x = 0;
+            velocity.setX(0);
             break;
         default:
             break;

@@ -35,8 +35,8 @@ void Goomba::render() {
 void Goomba::update() {
 	if(isInScreen())
 	{
-		if (_movingLeft) _pos.x = _pos.x - GOOMBA_SPEED;
-		else _pos.x = _pos.x + GOOMBA_SPEED;
+		if (_movingLeft) _pos.addX(-GOOMBA_SPEED);
+		else _pos.addX(GOOMBA_SPEED);
 	}
 	_rect.x = _pos.getX() - _game->getMapOffset();
 	_rect.y = _pos.getY();

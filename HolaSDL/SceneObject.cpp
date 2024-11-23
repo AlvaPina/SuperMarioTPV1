@@ -28,7 +28,7 @@ void SceneObject::move()
 
     // Aplicamos la gravedad
     if (!colliding) {
-        velocity.y += gravity;
+        velocity.addY(gravity);
     }
 
     SDL_Rect newRect = rect;
@@ -39,7 +39,7 @@ void SceneObject::move()
     if (!game->checkCollision(newRect, false).collides) {
         // Si no hay colisión, aplicar movimiento en el ejeX
         rect.x += velocity.getX();
-        pos.x += velocity.getX();
+        pos.addX(velocity.getX());
     }
 
     // Comprobar colisiones eje Y
@@ -48,7 +48,7 @@ void SceneObject::move()
     if (!game->checkCollision(newRect, false).collides) {
         // Si no hay colisión, aplicar movimiento en el ejeY
         rect.y += velocity.getY();
-        pos.y += velocity.getY();
+        pos.addY(velocity.getY());
         colliding = false;
     }
     else colliding = true;
@@ -84,8 +84,8 @@ void SceneObject::setPosition(int x, int y)
 
 void SceneObject::setVelocity(int vx, int vy)
 {
-	velocity.x = vx;
-	velocity.y = vy;
+	velocity.setX(vx);
+	velocity.setY(vy);
 }
 
 void SceneObject::setStatic(bool isStatic)
