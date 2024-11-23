@@ -8,11 +8,12 @@
 
 
 Player::Player(Texture* texture, Vector2D<int> position, Game* game, int lives, bool movingRight, bool superMario)
-    : SceneObject(game, position, { 0,0 }, false, 1), _lives(lives), _superMario(superMario), _texture(texture)
+    : SceneObject(game, texture, position, { 0,0 }, false), _lives(lives), _superMario(superMario), _texture(texture)
 {
     _playerFrame = 0;
     flippingVelocity = true;
     flip = SDL_FLIP_NONE;
+    setScale(4);
 }
 
 Player::~Player()
@@ -22,7 +23,7 @@ Player::~Player()
 void Player::Render() const
 {
     if (_texture) {
-        _texture->renderFrame(rect, 0, _playerFrame, flip);
+        _texture->renderFrame(getRect(), 0, _playerFrame, flip);
     }
 }
 
@@ -74,7 +75,6 @@ void Player::handleEvent(const SDL_Event& evento)
             if (colliding) {
                 velocity.setY(-JUMP_POWER);
                 _animationState = AN_JUMPING;
-                colliding = false;
             }
             break;
         default:

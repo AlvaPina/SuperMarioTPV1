@@ -6,17 +6,13 @@
 
 
 
-SceneObject::SceneObject(Game* game, Point2D<int> pos, Vector2D<int> velocity, bool isStatic, int scale)
-	: GameObject(game), velocity(velocity), isStatic(isStatic), scale(scale)
+SceneObject::SceneObject(Game* game, Texture* texture, Point2D<int> pos, Vector2D<int> velocity, bool isStatic)
+	: GameObject(game), texture(texture), velocity(velocity), isStatic(isStatic)
 {
-	rect.w = 50;
-	rect.h = 50;
-	rect.x = pos.getX();
-	rect.y = pos.getY();
-
     gravity = game->GRAVITY;
     flippingVelocity = false;
     colliding = false;
+    scale = 1;
 }
 
 SceneObject::~SceneObject() {
@@ -31,14 +27,13 @@ void SceneObject::move()
         velocity.addY(gravity);
     }
 
-    SDL_Rect newRect = rect;
+    SDL_Rect newRect = getRect();
 
     // Comprobar colisiones eje X
     newRect.x += velocity.getX();
 
     if (!game->checkCollision(newRect, false).collides) {
         // Si no hay colisión, aplicar movimiento en el ejeX
-        rect.x += velocity.getX();
         pos.addX(velocity.getX());
     }
 
@@ -47,7 +42,6 @@ void SceneObject::move()
 
     if (!game->checkCollision(newRect, false).collides) {
         // Si no hay colisión, aplicar movimiento en el ejeY
-        rect.y += velocity.getY();
         pos.addY(velocity.getY());
         colliding = false;
     }
@@ -66,20 +60,25 @@ void SceneObject::manageFlip()
     }
 }
 
-const SDL_Rect& SceneObject::getRect() const
-{
-	return rect;
-}
-
 const Point2D<int> SceneObject::getPos() const
 {
 	return pos;
 }
 
+const SDL_Rect SceneObject::getRect() const
+{
+    SDL_Rect newRect;
+    newRect.x = pos.getX();
+    newRect.y = pos.getY();
+    newRect.w = texture->getFrameWidth() * scale;
+    newRect.h = texture->getFrameHeight() * scale;
+    return newRect;
+}
+
 void SceneObject::setPosition(int x, int y)
 {
-	rect.x = x;
-	rect.y = y;
+    pos.setX(x);
+    pos.setY(y);
 }
 
 void SceneObject::setVelocity(int vx, int vy)
@@ -96,4 +95,9 @@ void SceneObject::setStatic(bool isStatic)
 void SceneObject::setGravity(int value)
 {
     gravity = value;
+}
+
+void SceneObject::setScale(int value)
+{
+    scale = value;
 }
