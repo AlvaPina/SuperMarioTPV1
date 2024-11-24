@@ -1,19 +1,19 @@
 #include <iostream>
 
-#include "Player.h"
-#include "Vector2D.h"
-#include "Texture.h"
-#include "SDL.h"
 #include "Game.h"
+#include "Player.h"
+#include "SDL.h"
+#include "Texture.h"
+#include "Vector2D.h"
 
 
-Player::Player(Texture* texture, Vector2D<int> position, Game* game, int lives, bool movingRight, bool superMario)
-    : SceneObject(game, texture, position, { 0,0 }, false), _lives(lives), _superMario(superMario), _texture(texture)
+Player::Player(Texture* texture, Vector2D<int> position, Game* game, int lives, bool movingRight, MarioState marioState)
+    : SceneObject(game, texture, position, { 0,0 }, false), _lives(lives), _marioState(marioState), _texture(texture)
 {
     _playerFrame = 0;
     flippingVelocity = true;
     flip = SDL_FLIP_NONE;
-    setScale(4);
+    setScale(3);
 }
 
 Player::~Player()
@@ -51,7 +51,7 @@ void Player::Update()
 
 bool Player::Hit(SDL_Rect* rectDeAtaque, bool fromPlayer)
 {
-	if (_superMario) _superMario = false;
+	if (_marioState != BASE_MARIO) _marioState = BASE_MARIO;
 	else _lives--; // ha muerto
     return false; 
 }

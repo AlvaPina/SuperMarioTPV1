@@ -45,7 +45,10 @@ void SceneObject::move()
         pos.addY(velocity.getY());
         colliding = false;
     }
-    else colliding = true;
+    else { 
+        colliding = true; 
+        
+       }
 
     if (flippingVelocity) manageFlip();
 }

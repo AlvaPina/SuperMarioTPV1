@@ -185,7 +185,7 @@ void Game::loadObjectMap() {
 			int auxLiv;
 			lineStream >> auxLiv;
 
-			_player = new Player(_textures[MARIO], auxPos, this, auxLiv, false, false);
+			_player = new Player(_textures[MARIO], auxPos, this, auxLiv, false, Player::MarioState::BASE_MARIO);
 			break;
 		}
 		case 'B': {
