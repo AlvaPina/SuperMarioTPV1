@@ -232,6 +232,7 @@ Collision Game::checkCollision(const SDL_Rect& rect, bool fromPlayer)
 	// Colisiones con TileMap
 	if (_tile->hit(rect, fromPlayer)) {
 		collisionResult.collides = true;
+		collisionResult = _tile->hit(rect, fromPlayer);
 	}
 
 	// Colisiones con otros objetos...

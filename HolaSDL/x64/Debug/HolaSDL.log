@@ -1,2 +1,4 @@
-﻿  Player.cpp
+﻿  TileMap.cpp
+C:\Users\mauro\3D Objects\SuperMarioTPV1\HolaSDL\TileMap.cpp(27,24): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\mauro\3D Objects\SuperMarioTPV1\HolaSDL\TileMap.cpp(30,25): warning C4018: '<': no coinciden signed/unsigned
   HolaSDL.vcxproj -> C:\Users\mauro\3D Objects\SuperMarioTPV1\bin\HolaSDLDebug.exe

@@ -46,6 +46,7 @@ void SceneObject::move()
         colliding = false;
     }
     else { 
+        pos.setY((game->checkCollision(newRect, false).colliderPosition.getY()) - newRect.h);
         colliding = true; 
         
        }

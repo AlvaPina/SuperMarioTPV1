@@ -4,6 +4,7 @@
 #include <sstream>
 #include <iostream>
 
+
 TileMap::TileMap(Game* game, Texture* background)
 	: _game(game), _background(background), TILE_SIDE(game->TILE_SIDE), TILE_MAP(game->TILE_MAP)
 {
@@ -86,6 +87,11 @@ Collision TileMap::hit(const SDL_Rect& rect, bool fromPlayer) {
 
 				if (indice != -1 && indice % _background->getNumColumns() < OBSTACLE_THRESHOLD) {
 					collisionResult.collides = true;
+					collisionResult.colliderPosition.setX(col * TILE_SIDE);
+					collisionResult.colliderPosition.setY(row * TILE_SIDE);
+
+					//std::cout << row * TILE_SIDE << std::endl;
+
 					return collisionResult;
 				}
 			}
