@@ -13,6 +13,9 @@
 #include "Texture.h"
 #include "Collision.h"
 
+// Forward declaration
+class SceneObject;
+
 using uint = unsigned int;
 
 //Fordward declarations
@@ -57,11 +60,8 @@ private:
 	int _mapOffset;
 	TTF_Font* _font; // Fuente del juego
 	TileMap* _tile;
-	Player* _player;
-	std::vector<Block*> _bloques;
-	std::vector<Goomba*> _goombas;
-	std::vector<Koopa*> _koopas;
-	std::vector<Mushroom*> _mushrooms;
+	std::vector<SceneObject*> _objects;
+	Player* _player; // Esto es temporal ya que necesitamos llamar a su handleEvent
 
 public:
 	Game();
@@ -74,10 +74,12 @@ public:
 	void handleEvents();
 	void loadObjectMap();
 
+	// Getters
 	Texture* getTexture(TextureName name) const { return _textures[name]; }
 	SDL_Renderer* getRenderer() const { return _renderer; }
 	SDL_Texture* getFontTexture(const std::string& text, SDL_Color color, SDL_Renderer* renderer) const;
 	int getMapOffset() const { return _mapOffset; }
+
 	void addMapOffset(int number);
 	
 

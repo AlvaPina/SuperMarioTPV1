@@ -30,8 +30,6 @@ public:
     virtual void Update() override = 0;
     virtual bool Hit(SDL_Rect* rectDeAtaque, bool fromPlayer) = 0;
 
-
-
     // Getters y setters
     const Point2D<int> getScreenPos() const;
     const Point2D<int> getWorldPos() const;

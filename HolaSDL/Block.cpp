@@ -1,29 +1,30 @@
 #include "Block.h"
 #include <iostream>
 
-Block::Block(Game* game, BlockType type, Point2D<int> pos, Texture* texture, BlockContent content) : _game(game), _type(type), _pos(pos * game->TILE_SIDE),
-_texture(texture), _content(content)
+Block::Block(Game* game, BlockType type, Point2D<int> position, Texture* tex, BlockContent content)
+	: SceneObject(game, tex, position, { 0,0 }, false), _type(type), _content(content)
 {
-	_rect.w = 32;
-	_rect.h = 32;
-	_rect.x = _pos.getX();
-	_rect.y = _pos.getY();
 	_framecont = 0;
+	setStatic(true);
+	setScale(2);
 
 	if (type == SORPRESA) renderFrame = 0;
 	else renderFrame = 5;
 }
 
-void Block::render()
+void Block::Render() const
 {
-	_texture->renderFrame(_rect, 0, renderFrame);
+	texture->renderFrame(getScreenRect(), 0, renderFrame);
 }
 
-void Block::update()
+void Block::Update()
 {
-	_rect.x = _pos.getX() - _game->getMapOffset();
+	manageAnims();
+}
 
-	if(_type == SORPRESA)
+void Block::manageAnims()
+{
+	if (_type == SORPRESA)
 	{
 		if (_framecont >= ANIMATION_SPEED)
 		{
@@ -35,15 +36,17 @@ void Block::update()
 	_framecont++;
 }
 
-void Block::hit(SDL_Rect* rectMario)
+bool Block::Hit(SDL_Rect* rectDeAtaque, bool fromPlayer)
 {
-	if (SDL_HasIntersection(&_rect, rectMario)) {
-		std::cout << "BloqueColisionandoConMario";
+	//if (SDL_HasIntersection(&getWorldRect(), rectDeAtaque)) {
+	//	std::cout << "BloqueColisionandoConMario";
 
-		if(_type == SORPRESA){
-			_type = VACIO;
-			renderFrame = 4;
-			// spawnea el power up
-		}
-	}
+	//	if(_type == SORPRESA){
+	//		_type = VACIO;
+	//		renderFrame = 4;
+	//		// spawnea el power up
+	//	}
+	//	return true;
+	//}
+	return false;
 }

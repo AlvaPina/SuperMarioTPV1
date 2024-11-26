@@ -2,8 +2,9 @@
 
 #include "Vector2D.h"
 #include "Game.h"
+#include "SceneObject.h"
 
-class Block
+class Block : public SceneObject
 {
 public:
 enum BlockType {
@@ -17,22 +18,19 @@ enum BlockContent {
 	COIN
 };
 
-Block(Game* game, BlockType type, Point2D<int> pos, Texture* texture, BlockContent content);
-void render();
-void update();
-void hit(SDL_Rect* rectMario);
+	Block(Game* game, BlockType type, Point2D<int> pos, Texture* texture, BlockContent content);
+	void Render() const override;
+	void Update() override;
+	bool Hit(SDL_Rect* rectDeAtaque, bool fromPlayer) override;
 
 private:
 	const int ANIMATION_SPEED = 10;
 
-	Point2D<int> _pos;
-	Texture* _texture;
-	SDL_Rect _rect;
 	BlockType _type;
-	Game* _game;
 	BlockContent _content;
 	int renderFrame;		// Indica que frame se usa en el renderizado
 	int _framecont;			// Contador auxiliar para las animaciones
 
+	void manageAnims();
 };
 

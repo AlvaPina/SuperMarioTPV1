@@ -31,22 +31,18 @@ void Player::Update()
 {
     HandleAnims();
 
+    Vector2D screenPos = getScreenPos();
     // Para que el jugador no se salga por la izquierda de la pantalla
-    if (pos.getX() < 1 && velocity.getX() < 0) {
+    if (screenPos.getX() < PLAYERSPEED && velocity.getX() < 0) {
         velocity.setX(0);
     }
-
     // Si el jugador ha alcanzado la mitad de la pantalla
-    if (pos.getX() >= game->WIN_WIDTH / 2 && velocity.getX() > 0) {
-        // Desplazar el mapa sin mover horizontalmente al jugador
+    else if (screenPos.getX() >= game->WIN_WIDTH / 2 && velocity.getX() > 0) {
+        std::cout << " " << screenPos.getX();
+        // Desplazar el mapa
         game->addMapOffset(velocity.getX());
-        velocity.setX(0);
-        move();
-        velocity.setX(PLAYERSPEED);
     }
-    else { // Movimiento normal
-        move();
-    }
+    move();
 }
 
 bool Player::Hit(SDL_Rect* rectDeAtaque, bool fromPlayer)

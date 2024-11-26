@@ -8,8 +8,8 @@
 
 
 
-SceneObject::SceneObject(Game* game, Texture* texture, Point2D<int> pos, Vector2D<int> velocity, bool isStatic)
-	: GameObject(game), texture(texture), velocity(velocity), isStatic(isStatic)
+SceneObject::SceneObject(Game* game, Texture* texture, Point2D<int> position, Vector2D<int> velocity, bool isStatic)
+	: GameObject(game), texture(texture), velocity(velocity), isStatic(isStatic), pos(position)
 {
     gravity = game->GRAVITY;
     flippingVelocity = false;
@@ -79,36 +79,36 @@ void SceneObject::renderPositions() const {
         "World Pos: " + std::to_string(getWorldPos().getX()) + ", " + std::to_string(getWorldPos().getY()),
         blue, game->getRenderer());
 
-
+    Vector2D screenPos = getScreenPos();
     // Renderizar las texturas (asumiendo un tamaño de texto fijo)
     if (screenText) {
-        SDL_Rect destRect = { pos.getX(), pos.getY() - 30, 150, 30}; // Posición y tamaño de renderizado
+        SDL_Rect destRect = { screenPos.getX(), screenPos.getY() - 30, 150, 30}; // Posición y tamaño de renderizado
         SDL_RenderCopy(game->getRenderer(), screenText, nullptr, &destRect);
         SDL_DestroyTexture(screenText); // Liberar textura
     }
 
     if (worldText) {
-        SDL_Rect destRect = { pos.getX(), pos.getY() - 50, 150, 30 }; // Posición y tamaño de renderizado
+        SDL_Rect destRect = { screenPos.getX(), screenPos.getY() - 50, 150, 30 }; // Posición y tamaño de renderizado
         SDL_RenderCopy(game->getRenderer(), worldText, nullptr, &destRect);
         SDL_DestroyTexture(worldText); // Liberar textura
     }
 }
 
-const Point2D<int> SceneObject::getScreenPos() const
+const Point2D<int> SceneObject::getWorldPos() const
 {
 	return pos;
 }
 
-const Point2D<int> SceneObject::getWorldPos() const
+const Point2D<int> SceneObject::getScreenPos() const
 {
-    Vector2D worldPos(pos.getX() + game->getMapOffset(), pos.getY());
-    return worldPos;
+    Vector2D screenPos(pos.getX() - game->getMapOffset(), pos.getY());
+    return screenPos;
 }
 
 const SDL_Rect SceneObject::getScreenRect() const
 {
     SDL_Rect newRect;
-    newRect.x = pos.getX();
+    newRect.x = pos.getX() - game->getMapOffset();
     newRect.y = pos.getY();
     newRect.w = texture->getFrameWidth() * scale;
     newRect.h = texture->getFrameHeight() * scale;
@@ -118,7 +118,7 @@ const SDL_Rect SceneObject::getScreenRect() const
 const SDL_Rect SceneObject::getWorldRect() const
 {
     SDL_Rect newRect;
-    newRect.x = pos.getX() + game->getMapOffset();
+    newRect.x = pos.getX();
     newRect.y = pos.getY();
     newRect.w = texture->getFrameWidth() * scale;
     newRect.h = texture->getFrameHeight() * scale;

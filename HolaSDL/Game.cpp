@@ -130,15 +130,11 @@ Game::render() const
 
 	// Pinta los objetos del juego
 	_tile->render();
-	_player->Render();
 	
-	//Bloques
-	for (const auto& block : _bloques) block->render();
-	
-	//Goombas
-	for (const auto& goomba : _goombas) goomba->Render();
-
-	//...
+	// Renderiza los objetos del juego
+	for (const auto& object : _objects) {
+		object->Render();
+	}
 
 	SDL_RenderPresent(_renderer);
 }
@@ -147,12 +143,9 @@ void
 Game::update()
 {
 	// Actualiza los objetos del juego
-	for (const auto& block : _bloques) {
-		block->update();
+	for (const auto& object : _objects) {
+		object->Update();
 	}
-	for (const auto& goomba : _goombas) goomba->Update();
-
-	_player->Update();
 }
 
 void
@@ -164,7 +157,7 @@ Game::handleEvents()
 	while (SDL_PollEvent(&evento)) {
 		if (evento.type == SDL_QUIT){
 			_exit = true;
-		} 
+		}
 		else {
 			_player->handleEvent(evento);
 		}
@@ -192,7 +185,7 @@ void Game::loadObjectMap() {
 		lineStream >> auxX;
 		lineStream >> auxY;
 
-		Vector2D<int>  auxPos(auxX, auxY - 1);
+		Vector2D<int>  auxPos(auxX * TILE_SIDE, auxY * TILE_SIDE);
 
 		switch (tipo) {
 		case 'M': {
@@ -200,6 +193,7 @@ void Game::loadObjectMap() {
 			lineStream >> auxLiv;
 
 			_player = new Player(_textures[MARIO], auxPos, this, auxLiv, false, Player::MarioState::BASE_MARIO);
+			_objects.push_back(_player);
 			break;
 		}
 		case 'B': {
@@ -208,26 +202,26 @@ void Game::loadObjectMap() {
 
 			if (auxtype == "B") {
 				Block* block = new Block(this, Block::LADRILLO, auxPos, _textures[BLOCKS], Block::BlockContent::EMPTY);
-				_bloques.push_back(block);
+				_objects.push_back(block);
 			}
 			else if (auxtype == "?") {
 				lineStream >> auxtype;
 				if(auxtype == "C")
 				{
 					Block* block = new Block(this, Block::SORPRESA, auxPos, _textures[BLOCKS], Block::BlockContent::COIN);
-					_bloques.push_back(block);
+					_objects.push_back(block);
 				}
 				else
 				{
 					Block* block = new Block(this, Block::SORPRESA, auxPos, _textures[BLOCKS], Block::BlockContent::POWER_UP);
-					_bloques.push_back(block);
+					_objects.push_back(block);
 				}
 			}
 			break;
 		}
 		case 'G': {
 			Goomba* goomba = new Goomba(_textures[GOOMBA], auxPos, this);
-			_goombas.push_back(goomba);
+			_objects.push_back(goomba);
 			break;
 		}
 		}
