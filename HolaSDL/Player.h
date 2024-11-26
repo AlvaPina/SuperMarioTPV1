@@ -10,7 +10,16 @@ public:
 		BASE_MARIO,
 		SUPER_MARIO,
 		MARIO_FIRE
+	};
 
+	struct Anim {
+		int firstFrame;
+		int lastFrame;
+	};
+
+	struct PlayerAnims {
+		Anim runAnim;
+		int jumpFrame;
 	};
 
 	void Render() const override;
@@ -18,6 +27,7 @@ public:
 	Collision Hit(const SDL_Rect& rectDeAtaque, bool fromPlayer) override;
 	void handleEvent(const SDL_Event& evento);
 	void HandleAnims();
+	void ChangeMarioState(MarioState newState);
 
 	Player(Texture* text, Vector2D<int> pos, Game* game, int livs, bool movR, MarioState marioState);
 	~Player();
@@ -38,6 +48,6 @@ private:
 
 	AnimationState _animationState = STOPPED;
 	MarioState _marioState = BASE_MARIO;
-
+	PlayerAnims _playerAnims;
 };
 

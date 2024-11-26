@@ -22,6 +22,7 @@ protected:
     void move();
     void manageFlip();
     void renderPositions() const;
+    void setTexture(Texture* newTexture);
 public:
     SceneObject(Game* game, Texture* texture, Point2D<int> pos, Vector2D<int> velocity = { 0, 0 }, bool isStatic = true);
     virtual ~SceneObject();

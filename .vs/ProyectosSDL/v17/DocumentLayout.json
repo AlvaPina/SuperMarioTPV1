@@ -7,12 +7,36 @@
       "RelativeMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|solutionrelative:HolaSDL\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\SceneObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|solutionrelative:HolaSDL\\SceneObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\Vector2D.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|solutionrelative:HolaSDL\\Vector2D.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|solutionrelative:HolaSDL\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|solutionrelative:HolaSDL\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\Goomba.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|solutionrelative:HolaSDL\\Goomba.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\Goomba.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|solutionrelative:HolaSDL\\Goomba.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\SceneObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|solutionrelative:HolaSDL\\SceneObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\SceneObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|solutionrelative:HolaSDL\\SceneObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|solutionrelative:HolaSDL\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\TileMap.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -23,10 +47,6 @@
       "RelativeMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|solutionrelative:HolaSDL\\TileMap.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|solutionrelative:HolaSDL\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\Block.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|solutionrelative:HolaSDL\\Block.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -35,32 +55,12 @@
       "RelativeMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|solutionrelative:HolaSDL\\Block.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|solutionrelative:HolaSDL\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\Goomba.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|solutionrelative:HolaSDL\\Goomba.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\SceneObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|solutionrelative:HolaSDL\\SceneObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\GameObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|solutionrelative:HolaSDL\\GameObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\GameObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|solutionrelative:HolaSDL\\GameObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|solutionrelative:HolaSDL\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\Vector2D.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}|HolaSDL\\HolaSDL.vcxproj|solutionrelative:HolaSDL\\Vector2D.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -82,7 +82,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 1,
               "Title": "Vector2D.h",
               "DocumentMoniker": "C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\Vector2D.h",
               "RelativeDocumentMoniker": "HolaSDL\\Vector2D.h",
@@ -95,33 +95,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 6,
               "Title": "SceneObject.h",
               "DocumentMoniker": "C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\SceneObject.h",
               "RelativeDocumentMoniker": "HolaSDL\\SceneObject.h",
               "ToolTip": "C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\SceneObject.h",
               "RelativeToolTip": "HolaSDL\\SceneObject.h",
-              "ViewState": "AQIAABQAAAAAAAAAAAAIwB8AAAAAAAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABgAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-11-21T21:48:21.743Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "SceneObject.cpp",
               "DocumentMoniker": "C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\SceneObject.cpp",
               "RelativeDocumentMoniker": "HolaSDL\\SceneObject.cpp",
               "ToolTip": "C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\SceneObject.cpp",
               "RelativeToolTip": "HolaSDL\\SceneObject.cpp",
-              "ViewState": "AQIAACcAAAAAAAAAAAAIwDMAAAAZAAAA",
+              "ViewState": "AQIAAFUAAAAAAAAAAAAIwGIAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-21T21:48:52.931Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "GameObject.h",
               "DocumentMoniker": "C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\GameObject.h",
               "RelativeDocumentMoniker": "HolaSDL\\GameObject.h",
@@ -134,7 +134,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "GameObject.cpp",
               "DocumentMoniker": "C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\GameObject.cpp",
               "RelativeDocumentMoniker": "HolaSDL\\GameObject.cpp",
@@ -147,13 +147,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 2,
               "Title": "Player.h",
               "DocumentMoniker": "C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\Player.h",
               "RelativeDocumentMoniker": "HolaSDL\\Player.h",
               "ToolTip": "C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\Player.h",
               "RelativeToolTip": "HolaSDL\\Player.h",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABEAAAAOAAAA",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAADMAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-11-21T16:28:31.96Z",
               "EditorCaption": ""
@@ -166,14 +166,14 @@
               "RelativeDocumentMoniker": "HolaSDL\\Player.cpp",
               "ToolTip": "C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\Player.cpp",
               "RelativeToolTip": "HolaSDL\\Player.cpp",
-              "ViewState": "AQIAACcAAAAAAAAAAAAIwCoAAAAFAAAA",
+              "ViewState": "AQIAAGYAAAAAAAAAAAAIwHcAAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-21T16:28:30.89Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 4,
               "Title": "Goomba.h",
               "DocumentMoniker": "C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\Goomba.h",
               "RelativeDocumentMoniker": "HolaSDL\\Goomba.h",
@@ -186,7 +186,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Goomba.cpp",
               "DocumentMoniker": "C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\Goomba.cpp",
               "RelativeDocumentMoniker": "HolaSDL\\Goomba.cpp",
@@ -199,33 +199,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 3,
               "Title": "Game.h",
               "DocumentMoniker": "C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\Game.h",
               "RelativeDocumentMoniker": "HolaSDL\\Game.h",
               "ToolTip": "C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\Game.h",
               "RelativeToolTip": "HolaSDL\\Game.h",
-              "ViewState": "AQIAADMAAAAAAAAAAAAIwFEAAAAAAAAA",
+              "ViewState": "AQIAAEYAAAAAAAAAAAAIwE0AAABIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-10-22T15:48:29.102Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "Game.cpp",
               "DocumentMoniker": "C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\Game.cpp",
               "RelativeDocumentMoniker": "HolaSDL\\Game.cpp",
               "ToolTip": "C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\Game.cpp",
               "RelativeToolTip": "HolaSDL\\Game.cpp",
-              "ViewState": "AQIAAAIBAAAAAAAAAAAnwAwBAAAmAAAA",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAAB0AAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-22T15:48:30.916Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 10,
               "Title": "TileMap.h",
               "DocumentMoniker": "C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\TileMap.h",
               "RelativeDocumentMoniker": "HolaSDL\\TileMap.h",
@@ -238,7 +238,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
               "Title": "TileMap.cpp",
               "DocumentMoniker": "C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\TileMap.cpp",
               "RelativeDocumentMoniker": "HolaSDL\\TileMap.cpp",
@@ -251,7 +251,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "Block.h",
               "DocumentMoniker": "C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\Block.h",
               "RelativeDocumentMoniker": "HolaSDL\\Block.h",
@@ -264,7 +264,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 11,
               "Title": "Block.cpp",
               "DocumentMoniker": "C:\\Users\\alvel\\Alvaro000\\UCM\\TercerCurso\\Tpv1\\SuperMarioTPV1\\HolaSDL\\Block.cpp",
               "RelativeDocumentMoniker": "HolaSDL\\Block.cpp",

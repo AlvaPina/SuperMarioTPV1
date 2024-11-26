@@ -13,6 +13,9 @@ Player::Player(Texture* texture, Vector2D<int> position, Game* game, int lives, 
     flippingVelocity = true;
     flip = SDL_FLIP_NONE;
     setScale(3);
+    _playerAnims.runAnim.firstFrame = 1;
+    _playerAnims.runAnim.lastFrame = 2;
+    _playerAnims.jumpFrame = 5;
 }
 
 Player::~Player()
@@ -87,6 +90,9 @@ void Player::handleEvent(const SDL_Event& evento)
         case SDLK_a:
             velocity.setX(0);
             break;
+        case SDLK_f:
+            std::cout << "CAMBIO ESTADO A SUPER MARIO!";
+            ChangeMarioState(MarioState::SUPER_MARIO);
         default:
             break;
         }
@@ -107,11 +113,40 @@ void Player::HandleAnims()
         _playerFrame = 0;
         break;
     case MOVING_R: case MOVING_L:
-        if (_playerFrame == 2) _playerFrame = 1;
-        else _playerFrame = 2;
+        if (_playerFrame == _playerAnims.runAnim.firstFrame) _playerFrame = _playerAnims.runAnim.lastFrame;
+        else _playerFrame = _playerAnims.runAnim.firstFrame;
         break;
     case AN_JUMPING:
-        _playerFrame = 5;
+        _playerFrame = _playerAnims.jumpFrame;
         break;
+    }
+}
+
+void Player::ChangeMarioState(MarioState newState)
+{
+    if (_marioState != newState) { // comprobamos que sea un estado diferente al actual
+        _playerFrame = 0; // reseteamos renderFrame
+        delete(texture);
+
+        switch (newState)
+        {
+        case BASE_MARIO:
+            setScale(3);
+            texture = game->getTexture(Game::MARIO);
+            _playerAnims.runAnim.firstFrame = 1;
+            _playerAnims.runAnim.lastFrame = 2;
+            _playerAnims.jumpFrame = 5;
+            break;
+        case SUPER_MARIO:
+            setScale(2);
+            texture = game->getTexture(Game::SUPERMARIO);
+            _playerAnims.runAnim.firstFrame = 2;
+            _playerAnims.runAnim.lastFrame = 3;
+            _playerAnims.jumpFrame = 6;
+            break;
+        case MARIO_FIRE:
+            texture = game->getTexture(Game::FIREMARIO);
+            break;
+        }
     }
 }

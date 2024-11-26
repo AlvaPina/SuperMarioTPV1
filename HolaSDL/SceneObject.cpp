@@ -93,6 +93,11 @@ void SceneObject::renderPositions() const {
     }
 }
 
+void SceneObject::setTexture(Texture* newTexture)
+{
+    texture = newTexture;
+}
+
 const Point2D<int> SceneObject::getWorldPos() const
 {
 	return pos;
