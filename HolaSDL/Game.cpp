@@ -53,6 +53,8 @@ Game::Game()
 		WIN_HEIGHT,
 		SDL_WINDOW_SHOWN);
 
+	TTF_Init();
+
 	_renderer = SDL_CreateRenderer(_window, -1, SDL_RENDERER_ACCELERATED);
 	SDL_SetRenderDrawColor(_renderer, 138, 132, 248, 255);	// Color de fondo
 
@@ -71,6 +73,11 @@ Game::Game()
 	// Crea los objetos del juego
 	//perro = new Dog(this, -textures[DOG]->getFrameWidth(), 390);
 	loadObjectMap();
+
+	_font = TTF_OpenFont("../assets/fonts/retro.ttf", 24);
+	if (!_font) {
+		std::cerr << "Error al cargar la fuente: " << TTF_GetError() << std::endl;
+	}
 }
 
 Game::~Game()
@@ -86,6 +93,13 @@ Game::~Game()
 	SDL_DestroyRenderer(_renderer);
 	SDL_DestroyWindow(_window);
 	SDL_Quit();
+
+	//Font
+	if (_font) {
+		TTF_CloseFont(_font);
+		_font = nullptr;
+	}
+	TTF_Quit();
 }
 
 void
@@ -122,7 +136,7 @@ Game::render() const
 	for (const auto& block : _bloques) block->render();
 	
 	//Goombas
-	for (const auto& goomba : _goombas) goomba->render();
+	for (const auto& goomba : _goombas) goomba->Render();
 
 	//...
 
@@ -136,7 +150,7 @@ Game::update()
 	for (const auto& block : _bloques) {
 		block->update();
 	}
-	for (const auto& goomba : _goombas) goomba->update();
+	for (const auto& goomba : _goombas) goomba->Update();
 
 	_player->Update();
 }
@@ -218,6 +232,28 @@ void Game::loadObjectMap() {
 		}
 		}
 	}
+}
+
+SDL_Texture* Game::getFontTexture(const std::string& text, SDL_Color color, SDL_Renderer* renderer) const
+{
+	if (!_font) return nullptr;
+
+	// Renderizar el texto en una superficie
+	SDL_Surface* textSurface = TTF_RenderText_Solid(_font, text.c_str(), color);
+	if (!textSurface) {
+		std::cerr << "Error al renderizar texto: " << TTF_GetError() << std::endl;
+		return nullptr;
+	}
+
+	// Convertir la superficie en textura
+	SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, textSurface);
+	SDL_FreeSurface(textSurface);
+
+	if (!texture) {
+		std::cerr << "Error al crear textura del texto: " << SDL_GetError() << std::endl;
+	}
+
+	return texture;
 }
 
 void Game::addMapOffset(int number)

@@ -2,29 +2,28 @@
 
 #include "Vector2D.h"
 #include "Texture.h"
-#include "SDL.h"
+#include "SceneObject.h"
 #include "Game.h"
 
-class Goomba
+class Goomba : public SceneObject
 {
 private:
 	const int GOOMBA_SPEED = 2;
 	const int FRAME_SPEED = 5;
 
-	Texture* _texture;			// Puntero a la textura
-	Vector2D<int> _pos;	// Posicion actual
-	Game* _game;				// Puntero al juego
-	SDL_Rect _rect;
-	bool _movingLeft;			// Indica direccion de movimiento
 	int _renderFrame;			// Indica que frame se usa en el renderizado
 	int _frameCont;
 
 	bool isInScreen();
+	void HandleAnims();
 
 public:
-	void render();
-	void update();
+	void Render() const override;
+	void Update() override;
+	bool Hit(SDL_Rect* rectDeAtaque, bool fromPlayer) override;
+
 	Goomba(Texture* text, Vector2D<int> pos, Game* gam);
+	~Goomba();
 };
 
 

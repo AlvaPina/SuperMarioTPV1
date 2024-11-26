@@ -2,13 +2,12 @@
 
 #include "Game.h"
 #include "Player.h"
-#include "SDL.h"
 #include "Texture.h"
 #include "Vector2D.h"
 
 
 Player::Player(Texture* texture, Vector2D<int> position, Game* game, int lives, bool movingRight, MarioState marioState)
-    : SceneObject(game, texture, position, { 0,0 }, false), _lives(lives), _marioState(marioState), _texture(texture)
+    : SceneObject(game, texture, position, { 0,0 }, false), _lives(lives), _marioState(marioState)
 {
     _playerFrame = 0;
     flippingVelocity = true;
@@ -22,9 +21,10 @@ Player::~Player()
 
 void Player::Render() const
 {
-    if (_texture) {
-        _texture->renderFrame(getRect(), 0, _playerFrame, flip);
+    if (texture) {
+        texture->renderFrame(getScreenRect(), 0, _playerFrame, flip);
     }
+    renderPositions();
 }
 
 void Player::Update()

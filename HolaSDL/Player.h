@@ -19,14 +19,13 @@ public:
 	void handleEvent(const SDL_Event& evento);
 	void HandleAnims();
 
-	Player(Texture* text, Vector2D<int> pos, Game* gam, int livs, bool movR, MarioState marioState);
+	Player(Texture* text, Vector2D<int> pos, Game* game, int livs, bool movR, MarioState marioState);
 	~Player();
 
 private:
 	const int PLAYERSPEED = 10;
 	const int JUMP_POWER = 25;
 
-	Texture* _texture;				// Puntero a la textura de Mario
 	int _lives;						// Numero de vidas de Mario
 	int _playerFrame;				// Indica el frame que se renderiza
 

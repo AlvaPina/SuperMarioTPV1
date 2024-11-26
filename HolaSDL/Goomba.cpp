@@ -6,44 +6,52 @@
 #include "Game.h"
 
 
-Goomba::Goomba(Texture* texture, Vector2D<int> position, Game* game): 
-	_texture(texture), _game(game), _pos(position * game->TILE_SIDE)
+Goomba::Goomba(Texture* texture, Vector2D<int> position, Game* game)
+	: SceneObject(game, texture, position, { 0,0 }, false)
 {
-	_rect.w = 32;
-	_rect.h = 32;
-	_rect.x = _pos.getX();
-	_rect.y = _pos.getY();
-
 	_renderFrame = 0;
 	_frameCont = 0;
-	_movingLeft = true;
+	setScale(2);
 }
 
-void Goomba::render() {
-	if (_frameCont >= FRAME_SPEED)
-	{
-		if (_renderFrame == 0) _renderFrame = 1;
-		else _renderFrame = 0;
-	
-		_frameCont = 0;
-	}
-	else _frameCont++;
-
-	_texture->renderFrame(_rect, 0, _renderFrame);
+Goomba::~Goomba()
+{
 }
 
-void Goomba::update() {
+void Goomba::Render() const {
+	texture->renderFrame(getScreenRect(), 0, _renderFrame);
+}
+
+void Goomba::Update() {
+
+	HandleAnims();
+
 	if(isInScreen())
 	{
-		if (_movingLeft) _pos.addX(-GOOMBA_SPEED);
-		else _pos.addX(GOOMBA_SPEED);
+		move();
 	}
-	_rect.x = _pos.getX() - _game->getMapOffset();
-	_rect.y = _pos.getY();
+}
+
+bool Goomba::Hit(SDL_Rect* rectDeAtaque, bool fromPlayer)
+{
+	//Comprobar si es el player
+	return false;
 }
 
 bool Goomba::isInScreen()
 {
-	if (_pos.getX() - _game->getMapOffset() <= _game->WIN_WIDTH) return true;
+	if (pos.getX() - game->getMapOffset() <= game->WIN_WIDTH) return true;
 	else return false;
+}
+
+void Goomba::HandleAnims()
+{
+	if (_frameCont >= FRAME_SPEED)
+	{
+		if (_renderFrame == 0) _renderFrame = 1;
+		else _renderFrame = 0;
+
+		_frameCont = 0;
+	}
+	else _frameCont++;
 }

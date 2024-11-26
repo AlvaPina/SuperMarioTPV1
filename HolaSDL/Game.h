@@ -3,9 +3,11 @@
 // Biblioteca est�ndar de C++
 #include <array>
 #include <vector>
+#include <string>
 
 // Biblioteca SDL
 #include <SDL.h>
+#include <SDL_ttf.h>
 
 // Nuestras clases
 #include "Texture.h"
@@ -51,8 +53,9 @@ private:
 	// Array con todas las texturas del juego
 	std::array<Texture*, NUM_TEXTURES> _textures;
 	// Interruptor para terminar el juego
-	int _mapOffset;
 	bool _exit;
+	int _mapOffset;
+	TTF_Font* _font; // Fuente del juego
 	TileMap* _tile;
 	Player* _player;
 	std::vector<Block*> _bloques;
@@ -72,8 +75,11 @@ public:
 	void loadObjectMap();
 
 	Texture* getTexture(TextureName name) const { return _textures[name]; }
+	SDL_Renderer* getRenderer() const { return _renderer; }
+	SDL_Texture* getFontTexture(const std::string& text, SDL_Color color, SDL_Renderer* renderer) const;
 	int getMapOffset() const { return _mapOffset; }
 	void addMapOffset(int number);
+	
 
 	Collision checkCollision(const SDL_Rect& rect, bool fromPlayer);
 
