@@ -38,18 +38,19 @@ void Player::Update()
     }
     // Si el jugador ha alcanzado la mitad de la pantalla
     else if (screenPos.getX() >= game->WIN_WIDTH / 2 && velocity.getX() > 0) {
-        std::cout << " " << screenPos.getX();
         // Desplazar el mapa
         game->addMapOffset(velocity.getX());
     }
     move();
 }
 
-bool Player::Hit(SDL_Rect* rectDeAtaque, bool fromPlayer)
+Collision Player::Hit(const SDL_Rect& rectDeAtaque, bool fromPlayer)
 {
-	if (_marioState != BASE_MARIO) _marioState = BASE_MARIO;
-	else _lives--; // ha muerto
-    return false; 
+    Collision collisionResult{ false, false };
+
+	//if (_marioState != BASE_MARIO) _marioState = BASE_MARIO;
+	//else _lives--; // ha muerto
+    return collisionResult;
 }
 
 void Player::handleEvent(const SDL_Event& evento)

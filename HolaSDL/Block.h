@@ -21,7 +21,7 @@ enum BlockContent {
 	Block(Game* game, BlockType type, Point2D<int> pos, Texture* texture, BlockContent content);
 	void Render() const override;
 	void Update() override;
-	bool Hit(SDL_Rect* rectDeAtaque, bool fromPlayer) override;
+	Collision Hit(const SDL_Rect& rectDeAtaque, bool fromPlayer) override;
 
 private:
 	const int ANIMATION_SPEED = 10;

@@ -49,9 +49,8 @@ void SceneObject::move()
     }
     else { 
         pos.setY((game->checkCollision(newRect, false).colliderPosition.getY()) - newRect.h);
-        colliding = true; 
-        
-       }
+        colliding = true;
+    }
 
     if (flippingVelocity) manageFlip();
 }

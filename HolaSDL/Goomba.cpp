@@ -32,10 +32,12 @@ void Goomba::Update() {
 	}
 }
 
-bool Goomba::Hit(SDL_Rect* rectDeAtaque, bool fromPlayer)
+Collision Goomba::Hit(const SDL_Rect& rectDeAtaque, bool fromPlayer)
 {
+	Collision collisionResult{ false, false };
+
 	//Comprobar si es el player
-	return false;
+	return collisionResult;
 }
 
 bool Goomba::isInScreen()

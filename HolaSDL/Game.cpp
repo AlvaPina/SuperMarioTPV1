@@ -265,7 +265,13 @@ Collision Game::checkCollision(const SDL_Rect& rect, bool fromPlayer)
 		collisionResult = _tile->hit(rect, fromPlayer);
 	}
 
-	// Colisiones con otros objetos...
+	// Colisiones con otros objetos
+	for (const auto& object : _objects) {
+		if (object->Hit(rect, fromPlayer)) {
+			collisionResult.collides = true;
+			//collisionResult.colliderPosition
+		}
+	}
 
 	return collisionResult;
 }

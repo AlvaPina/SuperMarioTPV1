@@ -36,17 +36,21 @@ void Block::manageAnims()
 	_framecont++;
 }
 
-bool Block::Hit(SDL_Rect* rectDeAtaque, bool fromPlayer)
+Collision Block::Hit(const SDL_Rect& rectDeAtaque, bool fromPlayer)
 {
-	//if (SDL_HasIntersection(&getWorldRect(), rectDeAtaque)) {
-	//	std::cout << "BloqueColisionandoConMario";
+	Collision collisionResult{ false, false };
 
-	//	if(_type == SORPRESA){
-	//		_type = VACIO;
-	//		renderFrame = 4;
-	//		// spawnea el power up
-	//	}
-	//	return true;
-	//}
-	return false;
+	SDL_Rect worldRect = getWorldRect();
+	if (SDL_HasIntersection(&worldRect, &rectDeAtaque)) {
+		std::cout << "BloqueColisionandoConMario";
+
+		if (_type == SORPRESA) {
+			_type = VACIO;
+			renderFrame = 4;
+			// spawnea el power up
+		}
+		collisionResult.collides = true;
+		//collisionResult.colliderPosition
+	}
+	return collisionResult;
 }

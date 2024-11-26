@@ -20,7 +20,7 @@ private:
 public:
 	void Render() const override;
 	void Update() override;
-	bool Hit(SDL_Rect* rectDeAtaque, bool fromPlayer) override;
+	Collision Hit(const SDL_Rect& rectDeAtaque, bool fromPlayer) override;
 
 	Goomba(Texture* text, Vector2D<int> pos, Game* gam);
 	~Goomba();
