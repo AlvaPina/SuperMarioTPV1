@@ -7,7 +7,7 @@
 
 
 Player::Player(Texture* texture, Vector2D<int> position, Game* game, int lives, bool movingRight, MarioState marioState)
-    : SceneObject(game, texture, position, { 0,0 }, false), _lives(lives), _marioState(marioState)
+    : SceneObject(game, texture, position, { 0,0 }, false), _lives(lives), _marioState(marioState), _canJump(false)
 {
     _playerFrame = 0;
     flippingVelocity = true;
@@ -34,6 +34,12 @@ void Player::Update()
 {
     HandleAnims();
 
+    if (isStatic) return; // No moverse si el objeto es estático
+
+    // Acelra la velocidad con la gravedad
+    if (velocity.getY() < Game::SPEED_LIMIT)
+        velocity += {0, Game::GRAVITY};
+
     Vector2D screenPos = getScreenPos();
     // Para que el jugador no se salga por la izquierda de la pantalla
     if (screenPos.getX() < PLAYERSPEED && velocity.getX() < 0) {
@@ -44,16 +50,32 @@ void Player::Update()
         // Desplazar el mapa
         game->addMapOffset(velocity.getX());
     }
-    move();
+    Collision collision = tryToMove(velocity, Collision::ENEMIES); 
+
+    if (collision.vertical > 0) _canJump = true; // Si la colision se hunde en el suelo, le dejamos saltar
+    else _canJump = false;
+
+    if (flippingVelocity) manageFlip();
 }
 
-Collision Player::Hit(const SDL_Rect& rectDeAtaque, bool fromPlayer)
+Collision Player::Hit(const SDL_Rect& region, Collision::Target target)
 {
-    Collision collisionResult{ false, false };
+    if (target == Collision::PLAYER) {
+        // Calcula la intersección
+        SDL_Rect intersection;
+        SDL_Rect ownRect = getWorldRect();
+        bool hasIntersection = SDL_IntersectRect(&ownRect, &region, &intersection);
 
-	//if (_marioState != BASE_MARIO) _marioState = BASE_MARIO;
-	//else _lives--; // ha muerto
-    return collisionResult;
+        if (hasIntersection) {
+            Collision collision{ Collision::OBSTACLE, intersection.w, intersection.h };
+            std::cout << "¡Jugador colisiona! Profundidad: " << intersection.w << ", " << intersection.h << std::endl;
+
+            // Manejo necesario
+
+            return collision;
+        }
+    }
+    return NO_COLLISION;
 }
 
 void Player::handleEvent(const SDL_Event& evento)
@@ -72,7 +94,7 @@ void Player::handleEvent(const SDL_Event& evento)
             _animationState = MOVING_L;
             break;
         case SDLK_SPACE:
-            if (colliding) {
+            if (_canJump) {
                 velocity.setY(-JUMP_POWER);
                 _animationState = AN_JUMPING;
             }

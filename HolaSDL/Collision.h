@@ -1,10 +1,27 @@
 #pragma once
 #include "Vector2D.h"
+#include "SDL.h"
 
-struct Collision {
-	bool collides;						// Indica si hay colision
-	bool damages;						// Indica si la colision provoca daño
-	Vector2D<int> colliderPosition;		// Indica la posicion objeto colisionado
+struct Collision
+{
+	// ¿A quién afecta esta colisión? Se puede usar en lugar del
+	// bool fromPlayer para objetos que atacan tanto a enemigos
+	// como al jugador (caparaszón opciona).
+	enum Target {
+		ENEMIES = 1,	// afecta a enemigos
+		PLAYER = 2,	// afecta al jugador
+		BOTH = 3,	// afecta a ambos
+	};
 
-	operator bool() const { return collides; }
+	// Tipo de resultado de la colisión
+	enum Result {
+		NONE,		// no ha habido colisión
+		DAMAGE,		// la colisión produce daño
+		OBSTACLE,	// la colisión impide el movimiento
+	};
+
+	Result result = NONE;
+	int horizontal = 0;   // profundidad de la colisión horizontal
+	int vertical = 0;     // profundidad de la colisión vertical
 };
+const Collision NO_COLLISION = Collision{ Collision::NONE, 0, 0 };

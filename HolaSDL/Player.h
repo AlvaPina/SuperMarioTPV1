@@ -24,7 +24,7 @@ public:
 
 	void Render() const override;
 	void Update() override;
-	Collision Hit(const SDL_Rect& rectDeAtaque, bool fromPlayer) override;
+	Collision Hit(const SDL_Rect& rectDeAtaque, Collision::Target target) override;
 	void handleEvent(const SDL_Event& evento);
 	void HandleAnims();
 	void ChangeMarioState(MarioState newState);
@@ -38,6 +38,7 @@ private:
 
 	int _lives;						// Numero de vidas de Mario
 	int _playerFrame;				// Indica el frame que se renderiza
+	bool _canJump;
 
 	enum AnimationState {
 		STOPPED,

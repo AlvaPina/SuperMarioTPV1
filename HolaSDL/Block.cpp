@@ -36,21 +36,25 @@ void Block::manageAnims()
 	_framecont++;
 }
 
-Collision Block::Hit(const SDL_Rect& rectDeAtaque, bool fromPlayer)
+Collision Block::Hit(const SDL_Rect& region, Collision::Target target)
 {
-	Collision collisionResult{ false, false };
+	if (target == Collision::ENEMIES) {
+		SDL_Rect intersection;
+		SDL_Rect worldRect = getWorldRect();
+		bool hasIntersection = SDL_IntersectRect(&worldRect, &region, &intersection);
+		if (hasIntersection) {
+			Collision collision{ Collision::OBSTACLE, intersection.w, intersection.h };
+			std::cout << "¡Jugador colisiona! Profundidad: " << intersection.w << ", " << intersection.h << std::endl;
 
-	SDL_Rect worldRect = getWorldRect();
-	if (SDL_HasIntersection(&worldRect, &rectDeAtaque)) {
-		std::cout << "BloqueColisionandoConMario";
+			if (_type == SORPRESA) {
+				_type = VACIO;
+				renderFrame = 4;
+				// spawnea el power up
+			}
 
-		if (_type == SORPRESA) {
-			_type = VACIO;
-			renderFrame = 4;
-			// spawnea el power up
+			return collision;
 		}
-		collisionResult.collides = true;
-		//collisionResult.colliderPosition
 	}
-	return collisionResult;
+		
+	return NO_COLLISION;
 }

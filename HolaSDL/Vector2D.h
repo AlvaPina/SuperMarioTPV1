@@ -33,6 +33,11 @@ public:
 	Vector2D<T> operator*(const T& escalar) {
 		return Vector2D<T>(x * escalar, y * escalar);
 	}
+	Vector2D<T>& operator+=(const Vector2D<T>& other) {
+		x += other.x;
+		y += other.y;
+		return *this;
+	}
 };
 template <typename T>
 using Point2D = Vector2D<T>;

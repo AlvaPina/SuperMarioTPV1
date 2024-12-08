@@ -83,13 +83,14 @@ public:
 	void addMapOffset(int number);
 	
 
-	Collision checkCollision(const SDL_Rect& rect, bool fromPlayer);
+	Collision checkCollision(const SDL_Rect& rect, Collision::Target target);
 
 	// Constante globales
 	static constexpr uint WIN_WIDTH = 500;
 	static constexpr uint WIN_HEIGHT = 500;
 	static constexpr uint FRAME_RATE = 30;
 	static constexpr uint GRAVITY = 2;
+	static constexpr float SPEED_LIMIT = 30;
 	static constexpr float GRAVITY_MAX_VELOCITY = 25;
 	static constexpr uint TILE_SIDE = 32;
 	static constexpr uint TILE_MAP = 16;

@@ -255,30 +255,27 @@ void Game::addMapOffset(int number)
 	_mapOffset += number;
 }
 
-Collision Game::checkCollision(const SDL_Rect& rect, bool fromPlayer)
+Collision Game::checkCollision(const SDL_Rect& rect, Collision::Target target)
 {
-	Collision collisionResult{ false, false };
+	Collision collisionResult = NO_COLLISION;
 
 	// Colisiones con TileMap
-	if (_tile->hit(rect, fromPlayer)) {
-		collisionResult.collides = true;
-		collisionResult = _tile->hit(rect, fromPlayer);
-	}
+	Collision tileCol = _tile->hit(rect, target);
+	collisionResult = tileCol;
+
+	//std::cout << tileCol.colliderPosition.getX() << " " << tileCol.colliderPosition.getX() << "| ";
 
 	// Colisiones con otros objetos
 	for (const auto& object : _objects) {
-		if (object->Hit(rect, fromPlayer)) {
-			collisionResult.collides = true;
-			//collisionResult.colliderPosition
+		Collision objectCollision = object->Hit(rect, target);
+		// Si colisiona en el EjeX
+		if (objectCollision.horizontal != 0) {
+			collisionResult.horizontal = objectCollision.horizontal;
+		}
+		// Si colisiona en el EjeY
+		if (objectCollision.vertical != 0) {
+			collisionResult.vertical = objectCollision.vertical;
 		}
 	}
-
 	return collisionResult;
 }
-
-//Player::Player(Game* game, istream& in)
-//	: game(game)
-//{
-//	in >> position; // ser� in Point2D que sabe leerse
-//	in >> numLives; // el n�mero de vidas
-//}

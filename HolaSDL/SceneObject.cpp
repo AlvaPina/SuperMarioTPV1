@@ -15,44 +15,52 @@ SceneObject::SceneObject(Game* game, Texture* texture, Point2D<int> position, Ve
     flippingVelocity = false;
     colliding = false;
     scale = 1;
+    pos += {0, -texture->getFrameHeight() - 10}; // Para que spawneen arriba y no se metan en el suelo al aparecer
 }
 
 SceneObject::~SceneObject() {
 }
 
-void SceneObject::move()
+Collision
+SceneObject::tryToMove(const Vector2D<int>& velocity, Collision::Target target)
 {
-    if (isStatic) return; // No moverse si el objeto es estático
+    Collision collision;
+    SDL_Rect rect = getWorldRect();
 
-    // Aplicamos la gravedad
-    if (!colliding) {
-        velocity.addY(gravity);
+    // Intenta moverse en vertical
+    if (velocity.getY() != 0) {
+        rect.y += velocity.getY();
+
+        collision = game->checkCollision(rect, target);
+
+        // Cantidad que se ha entrado en el obstáculo (lo que hay que deshacer)
+        int fix = collision.vertical * (velocity.getY() > 0 ? 1 : -1);
+        pos += {0, velocity.getY() - fix};
+
+        // Obs: a ? b : c es el operador ternario: vale b si a es cierto y c en caso contrario
+
+        rect.y -= fix; // recoloca la caja para la siguiente colisión
     }
 
-    SDL_Rect newRect = getWorldRect();
+    collision.horizontal = 0; // la horizontal del choque vertical da igual
 
-    // Comprobar colisiones eje X
-    newRect.x += velocity.getX();
+    // Intenta moverse en horizontal
+    // (podría ser conveniente comprobar colisiones incluso aunque el objeto estuviera parado)
+    if (velocity.getX() != 0) {
+        rect.x += velocity.getX();
 
-    if (!game->checkCollision(newRect, false).collides) {
-        // Si no hay colisión, aplicar movimiento en el ejeX
-        pos.addX(velocity.getX());
+        Collision partial = game->checkCollision(rect, target);
+
+        // Copia la información de esta colisión a la que se devolverá
+        collision.horizontal = partial.horizontal;
+
+        if (partial.result == Collision::DAMAGE)
+            collision.result = Collision::DAMAGE;
+
+        pos += {velocity.getX() - collision.horizontal * (velocity.getX() > 0 ? 1 : -1), 0};
     }
 
-    // Comprobar colisiones eje Y
-    newRect.y += velocity.getY();
-
-    if (!game->checkCollision(newRect, false).collides) {
-        // Si no hay colisión, aplicar movimiento en el ejeY
-        pos.addY(velocity.getY());
-        colliding = false;
-    }
-    else { 
-        pos.setY((game->checkCollision(newRect, false).colliderPosition.getY()) - newRect.h);
-        colliding = true;
-    }
-
-    if (flippingVelocity) manageFlip();
+    return collision;
 }
 
 void SceneObject::manageFlip()

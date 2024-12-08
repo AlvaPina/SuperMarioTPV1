@@ -19,7 +19,7 @@ protected:
     bool isStatic; // Indica si el Objecto tendrá físicas
     bool flippingVelocity; // Indica si el Objecto se flipea en base a su velocidad
     bool colliding; // Indica si está tocando algo
-    void move();
+    Collision tryToMove(const Vector2D<int>& velocity, Collision::Target target);
     void manageFlip();
     void renderPositions() const;
     void setTexture(Texture* newTexture);
@@ -29,13 +29,13 @@ public:
 
     virtual void Render() const override = 0;
     virtual void Update() override = 0;
-    virtual Collision Hit(const SDL_Rect& rectDeAtaque, bool fromPlayer) = 0;
+    virtual Collision Hit(const SDL_Rect& rectDeAtaque, Collision::Target target) = 0;
 
     // Getters y setters
     const Point2D<int> getScreenPos() const;
     const Point2D<int> getWorldPos() const;
-    const SDL_Rect getScreenRect() const;
-    const SDL_Rect getWorldRect() const;
+    const SDL_Rect getScreenRect() const;   // Para renderizar
+    const SDL_Rect getWorldRect() const;    // Para colisiones
     void setPosition(int x, int y);
     void setVelocity(int vx, int vy);
     void setStatic(bool isStatic);

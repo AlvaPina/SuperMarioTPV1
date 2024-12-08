@@ -72,8 +72,8 @@ void TileMap::loadTileMap()
 	file.close();
 }
 
-Collision TileMap::hit(const SDL_Rect& rect, bool fromPlayer) {
-	Collision collisionResult{ false, false };
+Collision TileMap::hit(const SDL_Rect& rect, Collision::Target target) {
+	Collision collisionResult = NO_COLLISION;
 
 	int row0 = rect.y / TILE_SIDE;
 	int col0 = rect.x / TILE_SIDE;
@@ -86,13 +86,15 @@ Collision TileMap::hit(const SDL_Rect& rect, bool fromPlayer) {
 				int indice = _tileIndices[row][col];
 
 				if (indice != -1 && indice % _background->getNumColumns() < OBSTACLE_THRESHOLD) {
-					collisionResult.collides = true;
-					collisionResult.colliderPosition.setX(col * TILE_SIDE);
-					collisionResult.colliderPosition.setY(row * TILE_SIDE);
+					// Se detecta una colisión con un obstáculo
+					SDL_Rect tileRect = { col * TILE_SIDE, row * TILE_SIDE, TILE_SIDE, TILE_SIDE };
+					SDL_Rect intersection;
 
-					//std::cout << row * TILE_SIDE << std::endl;
-
-					return collisionResult;
+					if (SDL_IntersectRect(&rect, &tileRect, &intersection)) {
+						collisionResult.result = Collision::OBSTACLE;
+						collisionResult.horizontal = intersection.w;
+						collisionResult.vertical = intersection.h;
+					}
 				}
 			}
 		}

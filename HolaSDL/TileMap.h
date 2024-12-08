@@ -17,7 +17,7 @@ public:
 
 	TileMap(Game* game, Texture* background);
 	int render() const;
-	Collision hit(const SDL_Rect& rect, bool fromPlayer);
+	Collision hit(const SDL_Rect& rect, Collision::Target target);
 
 	static constexpr uint OBSTACLE_THRESHOLD = 4;
 

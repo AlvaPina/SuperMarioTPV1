@@ -12,6 +12,7 @@ Goomba::Goomba(Texture* texture, Vector2D<int> position, Game* game)
 	_renderFrame = 0;
 	_frameCont = 0;
 	setScale(2);
+	velocity = { -GOOMBA_SPEED, 0 };
 }
 
 Goomba::~Goomba()
@@ -28,13 +29,21 @@ void Goomba::Update() {
 
 	if(isInScreen())
 	{
-		move();
+		if (isStatic) return; // No moverse si el objeto es estático
+
+		// Acelra la velocidad con la gravedad
+		if (velocity.getY() < Game::SPEED_LIMIT)
+			velocity += {0, Game::GRAVITY};
+
+		tryToMove(velocity, Collision::ENEMIES);
+
+		if (flippingVelocity) manageFlip();
 	}
 }
 
-Collision Goomba::Hit(const SDL_Rect& rectDeAtaque, bool fromPlayer)
+Collision Goomba::Hit(const SDL_Rect& rectDeAtaque, Collision::Target target)
 {
-	Collision collisionResult{ false, false };
+	Collision collisionResult;
 
 	//Comprobar si es el player
 	return collisionResult;
