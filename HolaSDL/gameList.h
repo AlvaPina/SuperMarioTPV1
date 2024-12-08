@@ -10,6 +10,7 @@
 #define GAME_LIST_H
 
 #include <cassert>
+#include <compare>
 
 /**
  * Lista de objetos que guardan una referencia opaca a su posición en la lista
@@ -192,7 +193,7 @@ public:
 	{
 		// Comprobamos en depuración que no se insertan valores nulos
 		assert(value != nullptr);
-		value->setListAnchor(anchor(new Node(&ghostNode, value)));
+		value->SetListAnchor(anchor(new Node(&ghostNode, value)));
 	}
 
 	/// Añade un nuevo objeto al final de la lista y fija su iterador
@@ -200,7 +201,7 @@ public:
 	{
 		// Comprobamos en depuración que no se insertan valores nulos
 		assert(value != nullptr);
-		value->setListAnchor(anchor(new Node(ghostNode.prev, value)));
+		value->SetListAnchor(anchor(new Node(ghostNode.prev, value)));
 	}
 
 	/// Iterador constante sobre los objetos de la lista
@@ -216,8 +217,8 @@ public:
 		iterator(Node* node)
 		  : node(node)
 		{
-			node->addref();
 			skip();
+			node->addref();
 		}
 
 		void
@@ -247,12 +248,12 @@ public:
 		{
 			Node* prev = node;
 			node = node->*pivot;
+			// Salta los nodos pendientes de eliminación
+			skip();
 			// Añade una referencia al nodo al que llegamos
 			node->addref();
 			// Elimina una referencia al nodo del que nos vamos
 			prev->unref();
-			// Salta los nodos pendientes de eliminación
-			skip();
 
 			return *this;
 		}

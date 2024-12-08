@@ -276,6 +276,10 @@ Collision Game::checkCollision(const SDL_Rect& rect, Collision::Target target)
 		if (objectCollision.vertical != 0) {
 			collisionResult.vertical = objectCollision.vertical;
 		}
+		if (objectCollision.result != Collision::NONE) {
+			collisionResult.result = objectCollision.result;
+			return collisionResult;
+		}
 	}
 	return collisionResult;
 }

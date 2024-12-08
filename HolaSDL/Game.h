@@ -12,6 +12,7 @@
 // Nuestras clases
 #include "Texture.h"
 #include "Collision.h"
+#include "gameList.h"
 
 // Forward declaration
 class SceneObject;
@@ -60,7 +61,7 @@ private:
 	int _mapOffset;
 	TTF_Font* _font; // Fuente del juego
 	TileMap* _tile;
-	std::vector<SceneObject*> _objects;
+	GameList<SceneObject> _objects;
 	Player* _player; // Esto es temporal ya que necesitamos llamar a su handleEvent
 
 public:

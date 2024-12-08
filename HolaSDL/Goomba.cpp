@@ -33,8 +33,11 @@ void Goomba::Update() {
 		if (velocity.getY() < Game::SPEED_LIMIT)
 			velocity += {0, Game::GRAVITY};
 
-		tryToMove(velocity, Collision::PLAYER);
-
+		Collision collision = tryToMove(velocity, Collision::PLAYER);
+		if (collision.result == Collision::Result::DAMAGE) {
+			//delete this;
+			return;
+		}
 		if (flippingVelocity) manageFlip();
 	}
 }

@@ -48,7 +48,12 @@ void Player::Update()
         // Desplazar el mapa
         game->addMapOffset(velocity.getX());
     }
-    Collision collision = tryToMove(velocity, Collision::ENEMIES); 
+    Collision collision = tryToMove(velocity, Collision::ENEMIES);
+    if (collision.result == Collision::Result::DAMAGE) {
+        _lives--;
+        if (_lives == 0) std::cout << "FIN PARTIDA";
+        else ChangeMarioState(MarioState::BASE_MARIO);
+    }
 
     if (collision.vertical) {
         velocity.setY(0);
@@ -69,12 +74,12 @@ Collision Player::Hit(const SDL_Rect& region, Collision::Target target)
 
         if (hasIntersection) {
             Collision::Side side = GetCollisionSide(region, ownRect);
+            Collision collision;
 
-            Collision collision{ Collision::Result::OBSTACLE, side, intersection.w, intersection.h };
-            //std::cout << "¡Jugador colisiona! Profundidad: " << intersection.w << ", " << intersection.h << std::endl;
-
-            // Manejo necesario
-
+            if(side == Collision::Side::BOTTOM)
+            collision = { Collision::Result::DAMAGE, side, intersection.w, intersection.h };
+            else collision = { Collision::Result::OBSTACLE, side, intersection.w, intersection.h };
+            
             return collision;
         }
     }

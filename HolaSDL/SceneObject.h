@@ -18,6 +18,8 @@ protected:
     int gravity; // gravedad local del objeto
     bool flippingVelocity; // Indica si el Objecto se flipea en base a su velocidad
     bool colliding; // Indica si está tocando algo
+    GameList<SceneObject>::anchor anchorScene;
+
     Collision tryToMove(const Vector2D<int>& velocity, Collision::Target target);
     void manageFlip();
     void renderPositions() const;
@@ -42,6 +44,7 @@ public:
     void setScale(int scale);
 
     Collision::Side GetCollisionSide(const SDL_Rect& region, const SDL_Rect& worldRect);
+    void SetListAnchor(GameList<SceneObject>::anchor&& anchor);
 };
 #endif
 

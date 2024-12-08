@@ -191,3 +191,7 @@ Collision::Side SceneObject::GetCollisionSide(const SDL_Rect& region, const SDL_
 
     return Collision::DONTCARE; // No colisión o colisión no relevante
 }
+
+void SceneObject::SetListAnchor(GameList<SceneObject>::anchor&& anchor) {
+    this->anchorScene = std::move(anchor);
+}

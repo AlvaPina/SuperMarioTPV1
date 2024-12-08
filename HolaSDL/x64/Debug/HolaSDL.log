@@ -1,10 +1,4 @@
-﻿  Player.cpp
-  TileMap.cpp
-C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\TileMap.cpp(27,24): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\TileMap.cpp(30,25): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\TileMap.cpp(90,32): warning C4838: la conversión de 'uint' en 'int' requiere una conversión de restricción
-C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\TileMap.cpp(90,49): warning C4838: la conversión de 'uint' en 'int' requiere una conversión de restricción
-C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\TileMap.cpp(90,62): warning C4838: la conversión de 'const uint' en 'int' requiere una conversión de restricción
-C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\HolaSDL\TileMap.cpp(90,73): warning C4838: la conversión de 'const uint' en 'int' requiere una conversión de restricción
+﻿  Game.cpp
+  Player.cpp
   Generando código...
   HolaSDL.vcxproj -> C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\bin\HolaSDLDebug.exe
