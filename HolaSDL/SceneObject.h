@@ -16,7 +16,6 @@ protected:
     Texture* texture;
     int scale;
     int gravity; // gravedad local del objeto
-    bool isStatic; // Indica si el Objecto tendrá físicas
     bool flippingVelocity; // Indica si el Objecto se flipea en base a su velocidad
     bool colliding; // Indica si está tocando algo
     Collision tryToMove(const Vector2D<int>& velocity, Collision::Target target);
@@ -41,6 +40,8 @@ public:
     void setStatic(bool isStatic);
     void setGravity(int gravity);
     void setScale(int scale);
+
+    Collision::Side GetCollisionSide(const SDL_Rect& region, const SDL_Rect& worldRect);
 };
 #endif
 

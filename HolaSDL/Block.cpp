@@ -38,22 +38,21 @@ void Block::manageAnims()
 
 Collision Block::Hit(const SDL_Rect& region, Collision::Target target)
 {
-	if (target == Collision::ENEMIES) {
-		SDL_Rect intersection;
-		SDL_Rect worldRect = getWorldRect();
-		bool hasIntersection = SDL_IntersectRect(&worldRect, &region, &intersection);
-		if (hasIntersection) {
-			Collision collision{ Collision::OBSTACLE, intersection.w, intersection.h };
-			std::cout << "¡Jugador colisiona! Profundidad: " << intersection.w << ", " << intersection.h << std::endl;
+	SDL_Rect intersection;
+	SDL_Rect worldRect = getWorldRect();
+	bool hasIntersection = SDL_IntersectRect(&worldRect, &region, &intersection);
+	if (hasIntersection) {
+		Collision::Side side = GetCollisionSide(region, worldRect);
 
-			if (_type == SORPRESA) {
-				_type = VACIO;
-				renderFrame = 4;
-				// spawnea el power up
-			}
+		Collision collision{ Collision::Result::OBSTACLE, side, intersection.w, intersection.h };
 
-			return collision;
+		if (side == Collision::BOTTOM && _type == SORPRESA) {
+			_type = VACIO;
+			renderFrame = 4;
+			// spawnea el power up
 		}
+
+		return collision;
 	}
 		
 	return NO_COLLISION;

@@ -20,8 +20,18 @@ struct Collision
 		OBSTACLE,	// la colisión impide el movimiento
 	};
 
-	Result result = NONE;
+	// Lado por el que colisiona
+	enum Side {
+		DONTCARE,
+		TOP,
+		BOTTOM,
+		LEFT,
+		RIGHT
+	};
+
+	Result result = Result::NONE;
+	Side side = Side::DONTCARE;
 	int horizontal = 0;   // profundidad de la colisión horizontal
 	int vertical = 0;     // profundidad de la colisión vertical
 };
-const Collision NO_COLLISION = Collision{ Collision::NONE, 0, 0 };
+const Collision NO_COLLISION = Collision{ Collision::Result::NONE,Collision::Side::DONTCARE, 0, 0};

@@ -34,8 +34,6 @@ void Player::Update()
 {
     HandleAnims();
 
-    if (isStatic) return; // No moverse si el objeto es estático
-
     // Acelra la velocidad con la gravedad
     if (velocity.getY() < Game::SPEED_LIMIT)
         velocity += {0, Game::GRAVITY};
@@ -52,7 +50,10 @@ void Player::Update()
     }
     Collision collision = tryToMove(velocity, Collision::ENEMIES); 
 
-    if (collision.vertical > 0) _canJump = true; // Si la colision se hunde en el suelo, le dejamos saltar
+    if (collision.vertical) {
+        velocity.setY(0);
+        _canJump = true;
+    }
     else _canJump = false;
 
     if (flippingVelocity) manageFlip();
@@ -67,8 +68,10 @@ Collision Player::Hit(const SDL_Rect& region, Collision::Target target)
         bool hasIntersection = SDL_IntersectRect(&ownRect, &region, &intersection);
 
         if (hasIntersection) {
-            Collision collision{ Collision::OBSTACLE, intersection.w, intersection.h };
-            std::cout << "¡Jugador colisiona! Profundidad: " << intersection.w << ", " << intersection.h << std::endl;
+            Collision::Side side = GetCollisionSide(region, ownRect);
+
+            Collision collision{ Collision::Result::OBSTACLE, side, intersection.w, intersection.h };
+            //std::cout << "¡Jugador colisiona! Profundidad: " << intersection.w << ", " << intersection.h << std::endl;
 
             // Manejo necesario
 

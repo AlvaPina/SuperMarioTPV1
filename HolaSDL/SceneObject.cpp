@@ -9,7 +9,7 @@
 
 
 SceneObject::SceneObject(Game* game, Texture* texture, Point2D<int> position, Vector2D<int> velocity, bool isStatic)
-	: GameObject(game), texture(texture), velocity(velocity), isStatic(isStatic), pos(position)
+	: GameObject(game), texture(texture), velocity(velocity), pos(position)
 {
     gravity = game->GRAVITY;
     flippingVelocity = false;
@@ -57,7 +57,9 @@ SceneObject::tryToMove(const Vector2D<int>& velocity, Collision::Target target)
         if (partial.result == Collision::DAMAGE)
             collision.result = Collision::DAMAGE;
 
-        pos += {velocity.getX() - collision.horizontal * (velocity.getX() > 0 ? 1 : -1), 0};
+        // Cantidad que se ha entrado en el obstáculo (lo que hay que deshacer)
+        int fix = collision.horizontal * (velocity.getX() > 0 ? 1 : -1);
+        pos += {velocity.getX() - fix, 0};
     }
 
     return collision;
@@ -162,4 +164,30 @@ void SceneObject::setGravity(int value)
 void SceneObject::setScale(int value)
 {
     scale = value;
+}
+
+Collision::Side SceneObject::GetCollisionSide(const SDL_Rect& region, const SDL_Rect& worldRect)
+{
+    int deltaTop = region.y + region.h - worldRect.y;
+    int deltaBottom = worldRect.y + worldRect.h - region.y;
+    int deltaLeft = region.x + region.w - worldRect.x;
+    int deltaRight = worldRect.x + worldRect.w - region.x;
+
+    // Determinar el lado con la menor penetración
+    int minDelta = std::min({ deltaTop, deltaBottom, deltaLeft, deltaRight });
+
+    if (minDelta == deltaTop) {
+        return Collision::TOP;
+    }
+    else if (minDelta == deltaBottom) {
+        return Collision::BOTTOM;
+    }
+    else if (minDelta == deltaLeft) {
+        return Collision::LEFT;
+    }
+    else if (minDelta == deltaRight) {
+        return Collision::RIGHT;
+    }
+
+    return Collision::DONTCARE; // No colisión o colisión no relevante
 }

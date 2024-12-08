@@ -29,13 +29,11 @@ void Goomba::Update() {
 
 	if(isInScreen())
 	{
-		if (isStatic) return; // No moverse si el objeto es estático
-
 		// Acelra la velocidad con la gravedad
 		if (velocity.getY() < Game::SPEED_LIMIT)
 			velocity += {0, Game::GRAVITY};
 
-		tryToMove(velocity, Collision::ENEMIES);
+		tryToMove(velocity, Collision::PLAYER);
 
 		if (flippingVelocity) manageFlip();
 	}
