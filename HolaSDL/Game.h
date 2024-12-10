@@ -59,10 +59,11 @@ private:
 	// Interruptor para terminar el juego
 	bool _exit;
 	int _mapOffset;
+	int _points;
 	TTF_Font* _font; // Fuente del juego
 	TileMap* _tile;
 	GameList<SceneObject> _objects;
-	Player* _player; // Esto es temporal ya que necesitamos llamar a su handleEvent
+	Player* _player;
 
 public:
 	Game();
@@ -80,7 +81,8 @@ public:
 	SDL_Renderer* getRenderer() const { return _renderer; }
 	SDL_Texture* getFontTexture(const std::string& text, SDL_Color color, SDL_Renderer* renderer) const;
 	int getMapOffset() const { return _mapOffset; }
-
+	int getPoints() { return _points; }
+	Player* getPlayer() { return _player; }
 	void addMapOffset(int number);
 	
 
