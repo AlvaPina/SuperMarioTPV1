@@ -80,6 +80,7 @@ public:
 	SDL_Renderer* getRenderer() const { return _renderer; }
 	SDL_Texture* getFontTexture(const std::string& text, SDL_Color color, SDL_Renderer* renderer) const;
 	int getMapOffset() const { return _mapOffset; }
+	SceneObject* getPlayer() const { return _player; }
 
 	void addMapOffset(int number);
 	
