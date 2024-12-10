@@ -7,7 +7,7 @@
 
 
 Goomba::Goomba(Texture* texture, Vector2D<int> position, Game* game)
-	: SceneObject(game, texture, position, { 0,0 }, false)
+	: Enemy(game, texture, position, { 0,0 }, false)
 {
 	_renderFrame = 0;
 	_frameCont = 0;
@@ -34,6 +34,15 @@ void Goomba::Update() {
 			velocity += {0, Game::GRAVITY};
 
 		Collision collision = tryToMove(velocity, Collision::PLAYER);
+
+		// Si toca un objeto en horizontal cambia de dirección
+		if (collision.horizontal)
+			velocity.setX(-velocity.getX());
+
+		// Si toca un objeto en vertical anula la velocidad (para que no se acumule la gravedad)
+		if (collision.vertical)
+			velocity.setY(0);
+
 		if (collision.result == Collision::Result::DAMAGE) {
 			//delete this;
 			return;
@@ -42,12 +51,13 @@ void Goomba::Update() {
 	}
 }
 
-Collision Goomba::Hit(const SDL_Rect& rectDeAtaque, Collision::Target target)
+Collision Goomba::Hit(const SDL_Rect& region, Collision::Target target)
 {
-	Collision collisionResult;
+	if (isInScreen()) {
+		return Enemy::Hit(region, target);
+	}
+	return NO_COLLISION;
 
-	//Comprobar si es el player
-	return collisionResult;
 }
 
 bool Goomba::isInScreen()
