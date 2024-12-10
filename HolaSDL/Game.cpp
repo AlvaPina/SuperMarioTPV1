@@ -11,7 +11,6 @@
 #include "Block.h"
 #include "Goomba.h"
 #include "Vector2D.h"
-#include "InfoBar.h"
 
 using namespace std;
 
@@ -43,7 +42,7 @@ const array<TextureSpec, Game::NUM_TEXTURES> textureSpec{
 };
 
 Game::Game()
-	: _exit(false), _mapOffset(0), _points(0)
+	: _exit(false), _mapOffset(0)
 {
 	// Inicializa la SDL
 	SDL_Init(SDL_INIT_EVERYTHING);
@@ -70,8 +69,6 @@ Game::Game()
 			textureSpec[i].numColumns);
 
 	_tile = new TileMap(this, _textures[BACKGROUND]);
-	InfoBar* infoBar = new InfoBar(this);
-	//_objects.push_back(infoBar);
 
 	// Crea los objetos del juego
 	//perro = new Dog(this, -textures[DOG]->getFrameWidth(), 390);

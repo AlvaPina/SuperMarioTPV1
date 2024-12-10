@@ -80,7 +80,6 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Goomba.cpp" />
-    <ClCompile Include="InfoBar.cpp" />
     <ClCompile Include="Koopa.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mushroom.cpp" />
@@ -99,7 +98,6 @@
     <ClInclude Include="gameList.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Goomba.h" />
-    <ClInclude Include="InfoBar.h" />
     <ClInclude Include="Koopa.h" />
     <ClInclude Include="Mushroom.h" />
     <ClInclude Include="Pickable.h" />
