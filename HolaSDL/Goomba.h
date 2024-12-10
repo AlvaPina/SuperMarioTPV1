@@ -2,10 +2,10 @@
 
 #include "Vector2D.h"
 #include "Texture.h"
-#include "SceneObject.h"
+#include "Enemy.h"
 #include "Game.h"
 
-class Goomba : public SceneObject
+class Goomba : public Enemy
 {
 private:
 	const int GOOMBA_SPEED = 2;
@@ -20,9 +20,9 @@ private:
 public:
 	void Render() const override;
 	void Update() override;
-	Collision Hit(const SDL_Rect& rectDeAtaque, Collision::Target target) override;
+	Collision Hit(const SDL_Rect& region, Collision::Target target) override;
 
-	Goomba(Texture* text, Vector2D<int> pos, Game* gam);
+	Goomba(Texture* text, Vector2D<int> pos, Game* game);
 	~Goomba();
 };
 
