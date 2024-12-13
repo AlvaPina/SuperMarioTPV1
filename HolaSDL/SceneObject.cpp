@@ -13,7 +13,7 @@ SceneObject::SceneObject(Game* game, Texture* texture, Point2D<int> position, Ve
 {
     gravity = game->GRAVITY;
     flippingVelocity = false;
-    colliding = false;
+    collidingYAxis = false;
     scale = 1;
     pos += {0, -texture->getFrameHeight() - 10}; // Para que spawneen arriba y no se metan en el suelo al aparecer
 }

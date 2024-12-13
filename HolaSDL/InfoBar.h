@@ -2,6 +2,7 @@
 #define INFOBAR_H
 
 #include "GameObject.h"
+#include "checkML.h"
 
 class Cannon;
 

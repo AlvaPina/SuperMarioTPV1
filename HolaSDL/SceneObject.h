@@ -17,7 +17,7 @@ protected:
     int scale;
     int gravity; // gravedad local del objeto
     bool flippingVelocity; // Indica si el Objecto se flipea en base a su velocidad
-    bool colliding; // Indica si está tocando algo
+    bool collidingYAxis; // Indica si está tocando algo en ejeY
     GameList<SceneObject>::anchor anchorScene;
 
     Collision tryToMove(const Vector2D<int>& velocity, Collision::Target target);

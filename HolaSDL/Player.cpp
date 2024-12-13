@@ -7,7 +7,7 @@
 
 
 Player::Player(Texture* texture, Vector2D<int> position, Game* game, int lives, bool movingRight, MarioState marioState)
-    : SceneObject(game, texture, position, { 0,0 }, false), _lives(lives), _marioState(marioState), _canJump(false)
+    : SceneObject(game, texture, position, { 0,0 }, false), _lives(lives), _marioState(marioState)
 {
     _playerFrame = 0;
     flippingVelocity = true;
@@ -51,15 +51,15 @@ void Player::Update()
     Collision collision = tryToMove(velocity, Collision::ENEMIES);
     if (collision.result == Collision::Result::DAMAGE) {
         _lives--;
-        if (_lives == 0) std::cout << "FIN PARTIDA";
+        if (_lives <= 0) std::cout << "FIN PARTIDA";
         else ChangeMarioState(MarioState::BASE_MARIO);
     }
 
     if (collision.vertical) {
         velocity.setY(0);
-        _canJump = true;
+        collidingYAxis = true;
     }
-    else _canJump = false;
+    else collidingYAxis = false;
 
     if (flippingVelocity) manageFlip();
 }
@@ -103,7 +103,7 @@ void Player::handleEvent(const SDL_Event& evento)
             _animationState = MOVING_L;
             break;
         case SDLK_SPACE:
-            if (_canJump) {
+            if (collidingYAxis) {
                 velocity.setY(-JUMP_POWER);
                 _animationState = AN_JUMPING;
             }
@@ -132,11 +132,12 @@ void Player::handleEvent(const SDL_Event& evento)
 
 void Player::HandleAnims()
 {
+    _animationState = (velocity.getX() > 0) ? MOVING_R : MOVING_L;
     if (velocity.getX() == 0) {
         _animationState = STOPPED;
     }
 
-    if (!colliding) _animationState = AN_JUMPING;
+    if (!collidingYAxis) _animationState = AN_JUMPING;
 
     switch (_animationState)
     {

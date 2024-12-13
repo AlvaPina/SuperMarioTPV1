@@ -1,4 +1,6 @@
 #pragma once
+#include "checkML.h"
+
 #include "Texture.h"
 #include "SceneObject.h"
 #include "Game.h"
@@ -40,7 +42,6 @@ private:
 
 	int _lives;						// Numero de vidas de Mario
 	int _playerFrame;				// Indica el frame que se renderiza
-	bool _canJump;
 
 	enum AnimationState {
 		STOPPED,
