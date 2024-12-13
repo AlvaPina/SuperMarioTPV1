@@ -70,7 +70,7 @@ Game::Game()
 			textureSpec[i].numColumns);
 
 	_tile = new TileMap(this, _textures[BACKGROUND]);
-	InfoBar* infoBar = new InfoBar(this);
+	_infoBar = new InfoBar(this);
 	//_objects.push_back(infoBar);
 
 	// Crea los objetos del juego
@@ -133,6 +133,7 @@ Game::render() const
 
 	// Pinta los objetos del juego
 	_tile->render();
+	_infoBar->Render();
 	
 	// Renderiza los objetos del juego
 	for (const auto& object : _objects) {
@@ -256,6 +257,11 @@ SDL_Texture* Game::getFontTexture(const std::string& text, SDL_Color color, SDL_
 void Game::addMapOffset(int number)
 {
 	_mapOffset += number;
+}
+
+int Game::getPlayerLives() const
+{
+	return _player->GetVidas();
 }
 
 Collision Game::checkCollision(const SDL_Rect& rect, Collision::Target target)

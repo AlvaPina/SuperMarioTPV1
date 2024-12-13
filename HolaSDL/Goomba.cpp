@@ -35,6 +35,11 @@ void Goomba::Update() {
 
 		Collision collision = tryToMove(velocity, Collision::PLAYER);
 
+		if (collision.result == Collision::DAMAGE) {
+			game->addPoints(50);
+			delete this;
+		}
+
 		// Si toca un objeto en horizontal cambia de dirección
 		if (collision.horizontal)
 			velocity.setX(-velocity.getX());

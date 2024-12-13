@@ -26,6 +26,7 @@ class Player;
 class Goomba;
 class Koopa;
 class Mushroom;
+class InfoBar;
 
 //
 // Clase que representa el juego y controla todos sus aspectos
@@ -64,6 +65,7 @@ private:
 	TileMap* _tile;
 	GameList<SceneObject> _objects;
 	Player* _player;
+	InfoBar* _infoBar;
 
 public:
 	Game();
@@ -84,7 +86,10 @@ public:
 	int getPoints() { return _points; }
 	Player* getPlayer() { return _player; }
 	void addMapOffset(int number);
+	int getPlayerLives() const;
 	
+	void addPoints(int pointsToAdd) { _points += pointsToAdd; }
+
 
 	Collision checkCollision(const SDL_Rect& rect, Collision::Target target);
 

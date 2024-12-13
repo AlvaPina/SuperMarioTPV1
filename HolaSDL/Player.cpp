@@ -76,8 +76,9 @@ Collision Player::Hit(const SDL_Rect& region, Collision::Target target)
             Collision::Side side = GetCollisionSide(region, ownRect);
             Collision collision;
 
-            if(side == Collision::Side::BOTTOM)
-            collision = { Collision::Result::DAMAGE, side, intersection.w, intersection.h };
+            if (side == Collision::Side::BOTTOM) {
+                collision = { Collision::Result::DAMAGE, side, intersection.w, intersection.h };
+            }
             else collision = { Collision::Result::OBSTACLE, side, intersection.w, intersection.h };
             
             return collision;
@@ -179,4 +180,9 @@ void Player::ChangeMarioState(MarioState newState)
             break;
         }
     }
+}
+
+int Player::GetVidas() const
+{
+    return _lives;
 }

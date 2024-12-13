@@ -22,6 +22,9 @@ public:
 		int jumpFrame;
 	};
 
+	Player(Texture* text, Vector2D<int> pos, Game* game, int livs, bool movR, MarioState marioState);
+	~Player();
+
 	void Render() const override;
 	void Update() override;
 	Collision Hit(const SDL_Rect& rectDeAtaque, Collision::Target target) override;
@@ -29,9 +32,8 @@ public:
 	void HandleAnims();
 	void ChangeMarioState(MarioState newState);
 
-	Player(Texture* text, Vector2D<int> pos, Game* game, int livs, bool movR, MarioState marioState);
-	~Player();
-
+	//Getters
+	int GetVidas() const;
 private:
 	const int PLAYERSPEED = 10;
 	const int JUMP_POWER = 25;
