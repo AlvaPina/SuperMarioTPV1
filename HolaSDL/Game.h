@@ -82,6 +82,7 @@ public:
 	void loadObjectMap();
 	void addVisibleObjects();
 	void addObject(SceneObject*);
+	void restartLevel();
 
 	// Getters
 	Texture* getTexture(TextureName name) const { return _textures[name]; }

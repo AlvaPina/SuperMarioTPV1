@@ -86,7 +86,13 @@ Game::Game()
 Game::~Game()
 {
 	// Elimina los objetos del juego
-	//delete perro;
+	delete _player;
+	delete _infoBar;
+
+	// Eliminar objetos de la lista
+	for (auto object : _objects) {
+		delete object;
+	}
 
 	// Elimina las texturas
 	for (Texture* texture : _textures)
@@ -238,15 +244,29 @@ void Game::addVisibleObjects()
 	// Borde derecho del mapa (más una casilla)
 	const int rightThreshold = _mapOffset + Game::WIN_WIDTH + Game::TILE_SIDE;
 
-	while (_nextObject < _objectQueue.size() && _objectQueue[_nextObject]->getWorldPos().getX() < rightThreshold) {
+	while (_nextObject < _objectQueue.size() && _objectQueue[_nextObject]->getWorldPos().getX() < rightThreshold)
 		addObject(_objectQueue[_nextObject++]->Clone());
-		std::cout << "CLONED";
-	}
 }
 
 void Game::addObject(SceneObject* sceneObject)
 {
 	_objects.push_back(sceneObject);
+}
+
+void Game::restartLevel()
+{
+	_mapOffset = 0;
+	_nextObject = 0;
+
+	for (auto it = _objects.begin(); it != _objects.end(); ) {
+		SceneObject* obj = *it;
+		if (obj != _player) {
+			delete obj;
+		}
+		++it;
+	}
+
+	_player->resetPosition();
 }
 
 SDL_Texture* Game::getFontTexture(const std::string& text, SDL_Color color, SDL_Renderer* renderer) const

@@ -16,11 +16,12 @@ Player::Player(Texture* texture, Vector2D<int> position, Game* game, int lives, 
     _playerAnims.runAnim.firstFrame = 1;
     _playerAnims.runAnim.lastFrame = 2;
     _playerAnims.jumpFrame = 5;
+    _originalPos = pos;
 }
 
 Player::Player(const Player& other)
     : SceneObject(other.game, other.texture, other.pos, other.velocity)
-    , _lives(other._lives), _marioState(other._marioState), _playerFrame(other._playerFrame)
+    , _lives(other._lives), _marioState(other._marioState), _playerFrame(other._playerFrame), _originalPos(other._originalPos)
 {
     flippingVelocity = other.flippingVelocity;
     flip = other.flip;
@@ -64,7 +65,8 @@ void Player::Update()
     if (collision.result == Collision::Result::DAMAGE) {
         _lives--;
         if (_lives <= 0) std::cout << "FIN PARTIDA";
-        else ChangeMarioState(MarioState::BASE_MARIO);
+        else if (_marioState == MarioState::SUPER_MARIO) ChangeMarioState(MarioState::BASE_MARIO);
+        else game->restartLevel();
     }
 
     if (collision.vertical) {
@@ -198,6 +200,11 @@ void Player::ChangeMarioState(MarioState newState)
             break;
         }
     }
+}
+
+void Player::resetPosition()
+{
+    pos = {_originalPos.getX(), _originalPos.getY()};
 }
 
 int Player::GetVidas() const

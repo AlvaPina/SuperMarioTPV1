@@ -36,6 +36,7 @@ public:
 	void handleEvent(const SDL_Event& evento);
 	void HandleAnims();
 	void ChangeMarioState(MarioState newState);
+	void resetPosition();
 
 	//Getters
 	int GetVidas() const;
@@ -45,6 +46,8 @@ private:
 
 	int _lives;						// Numero de vidas de Mario
 	int _playerFrame;				// Indica el frame que se renderiza
+
+	Point2D<int> _originalPos;
 
 	enum AnimationState {
 		STOPPED,
