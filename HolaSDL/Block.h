@@ -32,7 +32,7 @@ private:
 
 	BlockType _type;
 	BlockContent _content;
-	int renderFrame;		// Indica que frame se usa en el renderizado
+	int _renderFrame;		// Indica que frame se usa en el renderizado
 	int _framecount;			// Contador auxiliar para las animaciones
 
 	void manageAnims();

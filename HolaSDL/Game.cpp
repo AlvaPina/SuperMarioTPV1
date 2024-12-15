@@ -193,42 +193,42 @@ void Game::loadObjectMap() {
 		Vector2D<int>  auxPos(auxX * TILE_SIDE, auxY * TILE_SIDE);
 
 		switch (tipo) {
-		case 'M': {
-			int auxLiv;
-			lineStream >> auxLiv;
+			case 'M': {
+				int auxLiv;
+				lineStream >> auxLiv;
 
-			_player = new Player(_textures[MARIO], auxPos, this, auxLiv, false, Player::MarioState::BASE_MARIO);
-			addObject(_player);
-			break;
-		}
-		case 'B': {
-			string auxtype;
-			lineStream >> auxtype;
-
-			if (auxtype == "B") {
-				Block* block = new Block(this, Block::LADRILLO, auxPos, _textures[BLOCKS], Block::BlockContent::EMPTY);
-				addObject(block);
+				_player = new Player(_textures[MARIO], auxPos, this, auxLiv, false, Player::MarioState::BASE_MARIO);
+				addObject(_player);
+				break;
 			}
-			else if (auxtype == "?") {
+			case 'B': {
+				string auxtype;
 				lineStream >> auxtype;
-				Block* block;
-				if(auxtype == "C")
-				{
-					block = new Block(this, Block::SORPRESA, auxPos, _textures[BLOCKS], Block::BlockContent::COIN);
+
+				if (auxtype == "B") {
+					Block* block = new Block(this, Block::LADRILLO, auxPos, _textures[BLOCKS], Block::BlockContent::EMPTY);
+					_objectQueue.push_back(block);
 				}
-				else
-				{
-					block = new Block(this, Block::SORPRESA, auxPos, _textures[BLOCKS], Block::BlockContent::POWER_UP);
+				else if (auxtype == "?") {
+					lineStream >> auxtype;
+					Block* block;
+					if(auxtype == "C")
+					{
+						block = new Block(this, Block::SORPRESA, auxPos, _textures[BLOCKS], Block::BlockContent::COIN);
+					}
+					else
+					{
+						block = new Block(this, Block::SORPRESA, auxPos, _textures[BLOCKS], Block::BlockContent::POWER_UP);
+					}
+					_objectQueue.push_back(block);
 				}
-				addObject(block);
+				break;
 			}
-			break;
-		}
-		case 'G': {
-			Goomba* goomba = new Goomba(_textures[GOOMBA], auxPos, this);
-			//_objectQueue.push_back(goomba);
-			break;
-		}
+			case 'G': {
+				Goomba* goomba = new Goomba(_textures[GOOMBA], auxPos, this);
+				_objectQueue.push_back(goomba);
+				break;
+			}
 		}
 	}
 }

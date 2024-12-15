@@ -7,20 +7,20 @@ Block::Block(Game* game, BlockType type, Point2D<int> position, Texture* tex, Bl
 	_framecount = 0;
 	setScale(2);
 
-	if (type == SORPRESA) renderFrame = 0;
-	else renderFrame = 5;
+	if (type == SORPRESA) _renderFrame = 0;
+	else _renderFrame = 5;
 }
 
 Block::Block(const Block& other)
 	: SceneObject(other.game, other.texture, other.pos, other.velocity),
-	_type(other._type), _content(other._content), _framecount(other._framecount)
+	_type(other._type), _content(other._content), _framecount(other._framecount), _renderFrame(other._renderFrame)
 {
 	setScale(other.scale);
 }
 
 void Block::Render() const
 {
-	texture->renderFrame(getScreenRect(), 0, renderFrame);
+	texture->renderFrame(getScreenRect(), 0, _renderFrame);
 }
 
 void Block::Update()
@@ -34,8 +34,8 @@ void Block::manageAnims()
 	{
 		if (_framecount >= ANIMATION_SPEED)
 		{
-			if (renderFrame >= 3) renderFrame = 0;
-			else renderFrame++;
+			if (_renderFrame >= 3) _renderFrame = 0;
+			else _renderFrame++;
 			_framecount = 0;
 		}
 	}
@@ -54,7 +54,7 @@ Collision Block::Hit(const SDL_Rect& region, Collision::Target target)
 
 		if (side == Collision::BOTTOM && _type == SORPRESA) {
 			_type = VACIO;
-			renderFrame = 4;
+			_renderFrame = 4;
 			// spawnea el power up
 		}
 
