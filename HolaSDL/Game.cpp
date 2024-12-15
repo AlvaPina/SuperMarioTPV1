@@ -146,6 +146,7 @@ Game::render() const
 void
 Game::update()
 {
+	addVisibleObjects();
 	// Actualiza los objetos del juego
 	for (const auto& object : _objects) {
 		object->Update();
@@ -197,7 +198,7 @@ void Game::loadObjectMap() {
 			lineStream >> auxLiv;
 
 			_player = new Player(_textures[MARIO], auxPos, this, auxLiv, false, Player::MarioState::BASE_MARIO);
-			_objects.push_back(_player);
+			addObject(_player);
 			break;
 		}
 		case 'B': {
@@ -206,30 +207,46 @@ void Game::loadObjectMap() {
 
 			if (auxtype == "B") {
 				Block* block = new Block(this, Block::LADRILLO, auxPos, _textures[BLOCKS], Block::BlockContent::EMPTY);
-				_objects.push_back(block);
+				addObject(block);
 			}
 			else if (auxtype == "?") {
 				lineStream >> auxtype;
+				Block* block;
 				if(auxtype == "C")
 				{
-					Block* block = new Block(this, Block::SORPRESA, auxPos, _textures[BLOCKS], Block::BlockContent::COIN);
-					_objects.push_back(block);
+					block = new Block(this, Block::SORPRESA, auxPos, _textures[BLOCKS], Block::BlockContent::COIN);
 				}
 				else
 				{
-					Block* block = new Block(this, Block::SORPRESA, auxPos, _textures[BLOCKS], Block::BlockContent::POWER_UP);
-					_objects.push_back(block);
+					block = new Block(this, Block::SORPRESA, auxPos, _textures[BLOCKS], Block::BlockContent::POWER_UP);
 				}
+				addObject(block);
 			}
 			break;
 		}
 		case 'G': {
 			Goomba* goomba = new Goomba(_textures[GOOMBA], auxPos, this);
-			_objects.push_back(goomba);
+			//_objectQueue.push_back(goomba);
 			break;
 		}
 		}
 	}
+}
+
+void Game::addVisibleObjects()
+{
+	// Borde derecho del mapa (más una casilla)
+	const int rightThreshold = _mapOffset + Game::WIN_WIDTH + Game::TILE_SIDE;
+
+	while (_nextObject < _objectQueue.size() && _objectQueue[_nextObject]->getWorldPos().getX() < rightThreshold) {
+		addObject(_objectQueue[_nextObject++]->Clone());
+		std::cout << "CLONED";
+	}
+}
+
+void Game::addObject(SceneObject* sceneObject)
+{
+	_objects.push_back(sceneObject);
 }
 
 SDL_Texture* Game::getFontTexture(const std::string& text, SDL_Color color, SDL_Renderer* renderer) const

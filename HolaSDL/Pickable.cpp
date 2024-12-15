@@ -1,7 +1,7 @@
 #include "Pickable.h"
 
 Pickable::Pickable(Game* game, Texture* texture, Vector2D<int> pos)
-    : SceneObject(game, texture, pos, { 0,0 }, false) {}
+    : SceneObject(game, texture, pos, { 0,0 }) {}
 
 Collision Pickable::Hit(const SDL_Rect& region, Collision::Target target)
 {

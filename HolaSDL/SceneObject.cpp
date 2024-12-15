@@ -8,7 +8,7 @@
 
 
 
-SceneObject::SceneObject(Game* game, Texture* texture, Point2D<int> position, Vector2D<int> velocity, bool isStatic)
+SceneObject::SceneObject(Game* game, Texture* texture, Point2D<int> position, Vector2D<int> velocity)
 	: GameObject(game), texture(texture), velocity(velocity), pos(position)
 {
     gravity = game->GRAVITY;
@@ -149,11 +149,6 @@ void SceneObject::setVelocity(int vx, int vy)
 {
 	velocity.setX(vx);
 	velocity.setY(vy);
-}
-
-void SceneObject::setStatic(bool isStatic)
-{
-	isStatic = isStatic;
 }
 
 void SceneObject::setGravity(int value)

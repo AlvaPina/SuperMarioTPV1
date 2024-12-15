@@ -20,9 +20,12 @@ enum BlockContent {
 };
 
 	Block(Game* game, BlockType type, Point2D<int> pos, Texture* texture, BlockContent content);
+	Block(const Block& other); // Constructor por copia
+
 	void Render() const override;
 	void Update() override;
 	Collision Hit(const SDL_Rect& rectDeAtaque, Collision::Target target) override;
+	SceneObject* Clone() const override;
 
 private:
 	const int ANIMATION_SPEED = 10;
@@ -30,7 +33,7 @@ private:
 	BlockType _type;
 	BlockContent _content;
 	int renderFrame;		// Indica que frame se usa en el renderizado
-	int _framecont;			// Contador auxiliar para las animaciones
+	int _framecount;			// Contador auxiliar para las animaciones
 
 	void manageAnims();
 };

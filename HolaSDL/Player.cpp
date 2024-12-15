@@ -7,7 +7,7 @@
 
 
 Player::Player(Texture* texture, Vector2D<int> position, Game* game, int lives, bool movingRight, MarioState marioState)
-    : SceneObject(game, texture, position, { 0,0 }, false), _lives(lives), _marioState(marioState)
+    : SceneObject(game, texture, position, { 0,0 }), _lives(lives), _marioState(marioState)
 {
     _playerFrame = 0;
     flippingVelocity = true;
@@ -16,6 +16,18 @@ Player::Player(Texture* texture, Vector2D<int> position, Game* game, int lives, 
     _playerAnims.runAnim.firstFrame = 1;
     _playerAnims.runAnim.lastFrame = 2;
     _playerAnims.jumpFrame = 5;
+}
+
+Player::Player(const Player& other)
+    : SceneObject(other.game, other.texture, other.pos, other.velocity)
+    , _lives(other._lives), _marioState(other._marioState), _playerFrame(other._playerFrame)
+{
+    flippingVelocity = other.flippingVelocity;
+    flip = other.flip;
+    setScale(other.scale);
+    _playerAnims.runAnim.firstFrame = other._playerAnims.runAnim.firstFrame;
+    _playerAnims.runAnim.lastFrame = other._playerAnims.runAnim.lastFrame;
+    _playerAnims.jumpFrame = other._playerAnims.jumpFrame;
 }
 
 Player::~Player()
@@ -85,6 +97,11 @@ Collision Player::Hit(const SDL_Rect& region, Collision::Target target)
         }
     }
     return NO_COLLISION;
+}
+
+SceneObject* Player::Clone() const
+{
+    return new Player(*this);
 }
 
 void Player::handleEvent(const SDL_Event& evento)

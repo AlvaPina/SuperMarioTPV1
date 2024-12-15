@@ -2,14 +2,20 @@
 #include <iostream>
 
 Block::Block(Game* game, BlockType type, Point2D<int> position, Texture* tex, BlockContent content)
-	: SceneObject(game, tex, position, { 0,0 }, false), _type(type), _content(content)
+	: SceneObject(game, tex, position, { 0,0 }), _type(type), _content(content)
 {
-	_framecont = 0;
-	setStatic(true);
+	_framecount = 0;
 	setScale(2);
 
 	if (type == SORPRESA) renderFrame = 0;
 	else renderFrame = 5;
+}
+
+Block::Block(const Block& other)
+	: SceneObject(other.game, other.texture, other.pos, other.velocity),
+	_type(other._type), _content(other._content), _framecount(other._framecount)
+{
+	setScale(other.scale);
 }
 
 void Block::Render() const
@@ -26,14 +32,14 @@ void Block::manageAnims()
 {
 	if (_type == SORPRESA)
 	{
-		if (_framecont >= ANIMATION_SPEED)
+		if (_framecount >= ANIMATION_SPEED)
 		{
 			if (renderFrame >= 3) renderFrame = 0;
 			else renderFrame++;
-			_framecont = 0;
+			_framecount = 0;
 		}
 	}
-	_framecont++;
+	_framecount++;
 }
 
 Collision Block::Hit(const SDL_Rect& region, Collision::Target target)
@@ -56,4 +62,9 @@ Collision Block::Hit(const SDL_Rect& region, Collision::Target target)
 	}
 		
 	return NO_COLLISION;
+}
+
+SceneObject* Block::Clone() const
+{
+	return new Block(*this);
 }

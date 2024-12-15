@@ -7,12 +7,20 @@
 
 
 Goomba::Goomba(Texture* texture, Vector2D<int> position, Game* game)
-	: Enemy(game, texture, position, { 0,0 }, false)
+	: Enemy(game, texture, position, { 0,0 })
 {
 	_renderFrame = 0;
-	_frameCont = 0;
+	_frameCount = 0;
 	setScale(2);
 	velocity = { -GOOMBA_SPEED, 0 };
+}
+
+Goomba::Goomba(const Goomba& other)
+	: Enemy(other.game, other.texture, other.pos, other.velocity)
+{
+	_renderFrame = other._renderFrame;
+	_frameCount = other._frameCount;
+	setScale(other.scale);
 }
 
 Goomba::~Goomba()
@@ -65,6 +73,11 @@ Collision Goomba::Hit(const SDL_Rect& region, Collision::Target target)
 
 }
 
+SceneObject* Goomba::Clone() const
+{
+	return new Goomba(*this);
+}
+
 bool Goomba::isInScreen()
 {
 	if (pos.getX() - game->getMapOffset() <= game->WIN_WIDTH) return true;
@@ -73,12 +86,12 @@ bool Goomba::isInScreen()
 
 void Goomba::HandleAnims()
 {
-	if (_frameCont >= FRAME_SPEED)
+	if (_frameCount >= FRAME_SPEED)
 	{
 		if (_renderFrame == 0) _renderFrame = 1;
 		else _renderFrame = 0;
 
-		_frameCont = 0;
+		_frameCount = 0;
 	}
-	else _frameCont++;
+	else _frameCount++;
 }

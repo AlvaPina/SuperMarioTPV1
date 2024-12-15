@@ -25,11 +25,14 @@ public:
 	};
 
 	Player(Texture* text, Vector2D<int> pos, Game* game, int livs, bool movR, MarioState marioState);
+	Player(const Player& other); // Constructor por copia
 	~Player();
 
 	void Render() const override;
 	void Update() override;
 	Collision Hit(const SDL_Rect& rectDeAtaque, Collision::Target target) override;
+	SceneObject* Clone() const override;
+
 	void handleEvent(const SDL_Event& evento);
 	void HandleAnims();
 	void ChangeMarioState(MarioState newState);

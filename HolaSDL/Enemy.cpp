@@ -1,7 +1,7 @@
 #include "Enemy.h"
 
-Enemy::Enemy(Game* game, Texture* texture, Point2D<int> pos, Vector2D<int> velocity, bool isStatic)
-    : SceneObject(game, texture, pos, velocity, false) {}
+Enemy::Enemy(Game* game, Texture* texture, Point2D<int> pos, Vector2D<int> velocity)
+    : SceneObject(game, texture, pos, velocity) {}
 
 Collision Enemy::Hit(const SDL_Rect& region, Collision::Target target) {
 	SDL_Rect intersection;

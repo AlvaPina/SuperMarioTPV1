@@ -13,7 +13,7 @@ private:
 	const int FRAME_SPEED = 5;
 
 	int _renderFrame;			// Indica que frame se usa en el renderizado
-	int _frameCont;
+	int _frameCount;
 
 	bool isInScreen();
 	void HandleAnims();
@@ -22,8 +22,10 @@ public:
 	void Render() const override;
 	void Update() override;
 	Collision Hit(const SDL_Rect& region, Collision::Target target) override;
+	SceneObject* Clone() const override;
 
 	Goomba(Texture* text, Vector2D<int> pos, Game* game);
+	Goomba(const Goomba& other); // Constructor por copia
 	~Goomba();
 };
 

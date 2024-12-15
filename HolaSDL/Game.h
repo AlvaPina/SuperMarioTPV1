@@ -65,6 +65,8 @@ private:
 	TTF_Font* _font; // Fuente del juego
 	TileMap* _tile;
 	GameList<SceneObject> _objects;
+	std::vector<SceneObject*> _objectQueue;
+	int _nextObject = 0;
 	Player* _player;
 	InfoBar* _infoBar;
 
@@ -78,6 +80,8 @@ public:
 	void render() const;
 	void handleEvents();
 	void loadObjectMap();
+	void addVisibleObjects();
+	void addObject(SceneObject*);
 
 	// Getters
 	Texture* getTexture(TextureName name) const { return _textures[name]; }
