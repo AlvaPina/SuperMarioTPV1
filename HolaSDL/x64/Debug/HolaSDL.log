@@ -1,2 +1,44 @@
-﻿  Game.cpp
-  HolaSDL.vcxproj -> C:\Users\alvel\Alvaro000\UCM\TercerCurso\Tpv1\SuperMarioTPV1\bin\HolaSDLDebug.exe
+﻿  Block.cpp
+  Button.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\crtdbg.h(307,1): warning C4005: '_malloca': redefinición de macro
+  (compilando archivo de origen "Button.cpp")
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\malloc.h(124,1):
+  vea la definición anterior de '_malloca'
+  
+  Enemy.cpp
+  Game.cpp
+  GameObject.cpp
+  GameState.cpp
+  gameStateMachine.cpp
+C:\Users\mauro\3D Objects\SuperMarioTPV1\HolaSDL\gameList.h(204,10): error C2039: "SetListAnchor": no es un miembro de "GameObject"
+  (compilando archivo de origen "GameState.cpp")
+  C:\Users\mauro\3D Objects\SuperMarioTPV1\HolaSDL\GameObject.h(9,7):
+  vea la declaración de 'GameObject'
+  C:\Users\mauro\3D Objects\SuperMarioTPV1\HolaSDL\gameList.h(204,10):
+  el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+  	C:\Users\mauro\3D Objects\SuperMarioTPV1\HolaSDL\GameState.h(32,26):
+  	Vea la referencia a la creación de una instancia de clase plantilla "GameList<GameObject>" que se está compilando
+  	C:\Users\mauro\3D Objects\SuperMarioTPV1\HolaSDL\gameList.h(200,7):
+  	al compilar la función del miembro clase plantilla "void GameList<GameObject>::push_back(T *)"
+          with
+          [
+              T=GameObject
+          ]
+  		C:\Users\mauro\3D Objects\SuperMarioTPV1\HolaSDL\GameState.cpp(16,23):
+  		vea la primera referencia a “GameList<GameObject>::push_back” en “GameState::addObject”
+  
+  Goomba.cpp
+  InfoBar.cpp
+  Lift.cpp
+  main.cpp
+  Pickable.cpp
+  Player.cpp
+  SceneObject.cpp
+  TileMap.cpp
+C:\Users\mauro\3D Objects\SuperMarioTPV1\HolaSDL\TileMap.cpp(27,24): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\mauro\3D Objects\SuperMarioTPV1\HolaSDL\TileMap.cpp(30,25): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\mauro\3D Objects\SuperMarioTPV1\HolaSDL\TileMap.cpp(90,32): warning C4838: la conversión de 'uint' en 'int' requiere una conversión de restricción
+C:\Users\mauro\3D Objects\SuperMarioTPV1\HolaSDL\TileMap.cpp(90,49): warning C4838: la conversión de 'uint' en 'int' requiere una conversión de restricción
+C:\Users\mauro\3D Objects\SuperMarioTPV1\HolaSDL\TileMap.cpp(90,62): warning C4838: la conversión de 'const uint' en 'int' requiere una conversión de restricción
+C:\Users\mauro\3D Objects\SuperMarioTPV1\HolaSDL\TileMap.cpp(90,73): warning C4838: la conversión de 'const uint' en 'int' requiere una conversión de restricción
+  Generando código...
