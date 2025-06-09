@@ -28,19 +28,20 @@ struct TextureSpec
 const string textureRoot = "../assets/imgs/";
 
 // Especificaci�n de las texturas del juego
-const array<TextureSpec, Game::NUM_TEXTURES> textureSpec{
-	TextureSpec{"background.png", 9, 7},
-	{"mario.png", 7, 1},
-	{"supermario.png", 22, 1},
-	{"firemario.png", 21, 1},
-	{"goomba.png", 3, 1},
-	{"koopa.png", 4, 1},
-	{"piranha.png", 2, 1},
-	{"plant.png", 4, 1},
-	{"shell.png", 2, 1},
-	{"star.png", 4, 1},
-	{"blocks.png", 6, 1},
-};
+//const array<TextureSpec, Game::NUM_TEXTURES> textureSpec{
+//	TextureSpec{"background.png", 9, 7},
+//	{"mario.png", 7, 1},
+//	{"supermario.png", 22, 1},
+//	{"firemario.png", 21, 1},
+//	{"goomba.png", 3, 1},
+//	{"koopa.png", 4, 1},
+//	{"piranha.png", 2, 1},
+//	{"plant.png", 4, 1},
+//	{"shell.png", 2, 1},
+//	{"star.png", 4, 1},
+//	{"blocks.png", 6, 1},
+//	{"portada.png", 1, 1}
+//};
 
 PlayState::PlayState(Game* game) : GameState(game), _mapOffset(0), _points(0) {
 	// Inicializa la SDL
@@ -84,13 +85,14 @@ PlayState::PlayState(Game* game) : GameState(game), _mapOffset(0), _points(0) {
 PlayState::~PlayState()
 {
 	// Elimina los objetos del juego
-	delete _player;
+	//delete _player;
 	delete _infoBar;
+	delete _tile;
 
 	// Eliminar objetos de la lista
-	for (auto object : _objects) {
-		delete object;
-	}
+	//for (auto object : _objects) {
+	//	delete object;
+	//}
 
 	// Desactiva la SDL
 	//SDL_DestroyRenderer(_renderer);
@@ -155,16 +157,16 @@ void
 PlayState::handleEvent(const SDL_Event& event)
 {
 	// Procesamiento de eventos
-	SDL_Event evento;
+	//while (SDL_PollEvent(event)) {
+	//	if (event.type == SDL_QUIT) {
+	//		_exit = true;
+	//	}
+	//	else {
+	//		_player->handleEvent(event);
+	//	}
+	//}
 
-	while (SDL_PollEvent(&evento)) {
-		if (evento.type == SDL_QUIT) {
-			_exit = true;
-		}
-		else {
-			_player->handleEvent(evento);
-		}
-	}
+	GameState::handleEvent(event);
 }
 
 void
@@ -198,6 +200,7 @@ PlayState::loadObjectMap() {
 
 			_player = new Player(getTexture(Game::MARIO), auxPos, this, auxLiv, false, Player::MarioState::BASE_MARIO);
 			addObject(_player);
+			eventHandlers.push_back(_player);
 			break;
 		}
 		case 'B': {

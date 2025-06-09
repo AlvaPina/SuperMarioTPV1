@@ -15,3 +15,11 @@ void GameState::addEventListener(EventHandler* handler) {
 void GameState::addObject(GameObject* gameObject) {
 	gameObjects.push_back(gameObject);
 }
+
+void GameState::handleEvent(const SDL_Event& event)
+{
+	for (auto h : eventHandlers)
+	{
+		h->handleEvent(event);
+	}
+}

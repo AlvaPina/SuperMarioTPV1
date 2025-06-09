@@ -64,7 +64,7 @@ void Player::Update()
     Collision collision = tryToMove(velocity, Collision::ENEMIES);
     if (collision.result == Collision::Result::DAMAGE) {
         _lives--;
-        if (_lives <= 0) std::cout << "FIN PARTIDA";
+        if (_lives <= 0) gameState->getGame()->endGame();
         else if (_marioState == MarioState::SUPER_MARIO) ChangeMarioState(MarioState::BASE_MARIO);
         else static_cast<PlayState*>(gameState)->restartLevel();
     }
@@ -109,9 +109,7 @@ SceneObject* Player::Clone() const
 void Player::handleEvent(const SDL_Event& evento)
 {
 
-    cout << evento.type << "  " << evento.key.keysym.sym << "\n";
-
-    //if (evento.type == SDL_KEYDOWN) {
+    if (evento.type == SDL_KEYDOWN) {
         switch (evento.key.keysym.sym)
         {
         case SDLK_RIGHT:
@@ -133,7 +131,7 @@ void Player::handleEvent(const SDL_Event& evento)
         default:
             break;
         }
-    //}
+    }
     if (evento.type == SDL_KEYUP) {
         switch (evento.key.keysym.sym)
         {
@@ -144,8 +142,9 @@ void Player::handleEvent(const SDL_Event& evento)
             velocity.setX(0);
             break;
         case SDLK_f:
-            std::cout << "CAMBIO ESTADO A SUPER MARIO!";
             ChangeMarioState(MarioState::SUPER_MARIO);
+        case SDLK_p:
+            gameState->getGame()->pauseGame();
         default:
             break;
         }

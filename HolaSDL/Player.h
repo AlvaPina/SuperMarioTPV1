@@ -35,7 +35,7 @@ public:
 	Collision Hit(const SDL_Rect& rectDeAtaque, Collision::Target target) override;
 	SceneObject* Clone() const override;
 
-	void handleEvent(const SDL_Event& evento);
+	void handleEvent(const SDL_Event& evento) override;
 	void HandleAnims();
 	void ChangeMarioState(MarioState newState);
 	void resetPosition();

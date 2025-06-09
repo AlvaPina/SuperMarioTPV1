@@ -79,7 +79,7 @@ public:
 	SDL_Renderer* getRenderer() const { return game->getRenderer(); }
 	SDL_Texture* getFontTexture(const std::string& text, SDL_Color color, SDL_Renderer* renderer) const;
 	int getMapOffset() const { return _mapOffset; }
-	int getPoints() { return _points; }
+	int getPoints() const { return _points; }
 	Player* getPlayer() { return _player; }
 	void addMapOffset(int number);
 	int getPlayerLives() const;

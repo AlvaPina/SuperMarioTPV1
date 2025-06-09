@@ -49,6 +49,11 @@ public:
 		SHELL,
 		STAR,
 		BLOCKS,
+		MAINMENU,
+		NIVEL1,
+		CONTINUAR,
+		SE_ACABO,
+		VOLVE_RMENU,
 		NUM_TEXTURES,  // Truco C++: n�mero de texturas definidas
 	};
 
@@ -67,9 +72,6 @@ private:
 	TileMap* _tile;
 	GameList<SceneObject> _objects;
 	std::vector<SceneObject*> _objectQueue;
-	int _nextObject = 0;
-	//Player* _player;
-	//InfoBar* _infoBar;
 	GameStateMachine state;	
 
 public:
@@ -81,22 +83,15 @@ public:
 	void update();
 	void render() const;
 	void handleEvents();
-	//void loadObjectMap();
-	//void addVisibleObjects();
-	//void addObject(SceneObject*);
-	//void restartLevel();
+	void startGame();
+	void pauseGame();
+	void continueGame();
+	void endGame();
 
 	// Getters
 	Texture* getTexture(TextureName name) const { return _textures[name]; }
 	SDL_Renderer* getRenderer() const { return _renderer; }
 	SDL_Texture* getFontTexture(const std::string& text, SDL_Color color, SDL_Renderer* renderer) const;
-	//int getMapOffset() const { return _mapOffset; }
-	//int getPoints() const { return _points; }
-	//Player* getPlayer() const { return _player; }
-	//void addMapOffset(int number) const { _mapOffset += number; }
-	//int getPlayerLives() const { return _player->GetVidas(); }
-	
-	//void addPoints(int pointsToAdd) { _points += pointsToAdd; }
 
 	// Metodos de manejo de la pila
 	using GameStateMachine::pushState;
