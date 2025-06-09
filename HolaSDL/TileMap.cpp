@@ -5,8 +5,9 @@
 #include <iostream>
 
 
-TileMap::TileMap(Game* game, Texture* background)
-	: _game(game), _background(background), TILE_SIDE(game->TILE_SIDE), TILE_MAP(game->TILE_MAP)
+TileMap::TileMap(GameState* game, Texture* background)
+	: gameState(game), _background(background), 
+	TILE_SIDE(static_cast<PlayState*>(game)->TILE_SIDE), TILE_MAP(static_cast<PlayState*>(game)->TILE_MAP)
 {
 	loadTileMap();
 }
@@ -14,9 +15,9 @@ TileMap::TileMap(Game* game, Texture* background)
 int TileMap::render() const
 {
 	// Primera columna de la matriz del mapa visible en la ventana
-	int col0 = _game->getMapOffset() / TILE_SIDE;
+	int col0 = static_cast<PlayState*>(gameState)->getMapOffset() / TILE_SIDE;
 	// Anchura oculta de esa primera columna
-	int d0 = _game->getMapOffset() % TILE_SIDE;
+	int d0 = static_cast<PlayState*>(gameState)->getMapOffset() % TILE_SIDE;
 
 	// Recuadro donde se pintará la tesela en la ventana
 	SDL_Rect rect;

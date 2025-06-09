@@ -3,18 +3,18 @@
 
 #include "checkML.h"
 #include "Game.h"
-//#include "gameList.h"
+#include "gameList.h"
 
 class Game;
 
 class GameObject
 {
 protected:
-    Game* game;
+    GameState* gameState;
     GameList<GameObject>::anchor anchorObject;
 
 public:
-    GameObject(Game* game);
+    GameObject(GameState* game);
     virtual ~GameObject();
     void SetListAnchor(GameList<GameObject>::anchor&& anchor);
 

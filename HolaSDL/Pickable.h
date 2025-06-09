@@ -4,10 +4,11 @@
 #include "checkML.h"
 
 #include "SceneObject.h"
+#include "GameState.h"
 
 class Pickable : public SceneObject {
 public:
-    Pickable(Game* game, Texture* text, Vector2D<int> pos);
+    Pickable(GameState* game, Texture* text, Vector2D<int> pos);
     virtual ~Pickable() = default;
 
     // Método para manejar la colisión con Mario

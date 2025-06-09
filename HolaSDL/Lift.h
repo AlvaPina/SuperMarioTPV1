@@ -7,7 +7,7 @@
 class Lift : SceneObject
 {
 public:
-	Lift(Game* game, Texture* text, Vector2D<int> pos);
+	Lift(GameState* game, Texture* text, Vector2D<int> pos);
 	~Lift();
 
 	void Render() const override;

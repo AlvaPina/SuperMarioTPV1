@@ -3,13 +3,14 @@
 
 #include "GameObject.h"
 #include "checkML.h"
+#include "PlayState.h"
 
 class Cannon;
 
 class InfoBar : public GameObject
 {
 public:
-	InfoBar(Game* game);
+	InfoBar(PlayState* game);
 	~InfoBar();
 	virtual void Render() const override;
 	virtual void Update() override;

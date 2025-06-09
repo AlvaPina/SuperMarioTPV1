@@ -1,6 +1,6 @@
 #include "Lift.h"
 
-Lift::Lift(Game* game, Texture* text, Vector2D<int> pos)
+Lift::Lift(GameState* game, Texture* text, Vector2D<int> pos)
 	: SceneObject(game, texture, pos, { 0,0 }), _minPos(pos.getY())
 {
 

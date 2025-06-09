@@ -1,19 +1,20 @@
 #include "InfoBar.h"
 
-InfoBar::InfoBar(Game* game) : GameObject(game){
+InfoBar::InfoBar(PlayState* game) : GameObject(game){
 }
 InfoBar::~InfoBar() {
 
 }
 void InfoBar::Render() const {
     SDL_Color color = { 255, 255, 255, 255 };
+    Game* game = gameState->getGame();
 
     // Generar las texturas de los textos
     SDL_Texture* PointsText = game->getFontTexture(
-        "Points: " + std::to_string(game->getPoints()),
+        "Points: " + std::to_string(static_cast<PlayState*>(gameState)->getPoints()),
         color, game->getRenderer());
     SDL_Texture* LivesText = game->getFontTexture(
-        "Lives: " + std::to_string(game->getPlayerLives()),
+        "Lives: " + std::to_string(static_cast<PlayState*>(gameState)->getPlayerLives()),
         color, game->getRenderer());
 
     // Renderizar las texturas (asumiendo un tamaño de texto fijo)

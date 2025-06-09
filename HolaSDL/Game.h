@@ -14,6 +14,7 @@
 #include "Texture.h"
 #include "Collision.h"
 #include "gameList.h"
+#include "gameStateMachine.h"
 
 // Forward declaration
 class SceneObject;
@@ -32,7 +33,7 @@ class InfoBar;
 //
 // Clase que representa el juego y controla todos sus aspectos
 //
-class Game
+class Game : private GameStateMachine
 {
 public:
 	// Identificadores de las texturas
@@ -60,15 +61,16 @@ private:
 	std::array<Texture*, NUM_TEXTURES> _textures;
 	// Interruptor para terminar el juego
 	bool _exit;
-	int _mapOffset;
-	int _points;
+	//int _mapOffset;
+	//int _points;
 	TTF_Font* _font; // Fuente del juego
 	TileMap* _tile;
 	GameList<SceneObject> _objects;
 	std::vector<SceneObject*> _objectQueue;
 	int _nextObject = 0;
-	Player* _player;
-	InfoBar* _infoBar;
+	//Player* _player;
+	//InfoBar* _infoBar;
+	GameStateMachine state;	
 
 public:
 	Game();
@@ -79,23 +81,27 @@ public:
 	void update();
 	void render() const;
 	void handleEvents();
-	void loadObjectMap();
-	void addVisibleObjects();
-	void addObject(SceneObject*);
-	void restartLevel();
+	//void loadObjectMap();
+	//void addVisibleObjects();
+	//void addObject(SceneObject*);
+	//void restartLevel();
 
 	// Getters
 	Texture* getTexture(TextureName name) const { return _textures[name]; }
 	SDL_Renderer* getRenderer() const { return _renderer; }
 	SDL_Texture* getFontTexture(const std::string& text, SDL_Color color, SDL_Renderer* renderer) const;
-	int getMapOffset() const { return _mapOffset; }
-	int getPoints() { return _points; }
-	Player* getPlayer() { return _player; }
-	void addMapOffset(int number);
-	int getPlayerLives() const;
+	//int getMapOffset() const { return _mapOffset; }
+	//int getPoints() const { return _points; }
+	//Player* getPlayer() const { return _player; }
+	//void addMapOffset(int number) const { _mapOffset += number; }
+	//int getPlayerLives() const { return _player->GetVidas(); }
 	
-	void addPoints(int pointsToAdd) { _points += pointsToAdd; }
+	//void addPoints(int pointsToAdd) { _points += pointsToAdd; }
 
+	// Metodos de manejo de la pila
+	using GameStateMachine::pushState;
+	using GameStateMachine::popState;
+	using GameStateMachine::replaceState;
 
 	Collision checkCollision(const SDL_Rect& rect, Collision::Target target);
 
@@ -110,5 +116,3 @@ public:
 	static constexpr uint TILE_MAP = 16;
 
 };
-
-

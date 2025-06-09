@@ -6,6 +6,7 @@
 #include "checkML.h"
 #include "GameObject.h"
 #include "Vector2D.h"
+#include "PlayState.h"
 
 class SceneObject : public  GameObject
 {
@@ -25,7 +26,7 @@ protected:
     void renderPositions() const;
     void setTexture(Texture* newTexture);
 public:
-    SceneObject(Game* game, Texture* texture, Point2D<int> pos, Vector2D<int> velocity = { 0, 0 });
+    SceneObject(GameState* game, Texture* texture, Point2D<int> pos, Vector2D<int> velocity = { 0, 0 });
     virtual ~SceneObject();
 
     virtual void Render() const override = 0;

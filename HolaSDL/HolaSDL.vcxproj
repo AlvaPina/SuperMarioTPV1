@@ -90,6 +90,7 @@
     <ClCompile Include="Mushroom.cpp" />
     <ClCompile Include="Pickable.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayState.cpp" />
     <ClCompile Include="SceneObject.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TileMap.cpp" />
@@ -113,6 +114,7 @@
     <ClInclude Include="Mushroom.h" />
     <ClInclude Include="Pickable.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayState.h" />
     <ClInclude Include="SceneObject.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TileMap.h" />

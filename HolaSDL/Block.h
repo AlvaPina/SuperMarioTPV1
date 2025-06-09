@@ -4,6 +4,7 @@
 #include "Vector2D.h"
 #include "Game.h"
 #include "SceneObject.h"
+#include "PlayState.h"
 
 class Block : public SceneObject
 {
@@ -19,7 +20,7 @@ enum BlockContent {
 	COIN
 };
 
-	Block(Game* game, BlockType type, Point2D<int> pos, Texture* texture, BlockContent content);
+	Block(GameState* game, BlockType type, Point2D<int> pos, Texture* texture, BlockContent content);
 	Block(const Block& other); // Constructor por copia
 
 	void Render() const override;

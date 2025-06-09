@@ -4,8 +4,10 @@
 #include "Texture.h"
 #include "SceneObject.h"
 #include "Game.h"
+#include "GameState.h"
+#include "EventHandler.h"
 
-class Player : public SceneObject
+class Player : public SceneObject, public EventHandler
 {
 public:
 	enum MarioState {
@@ -24,7 +26,7 @@ public:
 		int jumpFrame;
 	};
 
-	Player(Texture* text, Vector2D<int> pos, Game* game, int livs, bool movR, MarioState marioState);
+	Player(Texture* text, Vector2D<int> pos, GameState* game, int livs, bool movR, MarioState marioState);
 	Player(const Player& other); // Constructor por copia
 	~Player();
 

@@ -7,7 +7,7 @@
 
 class Enemy : public SceneObject {
 public:
-    Enemy(Game* game, Texture* texture, Point2D<int> pos, Vector2D<int> velocity = { 0, 0 });
+    Enemy(GameState* game, Texture* texture, Point2D<int> pos, Vector2D<int> velocity = { 0, 0 });
     virtual ~Enemy() = default;
 
     // Metodo comun a todos los enemigos

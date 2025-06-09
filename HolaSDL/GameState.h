@@ -26,6 +26,7 @@ public:
     void addObject(GameObject* gameObject);
 
     // Otros métodos y atributos comunes a todos los estados del juego
+    Game* getGame() const { return game; }
 
 protected:
     // Lista de objetos del juego

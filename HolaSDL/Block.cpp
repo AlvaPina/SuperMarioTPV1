@@ -1,7 +1,7 @@
 #include "Block.h"
 #include <iostream>
 
-Block::Block(Game* game, BlockType type, Point2D<int> position, Texture* tex, BlockContent content)
+Block::Block(GameState* game, BlockType type, Point2D<int> position, Texture* tex, BlockContent content)
 	: SceneObject(game, tex, position, { 0,0 }), _type(type), _content(content)
 {
 	_framecount = 0;
@@ -12,7 +12,7 @@ Block::Block(Game* game, BlockType type, Point2D<int> position, Texture* tex, Bl
 }
 
 Block::Block(const Block& other)
-	: SceneObject(other.game, other.texture, other.pos, other.velocity),
+	: SceneObject(other.gameState, other.texture, other.pos, other.velocity),
 	_type(other._type), _content(other._content), _framecount(other._framecount), _renderFrame(other._renderFrame)
 {
 	setScale(other.scale);

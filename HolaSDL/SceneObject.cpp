@@ -8,10 +8,10 @@
 
 
 
-SceneObject::SceneObject(Game* game, Texture* texture, Point2D<int> position, Vector2D<int> velocity)
+SceneObject::SceneObject(GameState* game, Texture* texture, Point2D<int> position, Vector2D<int> velocity)
 	: GameObject(game), texture(texture), velocity(velocity), pos(position)
 {
-    gravity = game->GRAVITY;
+    gravity = static_cast<PlayState*>(gameState)->GRAVITY;
     flippingVelocity = false;
     collidingYAxis = false;
     scale = 1;
@@ -31,7 +31,7 @@ SceneObject::tryToMove(const Vector2D<int>& velocity, Collision::Target target)
     if (velocity.getY() != 0) {
         rect.y += velocity.getY();
 
-        collision = game->checkCollision(rect, target);
+        collision = static_cast<PlayState*>(gameState)->checkCollision(rect, target);
 
         // Cantidad que se ha entrado en el obstáculo (lo que hay que deshacer)
         int fix = collision.vertical * (velocity.getY() > 0 ? 1 : -1);
@@ -49,7 +49,7 @@ SceneObject::tryToMove(const Vector2D<int>& velocity, Collision::Target target)
     if (velocity.getX() != 0) {
         rect.x += velocity.getX();
 
-        Collision partial = game->checkCollision(rect, target);
+        Collision partial = static_cast<PlayState*>(gameState)->checkCollision(rect, target);
 
         // Copia la información de esta colisión a la que se devolverá
         collision.horizontal = partial.horizontal;
@@ -80,25 +80,25 @@ void SceneObject::renderPositions() const {
     SDL_Color blue = { 0, 0, 255, 255 };
 
     // Generar las texturas de los textos
-    SDL_Texture* screenText = game->getFontTexture(
+    SDL_Texture* screenText = gameState->getGame()->getFontTexture(
         "Screen Pos: " + std::to_string(getScreenPos().getX()) + ", " + std::to_string(getScreenPos().getY()),
-        yellow, game->getRenderer());
+        yellow, gameState->getGame()->getRenderer());
 
-    SDL_Texture* worldText = game->getFontTexture(
+    SDL_Texture* worldText = gameState->getGame()->getFontTexture(
         "World Pos: " + std::to_string(getWorldPos().getX()) + ", " + std::to_string(getWorldPos().getY()),
-        blue, game->getRenderer());
+        blue, gameState->getGame()->getRenderer());
 
     Vector2D screenPos = getScreenPos();
     // Renderizar las texturas (asumiendo un tamaño de texto fijo)
     if (screenText) {
         SDL_Rect destRect = { screenPos.getX(), screenPos.getY() - 30, 150, 30}; // Posición y tamaño de renderizado
-        SDL_RenderCopy(game->getRenderer(), screenText, nullptr, &destRect);
+        SDL_RenderCopy(gameState->getGame()->getRenderer(), screenText, nullptr, &destRect);
         SDL_DestroyTexture(screenText); // Liberar textura
     }
 
     if (worldText) {
         SDL_Rect destRect = { screenPos.getX(), screenPos.getY() - 50, 150, 30 }; // Posición y tamaño de renderizado
-        SDL_RenderCopy(game->getRenderer(), worldText, nullptr, &destRect);
+        SDL_RenderCopy(gameState->getGame()->getRenderer(), worldText, nullptr, &destRect);
         SDL_DestroyTexture(worldText); // Liberar textura
     }
 }
@@ -115,14 +115,14 @@ const Point2D<int> SceneObject::getWorldPos() const
 
 const Point2D<int> SceneObject::getScreenPos() const
 {
-    Vector2D screenPos(pos.getX() - game->getMapOffset(), pos.getY());
+    Vector2D screenPos(pos.getX() - static_cast<PlayState*>(gameState)->getMapOffset(), pos.getY());
     return screenPos;
 }
 
 const SDL_Rect SceneObject::getScreenRect() const
 {
     SDL_Rect newRect;
-    newRect.x = pos.getX() - game->getMapOffset();
+    newRect.x = pos.getX() - static_cast<PlayState*>(gameState)->getMapOffset();
     newRect.y = pos.getY();
     newRect.w = texture->getFrameWidth() * scale;
     newRect.h = texture->getFrameHeight() * scale;

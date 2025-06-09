@@ -3,10 +3,8 @@
 #include "Vector2D.h"
 #include "Texture.h"
 #include "SDL.h"
-#include "Game.h"
 
-
-Goomba::Goomba(Texture* texture, Vector2D<int> position, Game* game)
+Goomba::Goomba(Texture* texture, Vector2D<int> position, GameState* game)
 	: Enemy(game, texture, position, { 0,0 })
 {
 	_renderFrame = 0;
@@ -16,7 +14,7 @@ Goomba::Goomba(Texture* texture, Vector2D<int> position, Game* game)
 }
 
 Goomba::Goomba(const Goomba& other)
-	: Enemy(other.game, other.texture, other.pos, other.velocity)
+	: Enemy(other.gameState, other.texture, other.pos, other.velocity)
 {
 	_renderFrame = other._renderFrame;
 	_frameCount = other._frameCount;
@@ -44,7 +42,7 @@ void Goomba::Update() {
 		Collision collision = tryToMove(velocity, Collision::PLAYER);
 
 		if (collision.result == Collision::DAMAGE) {
-			game->addPoints(50);
+			static_cast<PlayState*>(gameState)->addPoints(50);
 			delete this;
 		}
 
@@ -80,7 +78,7 @@ SceneObject* Goomba::Clone() const
 
 bool Goomba::isInScreen()
 {
-	if (pos.getX() - game->getMapOffset() <= game->WIN_WIDTH) return true;
+	if (pos.getX() - static_cast<PlayState*>(gameState)->getMapOffset() <= gameState->getGame()->WIN_WIDTH) return true;
 	else return false;
 }
 

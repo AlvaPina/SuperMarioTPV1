@@ -12,6 +12,7 @@
 #include "Goomba.h"
 #include "Vector2D.h"
 #include "InfoBar.h"
+#include "EventHandler.h"
 
 using namespace std;
 
@@ -43,7 +44,7 @@ const array<TextureSpec, Game::NUM_TEXTURES> textureSpec{
 };
 
 Game::Game()
-	: _exit(false), _mapOffset(0), _points(0)
+	: _exit(false)/*, _mapOffset(0), _points(0)*/
 {
 	// Inicializa la SDL
 	SDL_Init(SDL_INIT_EVERYTHING);
@@ -69,25 +70,26 @@ Game::Game()
 			textureSpec[i].numRows,
 			textureSpec[i].numColumns);
 
-	_tile = new TileMap(this, _textures[BACKGROUND]);
-	_infoBar = new InfoBar(this);
+	//_tile = new TileMap(this, _textures[BACKGROUND]);
+	//_infoBar = new InfoBar(this);
 	//_objects.push_back(infoBar);
 
 	// Crea los objetos del juego
-	//perro = new Dog(this, -textures[DOG]->getFrameWidth(), 390);
-	loadObjectMap();
+	//loadObjectMap();
 
 	_font = TTF_OpenFont("../assets/fonts/retro.ttf", 24);
 	if (!_font) {
 		std::cerr << "Error al cargar la fuente: " << TTF_GetError() << std::endl;
 	}
+
+	state.pushState(new PlayState(this));
 }
 
 Game::~Game()
 {
 	// Elimina los objetos del juego
-	delete _player;
-	delete _infoBar;
+	//delete _player;
+	//delete _infoBar;
 
 	// Eliminar objetos de la lista
 	for (auto object : _objects) {
@@ -138,25 +140,29 @@ Game::render() const
 	SDL_RenderClear(_renderer);
 
 	// Pinta los objetos del juego
-	_tile->render();
-	_infoBar->Render();
+	//_tile->render();
+	//_infoBar->Render();
 	
 	// Renderiza los objetos del juego
-	for (const auto& object : _objects) {
-		object->Render();
-	}
+	//for (const auto& object : _objects) {
+	//	object->Render();
+	//}
 
-	SDL_RenderPresent(_renderer);
+	//SDL_RenderPresent(_renderer);
+
+	state.render();
 }
 
 void
 Game::update()
 {
-	addVisibleObjects();
+	//addVisibleObjects();
 	// Actualiza los objetos del juego
-	for (const auto& object : _objects) {
-		object->Update();
-	}
+	//for (const auto& object : _objects) {
+	//	object->Update();
+	//}
+
+	state.update();
 }
 
 void
@@ -170,104 +176,107 @@ Game::handleEvents()
 			_exit = true;
 		}
 		else {
-			_player->handleEvent(evento);
+			state.handleEvent(evento);
 		}
 	}
 }
 
-void Game::loadObjectMap() {
-	const char* DEFAULT_MAP = "../assets/maps/world1.txt";
+//void 
+//Game::loadObjectMap() {
+//	const char* DEFAULT_MAP = "../assets/maps/world1.txt";
+//
+//	// Carga el mapa
+//	ifstream file(DEFAULT_MAP); ///// lo hemos cambiado de istream a ifstream
+//
+//	// Leemos el mapa l�nea a l�nea para evitar acarreo de errores
+//	// y permitir extensiones del formato
+//	string line;
+//
+//	while (getline(file, line)) {
+//		// Usamos un stringstream para leer la línea como si fuera un flujo
+//		stringstream lineStream(line);
+//
+//		char tipo;
+//		lineStream >> tipo;
+//
+//		int auxX, auxY;
+//		lineStream >> auxX;
+//		lineStream >> auxY;
+//
+//		Vector2D<int>  auxPos(auxX * TILE_SIDE, auxY * TILE_SIDE);
+//
+//		switch (tipo) {
+//			case 'M': {
+//				int auxLiv;
+//				lineStream >> auxLiv;
+//
+//				_player = new Player(_textures[MARIO], auxPos, this, auxLiv, false, Player::MarioState::BASE_MARIO);
+//				addObject(_player);
+//				break;
+//			}
+//			case 'B': {
+//				string auxtype;
+//				lineStream >> auxtype;
+//
+//				if (auxtype == "B") {
+//					Block* block = new Block(this, Block::LADRILLO, auxPos, _textures[BLOCKS], Block::BlockContent::EMPTY);
+//					_objectQueue.push_back(block);
+//				}
+//				else if (auxtype == "?") {
+//					lineStream >> auxtype;
+//					Block* block;
+//					if(auxtype == "C")
+//					{
+//						block = new Block(this, Block::SORPRESA, auxPos, _textures[BLOCKS], Block::BlockContent::COIN);
+//					}
+//					else
+//					{
+//						block = new Block(this, Block::SORPRESA, auxPos, _textures[BLOCKS], Block::BlockContent::POWER_UP);
+//					}
+//					_objectQueue.push_back(block);
+//				}
+//				break;
+//			}
+//			case 'G': {
+//				Goomba* goomba = new Goomba(_textures[GOOMBA], auxPos, this);
+//				_objectQueue.push_back(goomba);
+//				break;
+//			}
+//		}
+//	}
+//}
 
-	// Carga el mapa
-	ifstream file(DEFAULT_MAP); ///// lo hemos cambiado de istream a ifstream
+//void 
+//Game::addVisibleObjects()
+//{
+//	// Borde derecho del mapa (más una casilla)
+//	const int rightThreshold = _mapOffset + Game::WIN_WIDTH + Game::TILE_SIDE;
+//
+//	while (_nextObject < _objectQueue.size() && _objectQueue[_nextObject]->getWorldPos().getX() < rightThreshold)
+//		addObject(_objectQueue[_nextObject++]->Clone());
+//}
 
-	// Leemos el mapa l�nea a l�nea para evitar acarreo de errores
-	// y permitir extensiones del formato
-	string line;
+//void Game::addObject(SceneObject* sceneObject)
+//{
+//	_objects.push_back(sceneObject);
+//}
 
-	while (getline(file, line)) {
-		// Usamos un stringstream para leer la línea como si fuera un flujo
-		stringstream lineStream(line);
-
-		char tipo;
-		lineStream >> tipo;
-
-		int auxX, auxY;
-		lineStream >> auxX;
-		lineStream >> auxY;
-
-		Vector2D<int>  auxPos(auxX * TILE_SIDE, auxY * TILE_SIDE);
-
-		switch (tipo) {
-			case 'M': {
-				int auxLiv;
-				lineStream >> auxLiv;
-
-				_player = new Player(_textures[MARIO], auxPos, this, auxLiv, false, Player::MarioState::BASE_MARIO);
-				addObject(_player);
-				break;
-			}
-			case 'B': {
-				string auxtype;
-				lineStream >> auxtype;
-
-				if (auxtype == "B") {
-					Block* block = new Block(this, Block::LADRILLO, auxPos, _textures[BLOCKS], Block::BlockContent::EMPTY);
-					_objectQueue.push_back(block);
-				}
-				else if (auxtype == "?") {
-					lineStream >> auxtype;
-					Block* block;
-					if(auxtype == "C")
-					{
-						block = new Block(this, Block::SORPRESA, auxPos, _textures[BLOCKS], Block::BlockContent::COIN);
-					}
-					else
-					{
-						block = new Block(this, Block::SORPRESA, auxPos, _textures[BLOCKS], Block::BlockContent::POWER_UP);
-					}
-					_objectQueue.push_back(block);
-				}
-				break;
-			}
-			case 'G': {
-				Goomba* goomba = new Goomba(_textures[GOOMBA], auxPos, this);
-				_objectQueue.push_back(goomba);
-				break;
-			}
-		}
-	}
-}
-
-void Game::addVisibleObjects()
-{
-	// Borde derecho del mapa (más una casilla)
-	const int rightThreshold = _mapOffset + Game::WIN_WIDTH + Game::TILE_SIDE;
-
-	while (_nextObject < _objectQueue.size() && _objectQueue[_nextObject]->getWorldPos().getX() < rightThreshold)
-		addObject(_objectQueue[_nextObject++]->Clone());
-}
-
-void Game::addObject(SceneObject* sceneObject)
-{
-	_objects.push_back(sceneObject);
-}
-
-void Game::restartLevel()
-{
-	_mapOffset = 0;
-	_nextObject = 0;
-
-	for (auto it = _objects.begin(); it != _objects.end(); ) {
-		SceneObject* obj = *it;
-		if (obj != _player) {
-			delete obj;
-		}
-		++it;
-	}
-
-	_player->resetPosition();
-}
+//void 
+//Game::restartLevel()
+//{
+//	_mapOffset = 0;
+//	_nextObject = 0;
+//
+//	for (auto it = _objects.begin(); it != _objects.end(); ) {
+//		SceneObject* obj = *it;
+//		if (obj != _player) {
+//			delete obj;
+//		}
+//		++it;
+//	}
+//
+//	_player->resetPosition();
+//}
 
 SDL_Texture* Game::getFontTexture(const std::string& text, SDL_Color color, SDL_Renderer* renderer) const
 {
@@ -289,16 +298,6 @@ SDL_Texture* Game::getFontTexture(const std::string& text, SDL_Color color, SDL_
 	}
 
 	return texture;
-}
-
-void Game::addMapOffset(int number)
-{
-	_mapOffset += number;
-}
-
-int Game::getPlayerLives() const
-{
-	return _player->GetVidas();
 }
 
 Collision Game::checkCollision(const SDL_Rect& rect, Collision::Target target)

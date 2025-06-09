@@ -5,6 +5,7 @@
 #include "Texture.h"
 #include "Enemy.h"
 #include "Game.h"
+#include "PlayState.h"
 
 class Goomba : public Enemy
 {
@@ -24,7 +25,7 @@ public:
 	Collision Hit(const SDL_Rect& region, Collision::Target target) override;
 	SceneObject* Clone() const override;
 
-	Goomba(Texture* text, Vector2D<int> pos, Game* game);
+	Goomba(Texture* text, Vector2D<int> pos, GameState* game);
 	Goomba(const Goomba& other); // Constructor por copia
 	~Goomba();
 };

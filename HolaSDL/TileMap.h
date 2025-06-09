@@ -1,14 +1,14 @@
 #pragma once
 #include "checkML.h"
 
-#include "Game.h"
 #include <vector>
+#include "PlayState.h"
 
 class TileMap
 {
 private:
 	std::vector<std::vector<int>> _tileIndices;
-	Game* _game;
+	GameState* gameState;
 	Texture* _background;
 
 	void loadTileMap();
@@ -16,7 +16,7 @@ public:
 	const uint TILE_SIDE;
 	const uint TILE_MAP;
 
-	TileMap(Game* game, Texture* background);
+	TileMap(GameState* game, Texture* background);
 	int render() const;
 	Collision hit(const SDL_Rect& rect, Collision::Target target);
 

@@ -6,7 +6,7 @@
 #include "Vector2D.h"
 
 
-Player::Player(Texture* texture, Vector2D<int> position, Game* game, int lives, bool movingRight, MarioState marioState)
+Player::Player(Texture* texture, Vector2D<int> position, GameState* game, int lives, bool movingRight, MarioState marioState)
     : SceneObject(game, texture, position, { 0,0 }), _lives(lives), _marioState(marioState)
 {
     _playerFrame = 0;
@@ -20,7 +20,7 @@ Player::Player(Texture* texture, Vector2D<int> position, Game* game, int lives, 
 }
 
 Player::Player(const Player& other)
-    : SceneObject(other.game, other.texture, other.pos, other.velocity)
+    : SceneObject(other.gameState, other.texture, other.pos, other.velocity)
     , _lives(other._lives), _marioState(other._marioState), _playerFrame(other._playerFrame), _originalPos(other._originalPos)
 {
     flippingVelocity = other.flippingVelocity;
@@ -57,16 +57,16 @@ void Player::Update()
         velocity.setX(0);
     }
     // Si el jugador ha alcanzado la mitad de la pantalla
-    else if (screenPos.getX() >= game->WIN_WIDTH / 2 && velocity.getX() > 0) {
+    else if (screenPos.getX() >= static_cast<PlayState*>(gameState)->WIN_WIDTH / 2 && velocity.getX() > 0) {
         // Desplazar el mapa
-        game->addMapOffset(velocity.getX());
+        static_cast<PlayState*>(gameState)->addMapOffset(velocity.getX());
     }
     Collision collision = tryToMove(velocity, Collision::ENEMIES);
     if (collision.result == Collision::Result::DAMAGE) {
         _lives--;
         if (_lives <= 0) std::cout << "FIN PARTIDA";
         else if (_marioState == MarioState::SUPER_MARIO) ChangeMarioState(MarioState::BASE_MARIO);
-        else game->restartLevel();
+        else static_cast<PlayState*>(gameState)->restartLevel();
     }
 
     if (collision.vertical) {
@@ -108,7 +108,10 @@ SceneObject* Player::Clone() const
 
 void Player::handleEvent(const SDL_Event& evento)
 {
-    if (evento.type == SDL_KEYDOWN) {
+
+    cout << evento.type << "  " << evento.key.keysym.sym << "\n";
+
+    //if (evento.type == SDL_KEYDOWN) {
         switch (evento.key.keysym.sym)
         {
         case SDLK_RIGHT:
@@ -130,8 +133,8 @@ void Player::handleEvent(const SDL_Event& evento)
         default:
             break;
         }
-    }
-    else if (evento.type == SDL_KEYUP) {
+    //}
+    if (evento.type == SDL_KEYUP) {
         switch (evento.key.keysym.sym)
         {
         case SDLK_RIGHT:
@@ -183,20 +186,20 @@ void Player::ChangeMarioState(MarioState newState)
         {
         case BASE_MARIO:
             setScale(3);
-            texture = game->getTexture(Game::MARIO);
+            texture = gameState->getGame()->getTexture(Game::MARIO);
             _playerAnims.runAnim.firstFrame = 1;
             _playerAnims.runAnim.lastFrame = 2;
             _playerAnims.jumpFrame = 5;
             break;
         case SUPER_MARIO:
             setScale(2);
-            texture = game->getTexture(Game::SUPERMARIO);
+            texture = gameState->getGame()->getTexture(Game::SUPERMARIO);
             _playerAnims.runAnim.firstFrame = 2;
             _playerAnims.runAnim.lastFrame = 3;
             _playerAnims.jumpFrame = 6;
             break;
         case MARIO_FIRE:
-            texture = game->getTexture(Game::FIREMARIO);
+            texture = gameState->getGame()->getTexture(Game::FIREMARIO);
             break;
         }
     }
